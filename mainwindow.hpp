@@ -2,6 +2,7 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include "menuprincipal.hpp"
 
 namespace Ui {
 class MainWindow;
@@ -15,8 +16,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_pushButton_login_clicked();
+
 private:
     Ui::MainWindow *ui;
+    MenuPrincipal *menuPrincipal;
 };
 
 #endif // MAINWINDOW_HPP
