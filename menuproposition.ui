@@ -93,10 +93,10 @@
          <item>
           <widget class="QLineEdit" name="lineEdit">
            <property name="text">
-            <string>Proposition</string>
+            <string/>
            </property>
            <property name="placeholderText">
-            <string>Intitulé</string>
+            <string>Proposition</string>
            </property>
           </widget>
          </item>
@@ -130,6 +130,13 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>Ajouter</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="pushButton">
            <property name="text">
             <string>Modifier</string>
@@ -149,63 +156,6 @@
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string> Ajouter une proposition à cette question :</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit_2">
-             <property name="text">
-              <string>Proposition</string>
-             </property>
-             <property name="placeholderText">
-              <string>Intitulé</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
-            <widget class="QRadioButton" name="radioButton_4">
-             <property name="text">
-              <string>Réponse 1</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="radioButton_5">
-             <property name="text">
-              <string>Réponse 2</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="radioButton_6">
-             <property name="text">
-              <string>Réponse 3</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Ajouter</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QPushButton" name="pushButton_return">
          <property name="text">
