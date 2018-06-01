@@ -15,8 +15,12 @@ public:
     explicit MenuProposition(QWidget *parent = 0);
     ~MenuProposition();
 
+private slots:
+    void on_pushButton_return_clicked();
+
 private:
     Ui::MenuProposition *ui;
+    QWidget *lastWindow;
 };
 
 #endif // MENUPROPOSITION_HPP

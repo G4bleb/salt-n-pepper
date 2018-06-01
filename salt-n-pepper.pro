@@ -32,9 +32,9 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.hpp \
-    menuprincipal.hpp \
     menuquestion.hpp \
-    menuproposition.hpp
+    menuproposition.hpp \
+    menuprincipal.hpp
 
 FORMS += \
         mainwindow.ui \

@@ -19,13 +19,12 @@ public:
 private slots:
 
     void on_pushButton_returnMainMenu_clicked();
-
-
     void on_pushButton_consult_clicked();
 
 private:
     Ui::MenuQuestion *ui;
     MenuProposition * menuProposition;
+    QWidget *lastWindow;
 };
 
 #endif // MENUQUESTION_HPP

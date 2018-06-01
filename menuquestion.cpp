@@ -5,6 +5,7 @@ MenuQuestion::MenuQuestion(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MenuQuestion)
 {
+    lastWindow = parent;
     ui->setupUi(this);
 }
 
@@ -17,6 +18,7 @@ MenuQuestion::~MenuQuestion()
 void MenuQuestion::on_pushButton_returnMainMenu_clicked()
 {
     hide();
+    lastWindow->show();
 }
 
 
