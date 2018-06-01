@@ -11,187 +11,193 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Question</string>
   </property>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>671</width>
-     <height>551</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Questions</string>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_29">
-        <item>
-         <widget class="QTableWidget" name="tableWidget_7">
-          <attribute name="horizontalHeaderCascadingSectionResizes">
-           <bool>false</bool>
-          </attribute>
-          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-           <bool>false</bool>
-          </attribute>
-          <attribute name="horizontalHeaderStretchLastSection">
-           <bool>true</bool>
-          </attribute>
-          <attribute name="verticalHeaderCascadingSectionResizes">
-           <bool>false</bool>
-          </attribute>
-          <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-           <bool>false</bool>
-          </attribute>
-          <attribute name="verticalHeaderStretchLastSection">
-           <bool>false</bool>
-          </attribute>
-          <row>
-           <property name="text">
-            <string>Question 1</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>Question 2</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>Question 3</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>Question 4</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>Question 5</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>Question 6</string>
-           </property>
-          </row>
-          <column>
-           <property name="text">
-            <string>Réponse 1</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Réponse 2</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Réponse 3</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Question</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_30">
-        <item>
-         <layout class="QFormLayout" name="formLayout_13">
-          <item row="0" column="0">
-           <layout class="QHBoxLayout" name="horizontalLayout_31"/>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="lineEdit_23">
-            <property name="placeholderText">
-             <string>Question sélectionnée</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <layout class="QHBoxLayout" name="horizontalLayout_32">
-            <item>
-             <widget class="QPushButton" name="pushButton_23">
-              <property name="text">
-               <string>Consulter</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_24">
-              <property name="text">
-               <string>Modifier</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_25">
-              <property name="text">
-               <string>Supprimer</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="4" column="1">
-           <layout class="QHBoxLayout" name="horizontalLayout_33"/>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="0">
-       <layout class="QFormLayout" name="formLayout_14">
-        <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_34"/>
-        </item>
-        <item row="3" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_35"/>
-        </item>
-        <item row="3" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_36">
-          <item>
-           <widget class="QPushButton" name="pushButton_26">
-            <property name="text">
-             <string>Ajouter</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lineEdit_24"/>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_21">
-          <property name="text">
-           <string>Question à ajouter</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_returnMainMenu">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableWidget" name="tableWidget_7">
+     <property name="cornerButtonEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <row>
       <property name="text">
-       <string>&lt; Retour </string>
+       <string>Question 1</string>
       </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+     </row>
+     <row>
+      <property name="text">
+       <string>Question 2</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Question 3</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Question 4</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Question 5</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Question 6</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Réponse 1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Réponse 2</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Question</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEdit_23">
+     <property name="placeholderText">
+      <string>Question sélectionnée</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="lineEdit_25">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Réponse 1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_26">
+       <property name="placeholderText">
+        <string>Réponse 2</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_23">
+       <property name="text">
+        <string>Consulter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_24">
+       <property name="text">
+        <string>Modifier</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_25">
+       <property name="text">
+        <string>Supprimer</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_21">
+       <property name="text">
+        <string>Question à ajouter</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit_24"/>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QPushButton" name="pushButton_26">
+       <property name="text">
+        <string>Ajouter</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_returnMainMenu">
+     <property name="text">
+      <string>Retour </string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

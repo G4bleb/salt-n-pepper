@@ -17,5 +17,5 @@ MenuQuestion::~MenuQuestion()
 void MenuQuestion::on_pushButton_returnMainMenu_clicked()
 {
     hide();
-    menuPrincipal->show();
+//    menuPrincipal->show();
 }
