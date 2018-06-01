@@ -27,14 +27,17 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     menuprincipal.cpp \
-    menuquestion.cpp
+    menuquestion.cpp \
+    menuproposition.cpp
 
 HEADERS += \
         mainwindow.hpp \
     menuprincipal.hpp \
-    menuquestion.hpp
+    menuquestion.hpp \
+    menuproposition.hpp
 
 FORMS += \
         mainwindow.ui \
     menuprincipal.ui \
-    menuquestion.ui
+    menuquestion.ui \
+    menuproposition.ui
