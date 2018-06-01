@@ -30,52 +30,66 @@
     </item>
     <item>
      <layout class="QFormLayout" name="formLayout_3">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_password">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_adress">
         <property name="text">
          <string>Adresse de la base :</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
+      <item row="1" column="1">
        <widget class="QLineEdit" name="lineEdit_adress">
         <property name="placeholderText">
          <string>Adresse</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_login">
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_username">
         <property name="text">
          <string>Username :</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item row="3" column="1">
        <widget class="QLineEdit" name="lineEdit_username">
         <property name="placeholderText">
          <string>Username</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_adress">
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_password">
         <property name="text">
          <string>Mot de passe : </string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="4" column="1">
        <widget class="QLineEdit" name="lineEdit_password">
         <property name="placeholderText">
          <string>Mot de passe</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0" colspan="2">
+      <item row="5" column="0" colspan="2">
        <widget class="QPushButton" name="pushButton_login">
         <property name="text">
          <string>Login</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_dbname">
+        <property name="text">
+         <string>Nom de la base :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_dbname">
+        <property name="placeholderText">
+         <string>Nom</string>
         </property>
        </widget>
       </item>
