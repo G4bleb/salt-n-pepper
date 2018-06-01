@@ -17,5 +17,12 @@ MenuQuestion::~MenuQuestion()
 void MenuQuestion::on_pushButton_returnMainMenu_clicked()
 {
     hide();
-//    menuPrincipal->show();
+}
+
+
+void MenuQuestion::on_pushButton_consult_clicked()
+{
+    hide();
+    menuProposition = new MenuProposition(this);
+    menuProposition->show();
 }

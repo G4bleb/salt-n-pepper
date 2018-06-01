@@ -2,6 +2,7 @@
 #define MENUQUESTION_HPP
 
 #include <QDialog>
+#include "menuproposition.hpp"
 
 namespace Ui {
 class MenuQuestion;
@@ -19,8 +20,12 @@ private slots:
 
     void on_pushButton_returnMainMenu_clicked();
 
+
+    void on_pushButton_consult_clicked();
+
 private:
     Ui::MenuQuestion *ui;
+    MenuProposition * menuProposition;
 };
 
 #endif // MENUQUESTION_HPP
