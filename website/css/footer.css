@@ -1,0 +1,13 @@
+.footer_blue{
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color: #2564ca;
+}
+
+#id_legal,#id_contact{
+  float: right;
+  margin-right: 1%;
+  margin-top: 30px;
+}

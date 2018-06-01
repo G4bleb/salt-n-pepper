@@ -1,8 +1,24 @@
-.rect_bleu{
+.blue_rect{
   background-color: #2564ca;
   height: 90px;
 }
 
-.img_burger{
-  image-resolution: snap;
+#id_burger{
+  height:90px;
+  margin-left: 40%;
+  align-items: center;
+  display: inline-block;
+}
+
+#button_connection,#button_registration,#button_deconnection{
+  float: right;
+  margin-right: 1%;
+  margin-top: 30px;
+}
+
+#home{
+  display: inline-block;
+  float:left;
+  margin-left: 3%;
+  margin-top: 1%;
 }
