@@ -14,8 +14,7 @@ class User{
   public function getBest_score(){
     return $this->best_score;
   }
-  public function setBest_score($setBest_score)
-  {
+  public function setBest_score($setBest_score){
     $this->best_score = $setBest_score;
   }
 }
@@ -24,6 +23,7 @@ class User{
 
 class Game{
   private $id_game;
+
   public function getId(){
     return $this->id_game;
   }
@@ -34,11 +34,16 @@ class Game{
 class Theme{
   private $id_theme;
   private $theme_name;
+
+  public function getTheme_name(){
+    return $this->theme_name;
+  }
 }
 
 /* CLASSE Question */
 
 class Question{
+  private $id_theme;
   private $id_question;
   private $main_question;
   private $answer1;
@@ -49,6 +54,8 @@ class Question{
 /* CLASSE Proposition */
 
 class Proposition{
+  private $id_theme;
+  private $id_question;
   private $id_proposition;
   private $question;
   private $answer_nb;
