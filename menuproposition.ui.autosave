@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MenuProposition</class>
+ <widget class="QDialog" name="MenuProposition">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>655</width>
+    <height>539</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Proposition</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_4">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <row>
+        <property name="text">
+         <string>Intitulé 1</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 2</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 3</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 4</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 5</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 6</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 7</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 8</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Intitulé 9</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>N° réponse</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Proposition</string>
+        </property>
+       </column>
+       <item row="0" column="1">
+        <property name="text">
+         <string/>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="text">
+            <string>Proposition</string>
+           </property>
+           <property name="placeholderText">
+            <string>Intitulé</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QRadioButton" name="radioButton">
+             <property name="text">
+              <string>Réponse 1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_3">
+             <property name="text">
+              <string>Réponse 2</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_2">
+             <property name="text">
+              <string>Réponse 3</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>Ajouter</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>Modifier</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>Supprimer</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QPushButton" name="pushButton_return">
+         <property name="text">
+          <string>Retour</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
