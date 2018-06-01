@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <link href="../css/footer.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
     <div class="footer_blue">
