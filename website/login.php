@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Salt'n'Pepper - Connexion</title>
-  </head>
-  <body>
     <?php require_once 'php/header.php'; ?>
     <h1><span class="label label-default">Connexion</span></h1>
     <form class="" action="connect.html" method="post">
@@ -13,5 +11,5 @@
       <input type="text" name="" value="" placeholder="Password"><br>
       <input type="submit" value="Connexion">
     </form>
-  </body>
+    <?php require_once "php/footer.php";?>
 </html>

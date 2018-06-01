@@ -1,16 +1,14 @@
-<?php
-include 'php/header.php';
-include 'php/footer.php';
- ?>
-
-
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+    <title>Salt'n'Pepper - Palmarés</title>
 
-  </body>
+    <?php
+    include 'php/header.php';
+    ?>
+    <?php
+    include 'php/footer.php';
+     ?>
+
 </html>
