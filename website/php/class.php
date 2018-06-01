@@ -14,9 +14,6 @@ class User{
   public function getBest_score(){
     return $this->best_score;
   }
-  public function setBest_score($setBest_score){
-    $this->best_score = $setBest_score;
-  }
 }
 
 /* CLASSE Game */
@@ -48,7 +45,16 @@ class Question{
   private $main_question;
   private $answer1;
   private $answer2;
-  private $id_theme;
+
+  public function getMain_question(){
+    return $this->main_question;
+  }
+  public function getAnswer1(){
+    return $this->answer1;
+  }
+  public function getAnswer12(){
+    return $this->answer2;
+  }
 }
 
 /* CLASSE Proposition */
@@ -57,8 +63,11 @@ class Proposition{
   private $id_theme;
   private $id_question;
   private $id_proposition;
-  private $question;
+  private $main_proposition;
   private $answer_nb;
-  private $id_question;
+
+  public function getMain_proposition(){
+    return $this->main_proposition;
+  }
 }
 ?>
