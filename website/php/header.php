@@ -14,7 +14,7 @@
     <div class="blue_rect">
       <a href="../index.php"><i class="fas fa-home fa-3x" id="home"></i></span></a>
       <img src="../img/burger.png" class="img-responsive" id="id_burger"></img>
-      <button type="button" class="btn btn-default" id="button_connection">Connexion</button>
-      <button type="button" class="btn btn-default" id="button_registration">Inscription</button>
+      <a href="../login.php" ><button type="button" class="btn btn-default" id="button_connection">Connexion</button></a>
+      <a href="../register.php" ><button type="button" class="btn btn-default" id="button_registration">Inscription</button> </a>
       <button type="button" class="btn btn-default" id="button_deconnection">Deconnexion</button>
     </div>
