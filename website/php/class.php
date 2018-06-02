@@ -26,22 +26,22 @@ class Game{
   }
 }
 
-/* CLASSE Theme */
+/* CLASSE Topic */
 
-class Theme{
-  private $id_theme;
-  private $theme_name;
+class Topic{
+  private $id_topic;
+  private $topic_name;
 
-  public function getTheme_name(){
-    return $this->theme_name;
+  public function getTopic_name(){
+    return $this->topic_name;
   }
 }
 
 /* CLASSE Question */
 
 class Question{
-  private $id_theme;
-  private $id_question;
+  private $id_topic;
+  private $num_question;
   private $main_question;
   private $answer1;
   private $answer2;
@@ -60,9 +60,9 @@ class Question{
 /* CLASSE Proposition */
 
 class Proposition{
-  private $id_theme;
-  private $id_question;
-  private $id_proposition;
+  private $id_topic;
+  private $num_question;
+  private $num_proposition;
   private $main_proposition;
   private $answer_nb;
 
