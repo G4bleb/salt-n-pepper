@@ -26,18 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    menuprincipal.cpp \
-    menuquestion.cpp \
-    menuproposition.cpp
+    mainmenu.cpp \
+    questionsmenu.cpp \
+    propositionsmenu.cpp
 
 HEADERS += \
         mainwindow.hpp \
-    menuquestion.hpp \
-    menuproposition.hpp \
-    menuprincipal.hpp
+    mainmenu.hpp \
+    questionsmenu.hpp \
+    propositionsmenu.hpp
 
 FORMS += \
         mainwindow.ui \
-    menuprincipal.ui \
-    menuquestion.ui \
-    menuproposition.ui
+    mainmenu.ui \
+    questionsmenu.ui \
+    propositionsmenu.ui

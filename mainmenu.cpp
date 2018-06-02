@@ -1,0 +1,21 @@
+#include "mainmenu.hpp"
+#include "ui_mainmenu.h"
+
+MainMenu::MainMenu(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::MainMenu)
+{
+    ui->setupUi(this);
+}
+
+MainMenu::~MainMenu()
+{
+    delete ui;
+}
+
+void MainMenu::on_pushButton_select_clicked()
+{
+    hide();
+    questionsMenu = new QuestionsMenu(this);
+    questionsMenu->show();
+}

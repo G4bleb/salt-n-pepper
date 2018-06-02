@@ -2,7 +2,7 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
-#include "menuprincipal.hpp"
+#include "mainmenu.hpp"
 
 namespace Ui {
 class MainWindow;
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    MenuPrincipal *menuPrincipal;
+    MainMenu *mainMenu;
 };
 
 #endif // MAINWINDOW_HPP

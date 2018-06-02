@@ -23,8 +23,8 @@ void MainWindow::on_pushButton_login_clicked()
     if(username== "test" && password=="test"){
         QMessageBox::information(this,"Login","Username and password is correct");
         hide();
-        menuPrincipal = new MenuPrincipal(this);
-        menuPrincipal->show();
+        mainMenu = new MainMenu(this);
+        mainMenu->show();
     }
     else QMessageBox::warning(this,"Login","Username and password is incorrect");
 
