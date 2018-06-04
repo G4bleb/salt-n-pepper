@@ -18,7 +18,7 @@ p{
   display: inline-block;
 }
 
-#button_connection,#button_registration,#button_deconnection{
+#button_connect,#button_registration,#button_disconnect{
   float: right;
   margin-right: 1%;
   margin-top: 30px;

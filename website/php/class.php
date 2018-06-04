@@ -7,7 +7,11 @@ class User{
   private $password;
   private $best_score;
   private $id_game;
+  private $token;
 
+  public function getId()  {
+    return $this->id_user;
+  }
   public function getLogin(){
     return $this->login;
   }
