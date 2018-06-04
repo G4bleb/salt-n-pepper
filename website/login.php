@@ -14,7 +14,7 @@
     </form>
   <?php else: ?>
     <?php require_once "php/sessionchecker.php";
-    checkSession();
+    // checkSession();
      ?>
   <?php endif; ?>
   <?php require_once "php/footer.php";?>
