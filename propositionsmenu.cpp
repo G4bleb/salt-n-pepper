@@ -18,4 +18,5 @@ void PropositionsMenu::on_pushButton_return_clicked()
 {
     this->hide();
     lastWindow->show();
+    this->deleteLater();
 }
