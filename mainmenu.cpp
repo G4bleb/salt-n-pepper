@@ -6,6 +6,7 @@ MainMenu::MainMenu(QWidget *parent) :
     ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
+    MenuPrincipal=parent;
 }
 
 MainMenu::~MainMenu()
@@ -18,4 +19,11 @@ void MainMenu::on_pushButton_select_clicked()
     hide();
     questionsMenu = new QuestionsMenu(this);
     questionsMenu->show();
+}
+
+
+void MainMenu::on_pushButton_deconnection_clicked()
+{
+    this->hide();
+    MenuPrincipal->show();
 }

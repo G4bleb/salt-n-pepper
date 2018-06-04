@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "questionsmenu.hpp"
 
+
 namespace Ui {
 class MainMenu;
 }
@@ -19,9 +20,12 @@ public:
 private slots:
     void on_pushButton_select_clicked();
 
+    void on_pushButton_deconnection_clicked();
+
 private:
     Ui::MainMenu *ui;
     QuestionsMenu *questionsMenu;
+    QWidget * MenuPrincipal;
 };
 
 #endif // MAINMENU_HPP

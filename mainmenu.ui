@@ -20,7 +20,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <property name="tabsClosable">
       <bool>false</bool>
@@ -358,7 +358,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="pushButton_deconnection">
          <property name="text">
           <string>Déconnexion</string>
          </property>
