@@ -9,8 +9,10 @@
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 #include <QString>
+#include <QDialog>
 
 using namespace std;
+using namespace sql;
 
 
 namespace Ui {
