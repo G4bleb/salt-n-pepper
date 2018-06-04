@@ -11,7 +11,7 @@
     <?php require_once 'php/sessionmanager.php'; require_once 'php/adduser.php';
     if (checkSession($dbCnx)) header("Refresh:0; url=index.php");
     if (isset($_POST['register'])) {
-      if (addUser($db, $_POST['username'], $_POST['password'])) {
+      if (addUser($dbCnx, $_POST['username'], $_POST['password'])) {
         startSession($dbCnx, checkLogin($dbCnx, $_POST['username'], $_POST['password']));
         header("Refresh:0; url=index.php");
       }
