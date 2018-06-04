@@ -6,7 +6,7 @@ MainMenu::MainMenu(QWidget *parent) :
     ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
-    MenuPrincipal=parent;
+    menuConnexion=parent;
 }
 
 MainMenu::~MainMenu()
@@ -22,8 +22,8 @@ void MainMenu::on_pushButton_select_clicked()
 }
 
 
-void MainMenu::on_pushButton_deconnection_clicked()
+void MainMenu::on_pushButton_disconnect_clicked()
 {
     this->hide();
-    MenuPrincipal->show();
+    menuConnexion->show();
 }

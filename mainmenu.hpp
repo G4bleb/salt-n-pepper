@@ -20,12 +20,12 @@ public:
 private slots:
     void on_pushButton_select_clicked();
 
-    void on_pushButton_deconnection_clicked();
+    void on_pushButton_disconnect_clicked();
 
 private:
     Ui::MainMenu *ui;
     QuestionsMenu *questionsMenu;
-    QWidget * MenuPrincipal;
+    QWidget * menuConnexion;
 };
 
 #endif // MAINMENU_HPP
