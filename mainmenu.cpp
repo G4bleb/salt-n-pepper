@@ -15,7 +15,7 @@ MainMenu::~MainMenu()
 
 void MainMenu::on_pushButton_select_clicked()
 {
-    hide();
+    this->hide();
     questionsMenu = new QuestionsMenu(this);
     questionsMenu->show();
 }
