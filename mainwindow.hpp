@@ -6,11 +6,11 @@
 #include "mainmenu.hpp"
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/statement.h>
 #include <QString>
+#include <QDialog>
 
 using namespace std;
+using namespace sql;
 
 
 namespace Ui {
@@ -31,6 +31,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     MainMenu *mainMenu;
+    Driver *driver;
+    Connection *con;
+    int status;
 
 };
 

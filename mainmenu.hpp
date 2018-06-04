@@ -3,6 +3,18 @@
 
 #include <QDialog>
 #include "questionsmenu.hpp"
+#include <QtSql>
+#include <QtSql/QSqlQueryModel>
+#include <QtSql/qsqlquerymodel.h>
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/statement.h>
+#include <iostream>
+#define q2c(string) string.toStdString()
+
+using namespace std;
+using namespace sql;
 
 
 namespace Ui {
@@ -14,7 +26,7 @@ class MainMenu : public QDialog
     Q_OBJECT
 
 public:
-    explicit MainMenu(QWidget *parent = 0);
+    explicit MainMenu(Driver * driver,Connection * con, QWidget *parent = 0);
     ~MainMenu();
 
 private slots:
@@ -26,6 +38,10 @@ private:
     Ui::MainMenu *ui;
     QuestionsMenu *questionsMenu;
     QWidget * menuConnexion;
+    Connection * con;
+    Statement * stmt;
+    ResultSet * res;
+
 };
 
 #endif // MAINMENU_HPP

@@ -7,6 +7,7 @@ QuestionsMenu::QuestionsMenu(QWidget *parent) :
 {
     ui->setupUi(this);
     lastWindow = parent;
+
 }
 
 QuestionsMenu::~QuestionsMenu()
