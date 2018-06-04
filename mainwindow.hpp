@@ -31,6 +31,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     MainMenu *mainMenu;
+    int status;
 
 };
 

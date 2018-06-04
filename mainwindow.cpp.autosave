@@ -25,6 +25,7 @@ void MainWindow::on_pushButton_login_clicked()
         driver = get_driver_instance();
         con = driver->connect("tcp://"+ui->lineEdit_address->text().toStdString()+":3306",ui->lineEdit_username->text().toStdString(),ui->lineEdit_password->text().toStdString());
         con->setSchema(ui->lineEdit_dbname->text().toStdString());
+        
         status=1;
     }
     catch (sql::SQLException &e) {
