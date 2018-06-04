@@ -16,13 +16,14 @@ QuestionsMenu::~QuestionsMenu()
 
 void QuestionsMenu::on_pushButton_return_clicked()
 {
-    hide();
+    this->hide();
     lastWindow->show();
+    this->deleteLater();
 }
 
 void QuestionsMenu::on_pushButton_select_clicked()
 {
-    hide();
+    this->hide();
     propositionsMenu = new PropositionsMenu(this);
     propositionsMenu->show();
 }

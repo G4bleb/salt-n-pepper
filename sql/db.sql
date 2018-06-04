@@ -7,11 +7,11 @@
 #------------------------------------------------------------
 
 drop table if exists game;
-drop table if exists user;
-drop table if exists topic;
-drop table if exists question;
-drop table if exists proposition;
 drop table if exists game_question;
+drop table if exists proposition;
+drop table if exists question;
+drop table if exists topic;
+drop table if exists user;
 
 #------------------------------------------------------------
 # Table: game
