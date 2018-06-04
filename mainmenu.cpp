@@ -1,12 +1,21 @@
 #include "mainmenu.hpp"
 #include "ui_mainmenu.h"
 
-MainMenu::MainMenu(QWidget *parent) :
+MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
     menuConnexion=parent;
+
+    stmt=con->createStatement();
+    res=stmt->executeQuery("SELECT login FROM user");
+
+   while(res->next()){
+       //ui->tableWidget_Login->setTabKeyNavigation(res->getString(1).c_str());
+       cout << res->getString(1);
+    }
+
 }
 
 MainMenu::~MainMenu()
