@@ -12,7 +12,6 @@ function checkSession($db){
 
 function startSession($db, $userId){
   if ($userId) {
-    session_start();
     $_SESSION['token']=base64_encode(openssl_random_pseudo_bytes(12));
     $statement = $db->prepare("UPDATE user SET token=:token WHERE id_user=:id_user");
     $statement->execute(array(':token'=>$_SESSION['token'],':id_user'=>$userId));

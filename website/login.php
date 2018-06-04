@@ -28,7 +28,7 @@
       <input type="text" name="username" value="" placeholder="Username"><br>
       <a href="register.php">Vous n'avez pas encore de compte ?</a><br>
       <input type="password" name="password" value="" placeholder="Password"><br>
-      <input type="submit" value="Connexion" name="connect">
+      <input class="btn btn-default" type="submit" value="Connexion" name="connect">
     </form>
   <?php endif; ?>
   </div>
