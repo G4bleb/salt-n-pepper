@@ -26,4 +26,5 @@ void MainMenu::on_pushButton_disconnect_clicked()
 {
     this->hide();
     menuConnexion->show();
+    this->deleteLater();
 }
