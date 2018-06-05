@@ -29,9 +29,7 @@ public:
 
 private slots:
     void on_pushButton_select_clicked();
-
     void on_pushButton_disconnect_clicked();
-
     void on_tableWidget_User_cellClicked(int row, int column);
 
 private:
@@ -41,8 +39,9 @@ private:
     Connection * con;
     Statement * stmt_show_user;
     ResultSet * res_show_user;
-    QVector <QVector<QLabel*>> vecteurLabel;
-    QVector <QLabel*> vecteurLine;
+    QVector <QLabel*> vecteurLabel;
+
+    QVector <QVector <QLabel*> > vecteurLabels;
     int row_table,column_table,k;
 };
 
