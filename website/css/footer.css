@@ -2,22 +2,22 @@ p{
     font-family: 'Roboto', sans-serif;
 }
 
-.footer_blue{
-  position: absolute;
-  bottom:0;
-  left:0;
-  right:0;
+footer{
+  position:absolute;
+  /* position:relative; */
+  /* bottom:0; */
+  width:100%;
+  margin-top : 15px;
+  margin-bottom: 0;
   background-color: #2564ca;
+  /* background-color: red; */
 }
 
-#id_contact a,#id_legal a{
+footer a{
   color:white;
-  text-decoration: underline;
-}
-
-#id_legal,#id_contact{
   float: right;
   margin-right: 1%;
   margin-bottom: 5px;
   font-size: 14px;
+  text-decoration: underline;
 }

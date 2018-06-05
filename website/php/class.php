@@ -15,8 +15,11 @@ class User{
   public function getLogin(){
     return $this->login;
   }
-  public function getBest_score(){
+  public function getBestScore(){
     return $this->best_score;
+  }
+  public function getBestGameId(){
+    return $this->id_game;
   }
 }
 

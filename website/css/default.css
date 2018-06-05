@@ -1,12 +1,31 @@
 body{
   background-color: #e6e6e6;
+  text-align: center;
+  /* line-height: 1.6; */
 }
 
 p{
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-#content{
-  text-align: center;
-  line-height: 1.6;
+table, th, td {
+
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left:auto;
+  margin-right:auto;
+  width: 50%;
+  white-space: nowrap;
+  /* text-align: center; */
+}
+
+td, th {
+  width: 40%;
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: WhiteSmoke;
 }
