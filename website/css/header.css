@@ -13,18 +13,18 @@ p{
 }
 
 #logo{
-  /* position: relative; */
+  position: absolute;
   height:90px;
-  /* left: 50%; */
-  transform: translate(18%);
-  /* align-items: center; */
-  /* display: inline-block; */
+  left: 50%;
+  transform: translate(-50%);
 }
 
-#button_connect,#button_registration,#button_disconnect{
-  float: right;
-  margin-right: 1%;
+#navbuttons{
+  position: absolute;
+  right: 0;
+  top: 0;
   margin-top: 30px;
+  margin-right: 20px;
 }
 
 #home_icon{

@@ -6,7 +6,7 @@
   <link href="../css/default.css" rel="stylesheet" type="text/css">
   <?php require_once 'php/header.php';?>
 
-  <h1><span class="label label-primary">Inscription</span></h1>
+  <h2><span class="badge badge-primary">Inscription</span></h2>
   <?php require_once 'php/sessionmanager.php'; require_once 'php/adduser.php';
   if (checkSession($dbCnx)) header("Refresh:0; url=index.php");
   if (isset($_POST['register'])) {
@@ -20,7 +20,26 @@
     }
   }
   ?>
-  <form action="register.php" method="post">
+  <div class="row h-75 justify-content-center align-items-center">
+      <form action="register.php" method="post">
+          <div class="form-group">
+              <label for="username">Nom d'utilisateur</label>
+              <input type="text" class="form-control" name="username" placeholder="Username">
+          </div>
+          <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+              <label for="confirm_password">Confirmer le mot de passe</label>
+              <input id="confirm_password" type="password" class="form-control" placeholder="Confirmer password"><br>
+          </div>
+          <span id='confirmed'></span><br>
+          <input class="btn btn-primary" type="submit" name="register" value="Créer un compte">
+      </form>
+  </div>
+
+  <!-- <form action="register.php" method="post">
     <label for="username">Nom d'utilisateur</label>
     <input type="text" name="username" value="" placeholder="Username"><br>
     <label for="password">Mot de passe</label>
@@ -28,8 +47,8 @@
     <label for="confirm_password">Confirmer le mot de passe</label>
     <input id="confirm_password" type="password" name="" value="" placeholder="Confirmer password"><br>
     <span id='confirmed'></span><br>
-    <input class="btn btn-default" type="submit" name="register" value="Créer un compte">
-  </form>
+    <input class="btn btn-primary" type="submit" name="register" value="Créer un compte">
+  </form> -->
 
   <?php require_once 'php/footer.php';?>
   <script src="../js/register.js"></script>

@@ -7,4 +7,8 @@ $('#password, #confirm_password').on('keyup', function () {
     $('#confirmed').html('Veuillez entrer des mots de passes correspondants').css('color', 'red');
     $("input[type=submit][name='register']").attr("disabled", "disabled");
   }
+  if ($('#password').val() == ""){
+    $('#confirmed').html('Veuillez entrer un mot de passe').css('color', 'red');
+    $("input[type=submit][name='register']").attr("disabled", "disabled");
+  }
 });

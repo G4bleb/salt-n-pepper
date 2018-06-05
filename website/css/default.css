@@ -2,14 +2,37 @@ body{
   background-color: #e6e6e6;
   text-align: center;
   /* line-height: 1.6; */
+  /* margin:0;
+  padding:0;
+  height:100%; */
 }
 
 p{
   font-family: 'Roboto', sans-serif;
 }
+.bigbutton{
+  font-size: 0.8em;
+  /* font-weight: lighter; */
+  padding: 0.3em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-top: 0.5em;
+}
+
+.badge{
+  font-size: 0.9em;
+  font-weight: lighter;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+
+form{
+  width:23em;
+  /* max-width: 50em; */
+}
 
 table, th, td {
-
+  margin-top: 1%;
   border: 1px solid black;
   border-collapse: collapse;
   margin-left:auto;
