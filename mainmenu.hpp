@@ -4,14 +4,12 @@
 #include <QDialog>
 #include "questionsmenu.hpp"
 #include <QtSql>
-#include <QtSql/QSqlQueryModel>
-#include <QtSql/qsqlquerymodel.h>
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 #include <iostream>
-#define q2c(string) string.toStdString()
+#include <QLabel>
 
 using namespace std;
 using namespace sql;
@@ -41,6 +39,7 @@ private:
     Connection * con;
     Statement * stmt;
     ResultSet * res;
+    QVector <QLabel*> vecteurLabel;
 
 };
 

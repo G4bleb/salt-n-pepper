@@ -9,12 +9,35 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     menuConnexion=parent;
 
     stmt=con->createStatement();
-    res=stmt->executeQuery("SELECT login FROM user");
+    res=stmt->executeQuery("SELECT id_user,login FROM user");
 
-   while(res->next()){
-       //ui->tableWidget_Login->setTabKeyNavigation(res->getString(1).c_str());
-       cout << res->getString(1);
+    while(res->next()){
+        vecteurLabel.push_back(new QLabel(res->getString(1).c_str()));
+        vecteurLabel.push_back(new QLabel(res->getString(2).c_str()));
+        cout << res->getString(1).c_str() << endl;
+        cout << res->getString(2).c_str() << endl;
     }
+
+    /*for(int i=0;i<vecteurLabel->size();i++){
+        cout << vecteurLabel->at(i) << endl;
+    }*/
+
+    /*for(int i=0;i<vecteurLabel.size();i++){
+        for(int j=0;j<vecteurLabel.size();j++){
+            cout << "Je suis rentré dans la boucle for" << endl;
+            cout << vecteurLabel[i] << endl;
+            //ui->tableWidget_Login->setCellWidget(i,j,vecteurLabel[i]);
+        }
+    }*/
+
+    /*while(res->next()){
+      ui->tableWidget_Login->setRowCount(row+1);
+      ui->tableWidget_Login->setCellWidget(0,row,new QLabel(res->getString(1).c_str()));
+      row++;
+      cout << "Login "<<k<<":"<< res->getString(1) << endl;
+      k++;
+    }*/
+
 
 }
 

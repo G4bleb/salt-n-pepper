@@ -46,56 +46,11 @@
            <attribute name="horizontalHeaderStretchLastSection">
             <bool>true</bool>
            </attribute>
-           <row>
+           <column>
             <property name="text">
-             <string>User1</string>
+             <string>ID</string>
             </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User2</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User3</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User4</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User5</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User6</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User7</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User8</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User9</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>User10</string>
-            </property>
-           </row>
+           </column>
            <column>
             <property name="text">
              <string>Login</string>
