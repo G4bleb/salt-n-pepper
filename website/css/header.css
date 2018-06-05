@@ -6,16 +6,19 @@ p{
     font-family: 'Roboto', sans-serif;
 }
 
-.blue_rect{
+#header{
   background-color: #2564ca;
   height: 90px;
+  align-items: center;
 }
 
-#id_burger{
+#logo{
+  /* position: relative; */
   height:90px;
-  margin-left: 40%;
-  align-items: center;
-  display: inline-block;
+  /* left: 50%; */
+  transform: translate(18%);
+  /* align-items: center; */
+  /* display: inline-block; */
 }
 
 #button_connect,#button_registration,#button_disconnect{
@@ -24,9 +27,10 @@ p{
   margin-top: 30px;
 }
 
-#home{
+#home_icon{
+  color:white;
   display: inline-block;
   float:left;
   margin-left: 3%;
-  margin-top: 1%;
+  margin-top: 1.5%;
 }
