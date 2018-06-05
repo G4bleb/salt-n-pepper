@@ -32,6 +32,7 @@ CREATE TABLE user(
         login      Varchar (30) NOT NULL ,
         password   Char (64) NOT NULL ,
         best_score Int ,
+        token      Char (16) ,
         id_game    Int
 	,CONSTRAINT user_PK PRIMARY KEY (id_user)
 
