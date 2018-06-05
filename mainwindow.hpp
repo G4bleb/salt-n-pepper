@@ -7,7 +7,6 @@
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <QString>
-#include <QDialog>
 
 using namespace std;
 using namespace sql;

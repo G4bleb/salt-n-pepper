@@ -8,14 +8,27 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     ui->setupUi(this);
     menuConnexion=parent;
 
-    stmt=con->createStatement();
-    res=stmt->executeQuery("SELECT login FROM user");
+    /*stmt_show_user=con->createStatement();
+    res_show_user=stmt_show_user->executeQuery("SELECT id_user,login,best_score FROM user");
+    row_table=k=0;
 
-   while(res->next()){
-       //ui->tableWidget_Login->setTabKeyNavigation(res->getString(1).c_str());
-       cout << res->getString(1);
+    column_table=ui->tableWidget_User->columnCount();
+
+     while(res_show_user->next()){
+        vecteurLabel.append(new QLabel(res_show_user->getString(1).c_str()));
+        vecteurLabel.append(new QLabel(res_show_user->getString(2).c_str()));
+        vecteurLabel.append(new QLabel(res_show_user->getString(3).c_str()));
+        row_table++;
     }
 
+    ui->tableWidget_User->setRowCount(row_table);
+
+    for(int i=0;i<row_table;i++){
+        for(int j=0;j<column_table;j++){
+        ui->tableWidget_User->setCellWidget(i,j,vecteurLabel[k]);
+        k++;
+       }
+    }*/
 }
 
 MainMenu::~MainMenu()
@@ -36,4 +49,9 @@ void MainMenu::on_pushButton_disconnect_clicked()
     this->hide();
     menuConnexion->show();
     this->deleteLater();
+}
+
+void MainMenu::on_tableWidget_User_cellClicked(int row, int column)
+{
+   // ui->lineEdit_login->setText(ui->tableWidget_User->);
 }

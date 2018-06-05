@@ -1,17 +1,15 @@
 #ifndef MAINMENU_HPP
 #define MAINMENU_HPP
 
-#include <QDialog>
 #include "questionsmenu.hpp"
 #include <QtSql>
-#include <QtSql/QSqlQueryModel>
-#include <QtSql/qsqlquerymodel.h>
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
 #include <iostream>
-#define q2c(string) string.toStdString()
+#include <QLabel>
+#include <QTableWidget>
 
 using namespace std;
 using namespace sql;
@@ -34,14 +32,18 @@ private slots:
 
     void on_pushButton_disconnect_clicked();
 
+    void on_tableWidget_User_cellClicked(int row, int column);
+
 private:
     Ui::MainMenu *ui;
     QuestionsMenu *questionsMenu;
     QWidget * menuConnexion;
     Connection * con;
-    Statement * stmt;
-    ResultSet * res;
-
+    Statement * stmt_show_user;
+    ResultSet * res_show_user;
+    QVector <QVector<QLabel*>> vecteurLabel;
+    QVector <QLabel*> vecteurLine;
+    int row_table,column_table,k;
 };
 
 #endif // MAINMENU_HPP
