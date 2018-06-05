@@ -8,37 +8,27 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     ui->setupUi(this);
     menuConnexion=parent;
 
-    stmt=con->createStatement();
-    res=stmt->executeQuery("SELECT id_user,login FROM user");
+    /*stmt_show_user=con->createStatement();
+    res_show_user=stmt_show_user->executeQuery("SELECT id_user,login,best_score FROM user");
+    row_table=k=0;
 
-    while(res->next()){
-        vecteurLabel.push_back(new QLabel(res->getString(1).c_str()));
-        vecteurLabel.push_back(new QLabel(res->getString(2).c_str()));
-        cout << res->getString(1).c_str() << endl;
-        cout << res->getString(2).c_str() << endl;
+    column_table=ui->tableWidget_User->columnCount();
+
+     while(res_show_user->next()){
+        vecteurLabel.append(new QLabel(res_show_user->getString(1).c_str()));
+        vecteurLabel.append(new QLabel(res_show_user->getString(2).c_str()));
+        vecteurLabel.append(new QLabel(res_show_user->getString(3).c_str()));
+        row_table++;
     }
 
-    /*for(int i=0;i<vecteurLabel->size();i++){
-        cout << vecteurLabel->at(i) << endl;
+    ui->tableWidget_User->setRowCount(row_table);
+
+    for(int i=0;i<row_table;i++){
+        for(int j=0;j<column_table;j++){
+        ui->tableWidget_User->setCellWidget(i,j,vecteurLabel[k]);
+        k++;
+       }
     }*/
-
-    /*for(int i=0;i<vecteurLabel.size();i++){
-        for(int j=0;j<vecteurLabel.size();j++){
-            cout << "Je suis rentré dans la boucle for" << endl;
-            cout << vecteurLabel[i] << endl;
-            //ui->tableWidget_Login->setCellWidget(i,j,vecteurLabel[i]);
-        }
-    }*/
-
-    /*while(res->next()){
-      ui->tableWidget_Login->setRowCount(row+1);
-      ui->tableWidget_Login->setCellWidget(0,row,new QLabel(res->getString(1).c_str()));
-      row++;
-      cout << "Login "<<k<<":"<< res->getString(1) << endl;
-      k++;
-    }*/
-
-
 }
 
 MainMenu::~MainMenu()
@@ -59,4 +49,9 @@ void MainMenu::on_pushButton_disconnect_clicked()
     this->hide();
     menuConnexion->show();
     this->deleteLater();
+}
+
+void MainMenu::on_tableWidget_User_cellClicked(int row, int column)
+{
+   // ui->lineEdit_login->setText(ui->tableWidget_User->);
 }

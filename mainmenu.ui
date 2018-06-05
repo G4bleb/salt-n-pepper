@@ -20,7 +20,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <property name="tabsClosable">
       <bool>false</bool>
@@ -33,7 +33,7 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QTableWidget" name="tableWidget_Login">
+          <widget class="QTableWidget" name="tableWidget_User">
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
@@ -46,6 +46,9 @@
            <attribute name="horizontalHeaderStretchLastSection">
             <bool>true</bool>
            </attribute>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
            <column>
             <property name="text">
              <string>ID</string>
@@ -54,6 +57,11 @@
            <column>
             <property name="text">
              <string>Login</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Best Score</string>
             </property>
            </column>
           </widget>
@@ -68,7 +76,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit_10"/>
+            <widget class="QLineEdit" name="lineEdit_login"/>
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="label_10">
@@ -78,7 +86,7 @@
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QLineEdit" name="lineEdit_11"/>
+            <widget class="QLineEdit" name="lineEdit_pwd"/>
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_13">
@@ -88,7 +96,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="lineEdit_14"/>
+            <widget class="QLineEdit" name="lineEdit_high_score"/>
            </item>
           </layout>
          </item>
@@ -140,56 +148,9 @@
              <attribute name="horizontalHeaderStretchLastSection">
               <bool>true</bool>
              </attribute>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
-             <row>
-              <property name="text">
-               <string>Theme</string>
-              </property>
-             </row>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
              <column>
               <property name="text">
                <string>Thème</string>

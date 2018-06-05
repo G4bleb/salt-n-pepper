@@ -1,7 +1,6 @@
 #ifndef MAINMENU_HPP
 #define MAINMENU_HPP
 
-#include <QDialog>
 #include "questionsmenu.hpp"
 #include <QtSql>
 #include <cppconn/driver.h>
@@ -10,6 +9,7 @@
 #include <cppconn/statement.h>
 #include <iostream>
 #include <QLabel>
+#include <QTableWidget>
 
 using namespace std;
 using namespace sql;
@@ -32,15 +32,18 @@ private slots:
 
     void on_pushButton_disconnect_clicked();
 
+    void on_tableWidget_User_cellClicked(int row, int column);
+
 private:
     Ui::MainMenu *ui;
     QuestionsMenu *questionsMenu;
     QWidget * menuConnexion;
     Connection * con;
-    Statement * stmt;
-    ResultSet * res;
-    QVector <QLabel*> vecteurLabel;
-
+    Statement * stmt_show_user;
+    ResultSet * res_show_user;
+    QVector <QVector<QLabel*>> vecteurLabel;
+    QVector <QLabel*> vecteurLine;
+    int row_table,column_table,k;
 };
 
 #endif // MAINMENU_HPP
