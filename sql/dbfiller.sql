@@ -14,6 +14,17 @@ insert into proposition(id_topic, num_question, num_proposition, main_propositio
 insert into game(id_game) values('1');
 insert into game_question(id_game, id_topic, num_question) values('1','1','1');
 
+INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('2', 'Sport');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('2', '1', 'Monfils, mon père ou les deux ?', 'Monfils', 'Mon père');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '1', 'Il est déja allé en demi-finale à Roland Garros', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '2', 'Il a couché avec ma mère', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '3', 'Il a un très bon revers', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '4', '1m93', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '5', 'A des enfants qui courent autour de lui pour ramasser ses balles', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '6', 'Ce n’est pas mon fils', '3');
+
+INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('3', 'ISEN');
+
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Alain', sha2('password', 256), '32', '1', NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Pierre', sha2('password', 256), '78', '1', NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Jean', sha2('password', 256), '25', '1', NULL);
