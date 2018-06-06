@@ -71,7 +71,6 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
 
     delete stmt_show_topic;
     delete res_show_topic;
-
 }
 
 MainMenu::~MainMenu()
@@ -102,7 +101,6 @@ void MainMenu::on_tableWidget_User_cellClicked(int row, int column)
 
 void MainMenu::on_pushButton_set_user_clicked()
 {
-
     if((ui->lineEdit_pwd->text())!=NULL){
         prepared_stmt_set_user=con_first_window->prepareStatement("UPDATE user set login=?, best_score=?, password=sha2(?,256) where id_user=?;");
         prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
@@ -166,7 +164,6 @@ void MainMenu::on_tableWidget_Topic_cellClicked(int row, int column)
     ui->pushButton_delete_topic->setEnabled(true);
     ui->pushButton_set_topic->setEnabled(true);
     ui->pushButton_look_topic->setEnabled(true);
-
 }
 
 void MainMenu::on_pushButton_set_topic_clicked()
