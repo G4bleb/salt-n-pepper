@@ -17,7 +17,7 @@ foreach ($users as $key => $value) {
   echo '<tr>
   <td>Numéro '.($key+1).'</td>
   <td>'.$value->getLogin().'</td>';
-  if (NULL != $value->getBestGameId()) {
+  if (NULL != $value->getBestScore()) {
     echo '<td>'.$value->getBestScore().' pts</td>
     <td><a href="play.php?gameId='.$value->getBestGameId().'">Partie n°'.$value->getBestGameId().'</a></td>
     </tr>';

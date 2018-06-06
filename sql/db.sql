@@ -63,7 +63,7 @@ CREATE TABLE question(
         answer2       Varchar (40) NOT NULL
 	,CONSTRAINT question_PK PRIMARY KEY (id_topic,num_question)
 
-	,CONSTRAINT question_topic_FK FOREIGN KEY (id_topic) REFERENCES topic(id_topic)
+	,CONSTRAINT question_topic_FK FOREIGN KEY (id_topic) REFERENCES topic(id_topic) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
@@ -79,7 +79,7 @@ CREATE TABLE proposition(
         answer_nb        TinyINT NOT NULL
 	,CONSTRAINT proposition_PK PRIMARY KEY (id_topic,num_question,num_proposition)
 
-	,CONSTRAINT proposition_question_FK FOREIGN KEY (id_topic,num_question) REFERENCES question(id_topic,num_question)
+	,CONSTRAINT proposition_question_FK FOREIGN KEY (id_topic,num_question) REFERENCES question(id_topic,num_question) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
 
@@ -93,6 +93,6 @@ CREATE TABLE game_question(
         num_question Int NOT NULL
 	,CONSTRAINT game_question_PK PRIMARY KEY (id_game,id_topic,num_question)
 
-	,CONSTRAINT game_question_game_FK FOREIGN KEY (id_game) REFERENCES game(id_game)
-	,CONSTRAINT game_question_question0_FK FOREIGN KEY (id_topic,num_question) REFERENCES question(id_topic,num_question)
+	,CONSTRAINT game_question_game_FK FOREIGN KEY (id_game) REFERENCES game(id_game) ON DELETE CASCADE
+	,CONSTRAINT game_question_question0_FK FOREIGN KEY (id_topic,num_question) REFERENCES question(id_topic,num_question) ON DELETE CASCADE
 )ENGINE=InnoDB;

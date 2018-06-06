@@ -1,6 +1,18 @@
 $(document).ready(function() {
   $( "#generate-game" ).click(function() {
-    // ajaxRequest('GET', '../php/request.php', );
+    var animDuration = 500;
+    var rightDivWidth = $('#list-games-div').css("width");
+    $('#generate-game').fadeOut(animDuration);
+    $('#list-games-div').animate({
+      'width' : "-="+rightDivWidth,
+      'opacity': '0'
+    }, animDuration, function(){$('#list-games-div').remove();});
+    $('#generate-game-div').animate({
+      'width' : "+="+rightDivWidth
+    }, animDuration, function() {
+      $('#generate-game-div').attr('id', "main-div");
+      // ajaxRequest('GET', '../php/request.php/gamelist', loadGames);
+    });
   });
   $( "#list-games" ).click(function() {
     var animDuration = 500;
@@ -38,6 +50,7 @@ function loadGames(ajaxResponse)
   // Load comments.
 
   jQuery.each(data, function(key, val){
+    $('#list-games-div').append("<table><tr><td>Numéro '.($key+1).'</td></tr>'</table>");
     // alert(val.id_game);
   });
 
