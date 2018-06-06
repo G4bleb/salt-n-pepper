@@ -2,18 +2,20 @@
 #define MAINMENU_HPP
 
 #include "questionsmenu.hpp"
-#include <QtSql>
+
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
+
 #include <iostream>
 #include <QLabel>
 #include <QTableWidget>
+#include <QMessageBox>
 
 using namespace std;
 using namespace sql;
-
 
 namespace Ui {
 class MainMenu;
@@ -27,7 +29,6 @@ public:
     ~MainMenu();
 
 private slots:
-
     /*---------- method USER ----------*/
     void on_tableWidget_User_cellClicked(int row, int column);
     void on_pushButton_set_user_clicked();
@@ -36,20 +37,17 @@ private slots:
     /*---------- method TOPIC ----------*/
     void on_tableWidget_Topic_cellClicked(int row, int column);
     void on_pushButton_set_topic_clicked();
+    void on_pushButton_delete_topic_clicked();
+    void on_pushButton_add_topic_clicked();
+    void on_pushButton_look_topic_clicked();
 
     /*---------- other method ----------*/
     void on_pushButton_disconnect_clicked();
-
-
-    void on_pushButton_delete_topic_clicked();
-
-    void on_pushButton_add_topic_clicked();
 
 private:
     Ui::MainMenu *ui;
     QuestionsMenu *questionsMenu;
     QWidget * menuConnexion;
-
 
     /*--------- DRIVER ----------*/
     Driver * driver_first_window;
@@ -59,13 +57,15 @@ private:
 
     /*--------- STATEMENT ----------*/
     Statement * stmt_show_user;
-    Statement * stmt_delete_user;
-    Statement * stmt_modify_user;
-
     Statement * stmt_show_topic;
-    Statement * stmt_delete_topic;
-    Statement * stmt_modify_topic;
-    Statement * stmt_add_topic;
+
+    /*--------- PREPARED_STATEMENT ----------*/
+    PreparedStatement * prepared_stmt_delete_user;
+    PreparedStatement * prepared_stmt_set_user;
+
+    PreparedStatement * prepared_stmt_delete_topic;
+    PreparedStatement * prepared_stmt_set_topic;
+    PreparedStatement * prepared_stmt_add_topic;
 
     /*--------- RESULTEST ----------*/
     ResultSet * res_show_user;
@@ -74,7 +74,10 @@ private:
     QVector <QVector <QLabel*> > TableFirstThumbnail;
     QVector <QVector <QLabel*> > TableSecondThumbnail;
 
-    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic;
+    QMessageBox msgBox_user;
+    QMessageBox msgBox_topic;
+
+    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic,ret_user,ret_topic,delete_selected_item;
 };
 
 #endif // MAINMENU_HPP

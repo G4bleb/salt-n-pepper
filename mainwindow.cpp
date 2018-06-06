@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    this->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../salt-n-pepper/burger.png"));
+
 }
 
 MainWindow::~MainWindow()
@@ -17,6 +20,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_login_clicked()
 {
+
 
     try{
         driver = get_driver_instance();
@@ -32,6 +36,7 @@ void MainWindow::on_pushButton_login_clicked()
         cout << "# ERR: " << e.what();
         cout << " (MySQL error code: " << e.getErrorCode();
         cout << ", SQLState: " << e.getSQLState() << " )" << endl;
+        QMessageBox::warning(this,"WARNING !","Wrong informations !");
     }
 
     if(status==1){

@@ -44,12 +44,8 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     for(int i=0;i<row_table_user;i++){
         for(int j=0;j<column_table_user;j++){
         ui->tableWidget_User->setCellWidget(i,j,TableFirstThumbnail[i][j]);
-       // qDebug()<<TableFirstThumbnail[i][j]->text();
        }
     }
-
-
-
 
     row_table_topic=0;
     column_table_topic=ui->tableWidget_Topic->columnCount();
@@ -67,7 +63,6 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     for(int i=0;i<row_table_topic;i++){
         for(int j=0;j<column_table_topic;j++){
         ui->tableWidget_Topic->setCellWidget(i,j,TableSecondThumbnail[i][j]);
-        //qDebug()<<TableSecondThumbnail[i][j]->text();
        }
     }
 
@@ -83,14 +78,6 @@ MainMenu::~MainMenu()
 {
     delete ui;
 }
-
-/*void MainMenu::on_pushButton_select_clicked()
-{
-    this->hide();
-    questionsMenu = new QuestionsMenu(this);
-    questionsMenu->show();
-}*/
-
 
 void MainMenu::on_pushButton_disconnect_clicked()
 {
@@ -115,27 +102,59 @@ void MainMenu::on_tableWidget_User_cellClicked(int row, int column)
 
 void MainMenu::on_pushButton_set_user_clicked()
 {
-    stmt_modify_user=con_first_window->createStatement();
 
-    if((ui->lineEdit_pwd->text())!=NULL)stmt_modify_user->executeUpdate("UPDATE user set login='"+ui->lineEdit_login->text().toStdString()+"', best_score="+ui->lineEdit_high_score->text().toStdString()+", password=sha2('"+ui->lineEdit_pwd->text().toStdString()+"',256) where id_user="+TableFirstThumbnail[selected_row_user][0]->text().toStdString()+";");
+    if((ui->lineEdit_pwd->text())!=NULL){
+        prepared_stmt_set_user=con_first_window->prepareStatement("UPDATE user set login=?, best_score=?, password=sha2(?,256) where id_user=?;");
+        prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
+        prepared_stmt_set_user->setString(2,ui->lineEdit_high_score->text().toStdString());
+        prepared_stmt_set_user->setString(3,ui->lineEdit_pwd->text().toStdString());
+        prepared_stmt_set_user->setString(4,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
+        prepared_stmt_set_user->executeUpdate();
+    }
 
-    else stmt_modify_user->executeUpdate("UPDATE user set login='"+ui->lineEdit_login->text().toStdString()+"', best_score="+ui->lineEdit_high_score->text().toStdString()+" where id_user="+TableFirstThumbnail[selected_row_user][0]->text().toStdString()+";");
+    else{
+        prepared_stmt_set_user=con_first_window->prepareStatement("UPDATE user set login=?, best_score=? where id_user=?;");
+        prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
+        prepared_stmt_set_user->setString(2,ui->lineEdit_high_score->text().toStdString());
+        prepared_stmt_set_user->setString(3,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
+        prepared_stmt_set_user->executeUpdate();
+    }
 
-    delete stmt_modify_user;
+    delete prepared_stmt_set_user;
 
-    this->hide();
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
     pageuser->show();
 }
 
 void MainMenu::on_pushButton_delete_user_clicked()
 {
-    stmt_delete_user=con_first_window->createStatement();
-    stmt_delete_user->executeUpdate("DELETE from user where id_user="+TableFirstThumbnail[selected_row_user][0]->text().toStdString()+";");
-    delete stmt_delete_user;
+    delete_selected_item=false;
+    msgBox_user.setText("Warning !");
+    msgBox_user.setInformativeText("Are you sure you want delete your selection ?");
+    msgBox_user.setStandardButtons(QMessageBox::No|QMessageBox::Yes);
+    msgBox_user.setDefaultButton(QMessageBox::Yes);
+    ret_user = msgBox_user.exec();
 
-    this->hide();
+    switch(ret_user){
+        case QMessageBox::Yes:
+            delete_selected_item=true;
+            break;
+       case QMessageBox::No:
+            break;
+       default:
+            break;
+    }
+
+    if(delete_selected_item){
+        prepared_stmt_delete_user=con_first_window->prepareStatement("DELETE from user where id_user=?");
+        prepared_stmt_delete_user->setString(1,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
+        prepared_stmt_delete_user->executeUpdate();
+        delete prepared_stmt_delete_user;
+    }
+
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
     pageuser->show();
 }
 
@@ -152,33 +171,65 @@ void MainMenu::on_tableWidget_Topic_cellClicked(int row, int column)
 
 void MainMenu::on_pushButton_set_topic_clicked()
 {
-    stmt_modify_topic=con_first_window->createStatement();
-    stmt_modify_topic->executeUpdate("UPDATE topic set topic_name='"+ui->lineEdit_topic->text().toStdString()+"' where id_topic="+TableSecondThumbnail[selected_row_topic][0]->text().toStdString()+";");
-    delete stmt_modify_topic;
+    prepared_stmt_set_topic=con_first_window->prepareStatement("UPDATE topic set topic_name=? where id_topic=?;");
+    prepared_stmt_set_topic->setString(1,ui->lineEdit_topic->text().toStdString());
+    prepared_stmt_set_topic->setString(2,TableSecondThumbnail[selected_row_topic][0]->text().toStdString());
+    prepared_stmt_set_topic->executeUpdate();
+    delete prepared_stmt_set_topic;
 
-    this->hide();
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
     pageuser->show();
 }
 
 void MainMenu::on_pushButton_delete_topic_clicked()
 {
-    stmt_delete_topic=con_first_window->createStatement();
-    stmt_delete_topic->executeUpdate("DELETE from topic where id_topic="+TableSecondThumbnail[selected_row_topic][0]->text().toStdString()+";");
-    delete stmt_delete_topic;
+    delete_selected_item=false;
+    msgBox_topic.setText("Warning !");
+    msgBox_topic.setInformativeText("Are you sure you want delete your selection ?");
+    msgBox_topic.setStandardButtons(QMessageBox::No|QMessageBox::Yes);
+    msgBox_topic.setDefaultButton(QMessageBox::Yes);
+    ret_topic = msgBox_topic.exec();
 
-    this->hide();
+    switch(ret_topic){
+        case QMessageBox::Yes:
+            delete_selected_item=true;
+            break;
+       case QMessageBox::No:
+            break;
+       default:
+            break;
+    }
+
+    if(delete_selected_item){
+        prepared_stmt_delete_topic=con_first_window->prepareStatement("DELETE from topic where id_topic=?;");
+        prepared_stmt_delete_topic->setString(1,TableSecondThumbnail[selected_row_topic][0]->text().toStdString());
+        prepared_stmt_delete_topic->executeUpdate();
+        delete prepared_stmt_delete_topic;
+    }
+
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
     pageuser->show();
 }
 
 void MainMenu::on_pushButton_add_topic_clicked()
 {
-    stmt_add_topic=con_first_window->createStatement();
-    stmt_add_topic->executeUpdate("INSERT INTO topic (id_topic,topic_name) values (NULL,'"+ui->lineEdit_topic->text().toStdString()+"');");
-    delete stmt_add_topic;
+    prepared_stmt_add_topic=con_first_window->prepareStatement("INSERT INTO topic (id_topic,topic_name) values (NULL,?);");
+    prepared_stmt_add_topic->setString(1,ui->lineEdit_topic->text().toStdString());
+    prepared_stmt_add_topic->executeUpdate();
+    delete prepared_stmt_add_topic;
 
-    this->hide();
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
     pageuser->show();
+}
+
+void MainMenu::on_pushButton_look_topic_clicked()
+{
+    selected_id_topic=TableSecondThumbnail[selected_row_topic][0]->text().toInt();
+
+    hide();
+    questionsMenu = new QuestionsMenu(driver_first_window,con_first_window,selected_id_topic,this);
+    questionsMenu->show();
 }

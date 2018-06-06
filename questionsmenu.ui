@@ -40,44 +40,14 @@
      <attribute name="verticalHeaderStretchLastSection">
       <bool>false</bool>
      </attribute>
-     <row>
-      <property name="text">
-       <string>Question 1</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Question 2</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Question 3</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Question 4</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Question 5</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>Question 6</string>
-      </property>
-     </row>
      <column>
       <property name="text">
-       <string>Réponse 1</string>
+       <string>Answer 1</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Réponse 2</string>
+       <string>Answer 2</string>
       </property>
      </column>
      <column>
@@ -102,14 +72,14 @@
         <string/>
        </property>
        <property name="placeholderText">
-        <string>Réponse 1</string>
+        <string>Answer 1</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="lineEdit_26">
        <property name="placeholderText">
-        <string>Réponse 2</string>
+        <string>Answer 2</string>
        </property>
       </widget>
      </item>
@@ -120,28 +90,28 @@
      <item>
       <widget class="QPushButton" name="pushButton_26">
        <property name="text">
-        <string>Ajouter</string>
+        <string>Add</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_select">
        <property name="text">
-        <string>Consulter</string>
+        <string>Look</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_24">
        <property name="text">
-        <string>Modifier</string>
+        <string>Set</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_25">
        <property name="text">
-        <string>Supprimer</string>
+        <string>Delete</string>
        </property>
       </widget>
      </item>
@@ -150,7 +120,7 @@
    <item>
     <widget class="QPushButton" name="pushButton_return">
      <property name="text">
-      <string>Retour </string>
+      <string>Return</string>
      </property>
     </widget>
    </item>

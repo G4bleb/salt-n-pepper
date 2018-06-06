@@ -1,12 +1,13 @@
 #ifndef MAINWINDOW_HPP
 #define MAINWINDOW_HPP
 
-#include <QMainWindow>
-#include <iostream>
 #include "mainmenu.hpp"
+
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
-#include <QString>
+
+#include <QMainWindow>
+#include <iostream>
 
 using namespace std;
 using namespace sql;
