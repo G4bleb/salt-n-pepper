@@ -19,7 +19,7 @@
   }
 
   function addUser($db, $login, $password){
-    if (!loginExists($db, $login)) {
+    if (!loginExists($db, $login) && !empty(trim($login))) {
     try{
       error_log('going to insert into with '.$login." and ".$password);
       $statement = $db->prepare("INSERT INTO user (login, password) VALUES (:login, sha2(:password, 256))");
