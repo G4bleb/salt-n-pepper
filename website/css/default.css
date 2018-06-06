@@ -5,22 +5,28 @@ body{
   /* margin:0;
   padding:0;
   height:100%; */
+  z-index: -2;
 }
 
 p{
   font-family: 'Roboto', sans-serif;
 }
 .bigbutton{
-  font-size: 0.8em;
-  /* font-weight: lighter; */
+
+  background-color: #428bca;
+  font-size: 0.7em;
+  font-weight: bold;
   padding: 0.3em;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
   margin-top: 0.5em;
 }
 
 .badge{
-  font-size: 0.9em;
+  background-color: #428bca;
+  font-size: 1em;
   font-weight: lighter;
   padding: 0.5em;
   margin-top: 1em;
@@ -51,4 +57,16 @@ td, th {
 
 tr:nth-child(even) {
   background-color: WhiteSmoke;
+}
+
+.menu-div{
+  /* margin-left: 1.5em;
+  margin-right: 1.5em; */
+  padding-top: 3em;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid;
+  height: 35em;
 }

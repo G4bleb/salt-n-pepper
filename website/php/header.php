@@ -10,6 +10,11 @@
 </head>
 <body>
   <div id="header">
+    <!-- <ul class="list-inline">
+      <li class="list-inline-item"><a href="../index.php"><i class="fas fa-home fa-3x" id="home_icon"></i></span></a></li>
+      <li class="list-inline-item"><img src="../img/burger.png" class="mx-auto d-block" id="logo"></img></li>
+      <li class="list-inline-item"><ul id="navbuttons" class="list-inline"></li>
+    </ul> -->
     <a href="../index.php"><i class="fas fa-home fa-3x" id="home_icon"></i></span></a>
     <img src="../img/burger.png" class="mx-auto d-block" id="logo"></img>
     <ul id="navbuttons" class="list-inline">
