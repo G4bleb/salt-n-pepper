@@ -128,7 +128,7 @@ void MainMenu::on_pushButton_set_user_clicked()
 void MainMenu::on_pushButton_delete_user_clicked()
 {
     delete_selected_item=false;
-    ret=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes);
+    ret=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes,QMessageBox::No);
 
     switch(ret){
         case QMessageBox::Yes:
@@ -178,7 +178,7 @@ void MainMenu::on_pushButton_set_topic_clicked()
 void MainMenu::on_pushButton_delete_topic_clicked()
 {
     delete_selected_item=false;
-    ret=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes);
+    ret=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes,QMessageBox::No);
 
     switch(ret){
         case QMessageBox::Yes:
