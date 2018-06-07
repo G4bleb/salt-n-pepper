@@ -4,14 +4,11 @@
 #include "questionsmenu.hpp"
 
 #include <cppconn/driver.h>
-#include <cppconn/exception.h>
 #include <cppconn/resultset.h>
-#include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
 
 #include <iostream>
 #include <QLabel>
-#include <QTableWidget>
 #include <QMessageBox>
 
 using namespace std;
@@ -75,7 +72,7 @@ private:
     QVector <QVector <QLabel*> > TableSecondThumbnail;
 
 
-    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic,ret,delete_selected_item;
+    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic,clicked_button,delete_selected_item;
 };
 
 #endif // MAINMENU_HPP

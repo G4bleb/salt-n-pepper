@@ -2,6 +2,9 @@
 insert into user(id_user, login, password) values('1', 'login', sha2('password', 256));
 insert into topic(id_topic, topic_name) values('1', 'Fraude fiscale');
 insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '1', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
+insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '2', 'Bernard Tapie, un tapis ou les deux', 'Bernard Tapie', 'Un tapis');
+insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '3', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
+insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '4', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
 insert into proposition(id_topic, num_question, num_proposition, main_proposition, answer_nb) values('1', '1', '1', 'Il peut voler', '3');
 insert into proposition(id_topic, num_question, num_proposition, main_proposition, answer_nb) values('1', '1', '2', 'On peut le rouler', '3');
 insert into proposition(id_topic, num_question, num_proposition, main_proposition, answer_nb) values('1', '1', '3', 'A été ministre de la ville', '1');
@@ -16,6 +19,9 @@ insert into game_question(id_game, id_topic, num_question) values('1','1','1');
 
 INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('2', 'Sport');
 INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('2', '1', 'Monfils, mon père ou les deux ?', 'Monfils', 'Mon père');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('2', '2', 'Monfils, mon père ou les deux ?', 'Monfils', 'Mon père');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('2', '3', 'Monfils, mon père ou les deux ?', 'Monfils', 'Mon père');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('2', '4', 'Monfils, mon père ou les deux ?', 'Monfils', 'Mon père');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '1', 'Il est déja allé en demi-finale à Roland Garros', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '2', 'Il a couché avec ma mère', '2');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('2', '1', '3', 'Il a un très bon revers', '3');
