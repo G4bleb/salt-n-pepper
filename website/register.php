@@ -8,7 +8,7 @@
 
   <h2><span class="badge badge-primary">Inscription</span></h2>
   <?php require_once 'php/sessionmanager.php'; require_once 'php/adduser.php';
-  if (checkSession($dbCnx)) header("Refresh:0; url=index.php");
+  if ($sessionValid) header("Refresh:0; url=index.php");
   if (isset($_POST['register'])) {
     if (addUser($dbCnx, $_POST['username'], $_POST['password'])) {
       error_log("addedUser : ".$_POST['username'].", ".$_POST['password']);
@@ -32,7 +32,7 @@
           </div>
           <div class="form-group">
               <label for="confirm_password">Confirmer le mot de passe</label>
-              <input id="confirm_password" type="password" class="form-control" placeholder="Confirmer password"><br>
+              <input id="confirm_password" type="password" class="form-control" placeholder="Confirm password"><br>
           </div>
           <span id='confirmed'></span><br>
           <input class="btn btn-primary" type="submit" name="register" value="Créer un compte">

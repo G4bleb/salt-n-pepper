@@ -8,7 +8,7 @@
 
   <h2><a href="mainmenu.php"><span class="badge badge-primary">Menu principal</span></a></h2>
   <?php require_once 'php/sessionmanager.php';
-  if (checkSession($dbCnx)){
+  if ($sessionValid){
     ?>
     <ul class="list-inline">
       <li class="list-inline-item">

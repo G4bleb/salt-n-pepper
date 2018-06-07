@@ -1,13 +1,15 @@
 <?php
 require_once 'dbconnect.php';
 session_start();
+
 function checkSession($db){
-  error_log("checkSession : ");
+  error_log("Checking session");
+  // var_dump(debug_backtrace());
   if (!isset($_SESSION['token'])) return false;
   $statement = $db->prepare('SELECT * FROM user WHERE token=:token');
   $statement->execute(array(':token'=>$_SESSION['token']));
   $result = $statement->fetch();
-  error_log($result['login']);
+  // error_log($result['login']);
   if (!$result){
     closeSession();
     return false;

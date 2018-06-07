@@ -17,8 +17,7 @@ $(document).ready(function() {
     }, animDuration, function() {
       $(this).empty();
       $(this).attr('id', "main-div");
-      prepareToPlay(1);
-      // ajaxRequest('GET', '../php/request.php/gamelist', loadGames);
+      prepareToPlay();
     });
 
   });
@@ -53,24 +52,44 @@ $(document).ready(function() {
 function loadGames(ajaxResponse){
   // Parse JSON response.
   var data = JSON.parse(ajaxResponse);
-  console.log(data);
+  // console.log(data);
   // Load comments.
-
-  jQuery.each(data, function(key, val){
-    $('#main-div').append("<table><tr id="+val.id_game+"><td>Partie numéro "+val.id_game+"</td></tr></table>");
+  $('#main-div').append("<table id='games-list'></table>");
+  $('#games-list').append("<tr><th>Parties</th></tr>");
+  $.each(data, function(key, val){
+    // alert($.type(val));
+    $('#games-list').append("<tr id="+val.id_game+"><td>Partie numéro "+val.id_game+"</td></tr>");
     $("#"+val.id_game).click(function() {
       prepareToPlay(val.id_game);
     });
-    // alert(val.id_game);
   });
+
 }
 
-function prepareToPlay(id_game){
-  console.log("Preparing to play");
+function emptyMainDiv(){
+  var delay = 0;
   if (!($('#main-div').is(':empty'))){
-    $('#main-div').children().fadeOut(250, function() {
-      $(this).empty()
+    delay = 150;
+    $('#main-div').children().fadeOut(delay, function() {
+      $(this).empty();
     });
   }
-  
+  return delay;
+}
+
+function prepareToPlay(id_game = -1){
+  var delay = emptyMainDiv();
+  console.log("Preparing to play game number "+id_game);
+
+  setTimeout(function() {
+    ajaxRequest('GET', '../php/request.php/loadGame/'+id_game, function(ajaxResponse){
+      var data = JSON.parse(ajaxResponse);
+      $('#main-div').append("<table id='questions-list'></table>");
+      $('#questions-list').append("<tr><th>Question</th><th>Thème</th></tr>");
+      $.each(data, function(key, val){
+        $('#questions-list').append("<tr><td>"+val.main_question+"</td><td>"+val.topic_name+"</td></tr>");
+      });
+      $('#main-div').append('<h1><a href="play.php?gameId='+data[0].id_game+'"><button id="start-game" class="bigbutton btn btn-primary" >Jouer</button></h1>');
+    });
+  }, delay);
 }

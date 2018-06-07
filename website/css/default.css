@@ -32,6 +32,18 @@ p{
   margin-top: 1em;
 }
 
+.menu-div{
+  /* margin-left: 1.5em;
+  margin-right: 1.5em; */
+  padding-top: 3em;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid;
+  height: 35em;
+}
+
 form{
   width:23em;
   /* max-width: 50em; */
@@ -51,22 +63,9 @@ table, th, td {
 td, th {
   width: 40%;
   border: 1px solid black;
-  text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
   background-color: WhiteSmoke;
-}
-
-.menu-div{
-  /* margin-left: 1.5em;
-  margin-right: 1.5em; */
-  padding-top: 3em;
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border: 1px solid;
-  height: 35em;
 }
