@@ -74,10 +74,8 @@ private:
     QVector <QVector <QLabel*> > TableFirstThumbnail;
     QVector <QVector <QLabel*> > TableSecondThumbnail;
 
-    QMessageBox msgBox_user;
-    QMessageBox msgBox_topic;
 
-    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic,ret_user,ret_topic,delete_selected_item;
+    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic,ret,delete_selected_item;
 };
 
 #endif // MAINMENU_HPP

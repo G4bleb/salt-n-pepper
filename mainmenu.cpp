@@ -128,13 +128,9 @@ void MainMenu::on_pushButton_set_user_clicked()
 void MainMenu::on_pushButton_delete_user_clicked()
 {
     delete_selected_item=false;
-    msgBox_user.setText("Warning !");
-    msgBox_user.setInformativeText("Are you sure you want delete your selection ?");
-    msgBox_user.setStandardButtons(QMessageBox::No|QMessageBox::Yes);
-    msgBox_user.setDefaultButton(QMessageBox::Yes);
-    ret_user = msgBox_user.exec();
+    ret=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes);
 
-    switch(ret_user){
+    switch(ret){
         case QMessageBox::Yes:
             delete_selected_item=true;
             break;
@@ -182,13 +178,9 @@ void MainMenu::on_pushButton_set_topic_clicked()
 void MainMenu::on_pushButton_delete_topic_clicked()
 {
     delete_selected_item=false;
-    msgBox_topic.setText("Warning !");
-    msgBox_topic.setInformativeText("Are you sure you want delete your selection ?");
-    msgBox_topic.setStandardButtons(QMessageBox::No|QMessageBox::Yes);
-    msgBox_topic.setDefaultButton(QMessageBox::Yes);
-    ret_topic = msgBox_topic.exec();
+    ret=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes);
 
-    switch(ret_topic){
+    switch(ret){
         case QMessageBox::Yes:
             delete_selected_item=true;
             break;
