@@ -8,9 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     this->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../salt-n-pepper/burger.png"));
-
 }
 
 MainWindow::~MainWindow()
@@ -20,8 +18,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_login_clicked()
 {
-
-
     try{
         driver = get_driver_instance();
         con = driver->connect("tcp://"+ui->lineEdit_address->text().toStdString()+":3306",ui->lineEdit_username->text().toStdString(),ui->lineEdit_password->text().toStdString());
@@ -36,7 +32,7 @@ void MainWindow::on_pushButton_login_clicked()
         cout << "# ERR: " << e.what();
         cout << " (MySQL error code: " << e.getErrorCode();
         cout << ", SQLState: " << e.getSQLState() << " )" << endl;
-        QMessageBox::warning(this,"WARNING !","Wrong informations !");
+        QMessageBox::warning(this,"WARNING !","Cannot connect to the database ! Wrong informations !");
     }
 
     if(status==1){

@@ -4,13 +4,13 @@
 #include "propositionsmenu.hpp"
 
 #include <cppconn/driver.h>
-#include <cppconn/exception.h>
 #include <cppconn/resultset.h>
-#include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
 
-#include <QDialog>
 #include <iostream>
+#include <QDialog>
+#include <QLabel>
+#include <QMessageBox>
 
 using namespace std;
 using namespace sql;
@@ -27,8 +27,15 @@ public:
     ~QuestionsMenu();
 
 private slots:
-    void on_pushButton_return_clicked();
     void on_pushButton_select_clicked();
+
+    /*--------- method QUESTION ----------*/
+    void on_tableWidget_Question_cellClicked(int row, int column);
+    void on_pushButton_delete_clicked();
+    void on_pushButton_set_clicked();
+
+    /*--------- other method ----------*/
+    void on_pushButton_return_clicked();
 
 private:
     Ui::QuestionsMenu *ui;
@@ -38,10 +45,20 @@ private:
     /*--------- DRIVER ----------*/
     Driver * driver_second_window;
 
-    /*--------- DRIVER ----------*/
+    /*--------- CONNECTION ----------*/
     Connection * con_second_window;
 
-    int id_topic;
+    /*--------- PREPARED_STATEMENT ----------*/
+    PreparedStatement * prepared_stmt_show_question;
+    PreparedStatement * prepared_stmt_delete_question;
+    PreparedStatement * prepared_stmt_set_question;
+
+    /*--------- RESULTSET ----------*/
+    ResultSet * res_show_question;
+
+    QVector < QVector <QLabel*> > tableQuestion;
+
+    int id_topic,row_table,column_table,selected_row,delete_selected_item,clicked_button;
 };
 
 #endif // QUESTIONSMENU_HPP

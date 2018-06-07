@@ -4,7 +4,6 @@
 #include "mainmenu.hpp"
 
 #include <cppconn/driver.h>
-#include <cppconn/exception.h>
 
 #include <QMainWindow>
 #include <iostream>
