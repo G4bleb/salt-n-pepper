@@ -117,7 +117,7 @@ void QuestionsMenu::on_pushButton_set_clicked()
              ui->lineEdit_answer1->text().toStdString().size()<=40 &&
                  ui->lineEdit_answer2->text().toStdString().size()<=40 &&
                     ui->lineEdit_answer1->text()!=NULL &&
-                         ui->lineEdit_answer2->text().toStdString().size()>0){
+                         ui->lineEdit_answer2->text()!=NULL){
         prepared_stmt_set_question=con_second_window->prepareStatement("UPDATE question set main_question=?,answer1=?,answer2=? where id_topic=? and num_question=?;");
         prepared_stmt_set_question->setString(1,ui->lineEdit_question->text().toStdString());
         prepared_stmt_set_question->setString(2,ui->lineEdit_answer1->text().toStdString());
@@ -152,7 +152,6 @@ void QuestionsMenu::on_pushButton_add_clicked()
                 (ui->lineEdit_answer1->text())!=NULL &&
                     ui->lineEdit_answer2->text().toStdString().size()<=40 &&
                         (ui->lineEdit_answer2->text())!=NULL){
-
         prepared_stmt_add_question=con_second_window->prepareStatement("INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES (?,?,?,?,?);");
         prepared_stmt_add_question->setInt(1,id_topic);
         prepared_stmt_add_question->setInt(2,num_question+1);
