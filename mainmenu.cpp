@@ -142,8 +142,8 @@ void MainMenu::on_pushButton_set_user_clicked()
 
 void MainMenu::on_pushButton_delete_user_clicked()
 {
-    delete_selected_item=false;
-    clicked_button=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No|QMessageBox::Yes,QMessageBox::No);
+    bool delete_selected_item=false;
+    int clicked_button=QMessageBox::question(this, tr("Delete User"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No|QMessageBox::Yes,QMessageBox::No);
 
     switch(clicked_button){
         case QMessageBox::Yes:
@@ -184,28 +184,23 @@ void MainMenu::on_pushButton_set_topic_clicked()
         prepared_stmt_set_topic->setString(1,ui->lineEdit_topic->text().toStdString());
         prepared_stmt_set_topic->setString(2,TableSecondThumbnail[selected_row_topic][0]->text().toStdString());
         prepared_stmt_set_topic->executeUpdate();
-
         delete prepared_stmt_set_topic;
-
-        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
-        this->deleteLater();
-        pageuser->show();
     }
 
     else{
         if(ui->lineEdit_topic->text().toStdString().size()>100)        QMessageBox::warning(this, tr("Set Topic"),tr("Topic too long ! Please insert a new one. (MAX 100)"));
         if((ui->lineEdit_topic->text())==NULL)        QMessageBox::warning(this, tr("Set Topic"),tr("No Topic add ! Please insert one."));
-
-        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
-        this->deleteLater();
-        pageuser->show();
     }
+
+    MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
+    pageuser->show();
 }
 
 void MainMenu::on_pushButton_delete_topic_clicked()
 {
-    delete_selected_item=false;
-    clicked_button=QMessageBox::question(this, tr("Delete"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes,QMessageBox::No);
+    bool delete_selected_item=false;
+    int clicked_button=QMessageBox::question(this, tr("Delete Topic"),tr("Are you sure you want to delete your selection ?"),QMessageBox::No | QMessageBox::Yes,QMessageBox::No);
 
     switch(clicked_button){
         case QMessageBox::Yes:
@@ -231,10 +226,17 @@ void MainMenu::on_pushButton_delete_topic_clicked()
 
 void MainMenu::on_pushButton_add_topic_clicked()
 {
-    prepared_stmt_add_topic=con_first_window->prepareStatement("INSERT INTO topic (id_topic,topic_name) values (NULL,?);");
-    prepared_stmt_add_topic->setString(1,ui->lineEdit_topic->text().toStdString());
-    prepared_stmt_add_topic->executeUpdate();
-    delete prepared_stmt_add_topic;
+    if(ui->lineEdit_topic->text().toStdString().size()<=100 && (ui->lineEdit_topic->text())!=NULL){
+        prepared_stmt_add_topic=con_first_window->prepareStatement("INSERT INTO topic (id_topic,topic_name) values (NULL,?);");
+        prepared_stmt_add_topic->setString(1,ui->lineEdit_topic->text().toStdString());
+        prepared_stmt_add_topic->executeUpdate();
+        delete prepared_stmt_add_topic;
+    }
+
+    else{
+        if(ui->lineEdit_topic->text().toStdString().size()>100) QMessageBox::warning(this, tr("Add Topic"),tr("Topic is too long ! Insert a new one. ( MAX 100)"));
+        if((ui->lineEdit_topic->text())==NULL) QMessageBox::warning(this, tr("Add Topic"),tr("No Topic add ! Please insert one."));
+    }
 
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
     this->deleteLater();

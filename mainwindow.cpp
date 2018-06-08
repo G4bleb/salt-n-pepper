@@ -41,3 +41,8 @@ void MainWindow::on_pushButton_login_clicked()
         mainMenu->show();
     }
 }
+
+void MainWindow::on_pushButton_quit_clicked()
+{
+    QApplication::quit();
+}

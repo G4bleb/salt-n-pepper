@@ -33,7 +33,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_adress">
         <property name="text">
-         <string>Adresse de la base :</string>
+         <string>Address of the base :</string>
         </property>
        </widget>
       </item>
@@ -67,7 +67,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="label_password">
         <property name="text">
-         <string>Mot de passe : </string>
+         <string>Password :</string>
         </property>
        </widget>
       </item>
@@ -94,7 +94,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_dbname">
         <property name="text">
-         <string>Nom de la base :</string>
+         <string>Name of the base :</string>
         </property>
        </widget>
       </item>
@@ -109,6 +109,13 @@
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_quit">
+      <property name="text">
+       <string>Quit</string>
+      </property>
+     </widget>
     </item>
     <item>
      <spacer name="verticalSpacer_2">

@@ -72,7 +72,7 @@ private:
     QVector <QVector <QLabel*> > TableSecondThumbnail;
 
 
-    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic,clicked_button,delete_selected_item;
+    int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic;
 };
 
 #endif // MAINMENU_HPP

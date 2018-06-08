@@ -48,7 +48,7 @@
      </attribute>
      <column>
       <property name="text">
-       <string>ID</string>
+       <string>ID_Question</string>
       </property>
      </column>
      <column>

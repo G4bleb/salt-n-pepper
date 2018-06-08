@@ -27,6 +27,8 @@ public:
 private slots:
     void on_pushButton_login_clicked();
 
+    void on_pushButton_quit_clicked();
+
 private:
     Ui::MainWindow *ui;
     MainMenu *mainMenu;
