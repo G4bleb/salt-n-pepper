@@ -20,7 +20,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="tabsClosable">
       <bool>false</bool>
@@ -57,7 +57,7 @@
            </attribute>
            <column>
             <property name="text">
-             <string>ID</string>
+             <string>ID_User</string>
             </property>
            </column>
            <column>
@@ -177,7 +177,7 @@
              </attribute>
              <column>
               <property name="text">
-               <string>ID</string>
+               <string>ID_Topic</string>
               </property>
              </column>
              <column>

@@ -27,17 +27,15 @@ public:
     ~QuestionsMenu();
 
 private slots:
-    void on_pushButton_select_clicked();
-
     /*--------- method QUESTION ----------*/
     void on_tableWidget_Question_cellClicked(int row, int column);
     void on_pushButton_delete_clicked();
     void on_pushButton_set_clicked();
+    void on_pushButton_add_clicked();
+    void on_pushButton_look_clicked();
 
     /*--------- other method ----------*/
     void on_pushButton_return_clicked();
-
-    void on_pushButton_add_clicked();
 
 private:
     Ui::QuestionsMenu *ui;
@@ -63,7 +61,7 @@ private:
 
     QVector < QVector <QLabel*> > tableQuestion;
 
-    int id_topic,row_table,column_table,selected_row,delete_selected_item,clicked_button,num_question;
+    int id_topic,row_table,column_table,selected_row,num_question,question_selected;
 };
 
 #endif // QUESTIONSMENU_HPP
