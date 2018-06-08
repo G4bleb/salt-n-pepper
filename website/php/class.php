@@ -31,6 +31,30 @@ class Game{
   public function getId(){
     return $this->id_game;
   }
+  public function setId($newId){
+    $this->id_game = $newId;
+  }
+  public function loadQuestions($db){
+    try{
+      $statement = $db->prepare(
+        'SELECT
+        q.*
+        FROM
+        `question` AS q,
+        `game_question` AS g
+        WHERE
+        g.`id_game` = :id_game AND g.`id_topic` = q.`id_topic` AND g.`num_question` = q.`num_question`'
+      );
+      $statement->execute(array(':id_game'=>$this->id_game));
+      $data = $statement->fetchAll(PDO::FETCH_ASSOC);//We're using FETCH_ASSOC and not FETCH_CLASS, 'Question' because we have to json_encode($data)
+      // var_dump_in_error_log($data);
+    }
+    catch (PDOException $exception){
+      error_log('Request error: '.$exception->getMessage());
+      return false;
+    }
+    return $data;
+  }
 }
 
 /* CLASSE Topic */
@@ -59,8 +83,36 @@ class Question{
   public function getAnswer1(){
     return $this->answer1;
   }
-  public function getAnswer12(){
+  public function getAnswer2(){
     return $this->answer2;
+  }
+  public function setId_topic($newId_topic){
+    $this->id_topic = $newId_topic;
+  }
+  public function setNum_question($newNum_question){
+    $this->num_question = $newNum_question;
+  }
+  public function loadPropositions($db){
+    try{
+      $statement = $db->prepare(
+        'SELECT
+        `num_proposition`,
+        `main_proposition`,
+        `answer_nb`
+        FROM
+        `proposition`
+        WHERE
+        `id_topic` = :id_topic AND `num_question` = :num_question'
+      );
+      $statement->execute(array(':id_topic'=>$this->id_topic, ':num_question'=>$this->num_question));
+      $data = $statement->fetchAll(PDO::FETCH_ASSOC);//We're using FETCH_ASSOC and not FETCH_CLASS, 'Proposition' because we have to json_encode($data)
+      var_dump_in_error_log($data);
+    }
+    catch (PDOException $exception){
+      error_log('Request error: '.$exception->getMessage());
+      return false;
+    }
+    return $data;
   }
 }
 

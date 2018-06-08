@@ -7,8 +7,9 @@
 // \param type The type of the request (GET, DELETE, POST, PUT).
 // \param request The request with the data.
 // \param callback The callback to call where the request is successful.
+// \param additionnalCallbackParameter the out variable (if needed).
 // \param data The data associated with the request.
-function ajaxRequest(type, request, callback, data = null) {
+function ajaxRequest(type, request, callback, additionnalCallbackParameter = undefined, data = null) {
   var xhr;
 
   // Create XML HTTP request.
@@ -35,7 +36,7 @@ function ajaxRequest(type, request, callback, data = null) {
       case 201:
         console.log(xhr.responseText);
         $('#errors').hide();
-        callback(xhr.responseText);
+        callback(xhr.responseText, additionnalCallbackParameter);
         break;
       case 401:
       case 403:

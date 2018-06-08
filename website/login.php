@@ -6,7 +6,7 @@
   <link href="../css/default.css" rel="stylesheet" type="text/css">
   <?php require_once 'php/header.php'; ?>
 
-  <h2><span class="badge badge-primary">Connexion</span></h2>
+  <h2><span class="badge title-badge badge-primary">Connexion</span></h2>
   <?php require_once 'php/sessionmanager.php'; ?>
   <?php
 

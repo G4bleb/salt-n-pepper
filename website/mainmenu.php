@@ -2,12 +2,12 @@
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Salt'n'Pepper - Inscription</title>
+  <title>Salt'n'Pepper - Menu principal</title>
   <link href="../css/default.css" rel="stylesheet" type="text/css">
   <?php require_once 'php/header.php';?>
 
-  <h2><a href="mainmenu.php"><span class="badge badge-primary">Menu principal</span></a></h2>
-  <?php require_once 'php/sessionmanager.php';
+  <h2><a href="mainmenu.php"><span class="badge title-badge badge-primary">Menu principal</span></a></h2>
+  <?php
   if ($sessionValid){
     ?>
     <ul class="list-inline">

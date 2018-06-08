@@ -16,7 +16,9 @@
         <th>Score</th>
         <th>Partie</th>
       </tr>
-      <?php require_once 'php/leaderboard.php' ?>
+      <?php require_once 'php/leaderboard.php';
+      echoLeaderboard($dbCnx);
+       ?>
 
     </table>
 
