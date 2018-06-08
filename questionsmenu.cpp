@@ -44,6 +44,15 @@ QuestionsMenu::QuestionsMenu(Driver * driver_first_window,Connection * con_first
             ui->tableWidget_Question->setCellWidget(i,j,tableQuestion[i][j]);
         }
     }
+
+    prepared_stmt_get_num_question=con_second_window->prepareStatement("SELECT MAX(num_question) FROM question where id_topic=?;");
+    prepared_stmt_get_num_question->setInt(1,id_topic);
+    res_get_num_question=prepared_stmt_get_num_question->executeQuery();
+
+    while(res_get_num_question->next()){
+        num_question=res_get_num_question->getInt(1);
+        cout << "Number Question :" << num_question<<endl;
+    }
 }
 
 QuestionsMenu::~QuestionsMenu()
@@ -134,4 +143,35 @@ void QuestionsMenu::on_pushButton_select_clicked()
     this->hide();
     propositionsMenu = new PropositionsMenu(this);
     propositionsMenu->show();
+}
+
+void QuestionsMenu::on_pushButton_add_clicked()
+{
+    if(ui->lineEdit_question->text().toStdString().size()<=100 && (ui->lineEdit_question->text())!=NULL && ui->lineEdit_answer1->text().toStdString().size()<=40 && (ui->lineEdit_answer1->text())!=NULL && ui->lineEdit_answer2->text().toStdString().size()<=40 && (ui->lineEdit_question->text())!=NULL){
+        prepared_stmt_add_question=con_second_window->prepareStatement("INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES (?,?,?,?,?);");
+        prepared_stmt_add_question->setInt(1,id_topic);
+        prepared_stmt_add_question->setInt(2,num_question+1);
+        prepared_stmt_add_question->setString(3,ui->lineEdit_question->text().toStdString());
+        prepared_stmt_add_question->setString(4,ui->lineEdit_answer1->text().toStdString());
+        prepared_stmt_add_question->setString(5,ui->lineEdit_answer2->text().toStdString());
+        prepared_stmt_add_question->executeUpdate();
+        delete prepared_stmt_add_question;
+
+        QuestionsMenu* pagequestion=new QuestionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,lastWindow);
+        this->deleteLater();
+        pagequestion->show();
+    }
+
+    else{
+        if(ui->lineEdit_question->text().toStdString().size()>100)        QMessageBox::warning(this, tr("Add Question"),tr("Question too long ! Please insert a new one. (MAX 100)"));
+        if((ui->lineEdit_question->text())==NULL)        QMessageBox::warning(this, tr("Add Question"),tr("No Question add ! Please insert one."));
+        if(ui->lineEdit_answer1->text().toStdString().size()>40)        QMessageBox::warning(this, tr("Add Question"),tr("First answer too long ! Please insert a new one. (MAX 40)"));
+        if((ui->lineEdit_answer1->text())==NULL)        QMessageBox::warning(this, tr("Add Question"),tr("No first answer add ! Please insert one."));
+        if(ui->lineEdit_answer2->text().toStdString().size()>40)        QMessageBox::warning(this, tr("Add Question"),tr("Second answer too long ! Please insert a new one. (MAX 40)"));
+        if((ui->lineEdit_answer2->text())==NULL)        QMessageBox::warning(this, tr("Add Question"),tr("No second answer add ! Please insert one."));
+
+        QuestionsMenu* pagequestion=new QuestionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,lastWindow);
+        this->deleteLater();
+        pagequestion->show();
+    }
 }

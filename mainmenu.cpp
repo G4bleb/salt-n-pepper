@@ -231,14 +231,26 @@ void MainMenu::on_pushButton_delete_topic_clicked()
 
 void MainMenu::on_pushButton_add_topic_clicked()
 {
-    prepared_stmt_add_topic=con_first_window->prepareStatement("INSERT INTO topic (id_topic,topic_name) values (NULL,?);");
-    prepared_stmt_add_topic->setString(1,ui->lineEdit_topic->text().toStdString());
-    prepared_stmt_add_topic->executeUpdate();
-    delete prepared_stmt_add_topic;
+    if(ui->lineEdit_topic->text().toStdString().size()<=100){
+        prepared_stmt_add_topic=con_first_window->prepareStatement("INSERT INTO topic (id_topic,topic_name) values (NULL,?);");
+        prepared_stmt_add_topic->setString(1,ui->lineEdit_topic->text().toStdString());
+        prepared_stmt_add_topic->executeUpdate();
+        delete prepared_stmt_add_topic;
 
-    MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
-    this->deleteLater();
-    pageuser->show();
+        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+        this->deleteLater();
+        pageuser->show();
+    }
+
+    else{
+        if(ui->lineEdit_topic->text().toStdString().size()>100) QMessageBox::warning(this, tr("Add Topic"),tr("Topic is too long ! Insert a new one. ( MAX 100)"));
+
+        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+        this->deleteLater();
+        pageuser->show();
+    }
+
+
 }
 
 void MainMenu::on_pushButton_look_topic_clicked()

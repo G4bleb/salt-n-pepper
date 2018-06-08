@@ -5,6 +5,7 @@ insert into question(id_topic, num_question, main_question, answer1, answer2) va
 insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '2', 'Bernard Tapie, un tapis ou les deux', 'Bernard Tapie', 'Un tapis');
 insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '3', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
 insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '4', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
+insert into question(id_topic, num_question, main_question, answer1, answer2) values('1', '5', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
 insert into proposition(id_topic, num_question, num_proposition, main_proposition, answer_nb) values('1', '1', '1', 'Il peut voler', '3');
 insert into proposition(id_topic, num_question, num_proposition, main_proposition, answer_nb) values('1', '1', '2', 'On peut le rouler', '3');
 insert into proposition(id_topic, num_question, num_proposition, main_proposition, answer_nb) values('1', '1', '3', 'A été ministre de la ville', '1');
