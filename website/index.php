@@ -6,8 +6,7 @@
     <link href="../css/default.css" rel="stylesheet" type="text/css">
 
     <?php require_once 'php/header.php';?>
-    <?php require_once 'php/sessionmanager.php';?>
-    <?php if (checkSession($dbCnx)): ?>
+    <?php if ($sessionValid): ?>
       <h1><a href="mainmenu.php"><button class="bigbutton btn btn-primary" >Jouer</button></a></h1>
     <?php endif; ?>
     <table>

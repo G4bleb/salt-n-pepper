@@ -19,12 +19,11 @@
     <img src="../img/burger.png" class="mx-auto d-block" id="logo"></img>
     <ul id="navbuttons" class="list-inline">
     <?php require_once 'sessionmanager.php';?>
-    <?php if (checkSession($dbCnx)): ?>
+    <?php if ($sessionValid = checkSession($dbCnx)): ?>
       <li class="list-inline-item"><a href="../login.php?disconnect=y" ><button type="button" class="btn btn-default" id="button_disconnect">Déconnexion</button></a></li>
     <?php else: ?>
         <li class="list-inline-item"><a href="../login.php" ><button type="button" class="btn btn-light" >Connexion</button></a></li>
         <li class="list-inline-item"><a href="../register.php" ><button type="button" class="btn btn-light" >Inscription</button> </a></li>
-
     <?php endif; ?>
     </ul>
   </div>
