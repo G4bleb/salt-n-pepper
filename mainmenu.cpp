@@ -123,20 +123,18 @@ void MainMenu::on_pushButton_set_user_clicked()
 
         delete prepared_stmt_set_user;
 
-        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
-        this->deleteLater();
-        pageuser->show();
+        QMessageBox::information(this, tr("Set User"),tr("User modified."));
     }
 
     else{
         if(high_score==false)        QMessageBox::warning(this, tr("Set User"),tr("High Score too high ! Please insert a new one."));
         if(ui->lineEdit_login->text().toStdString().size()>64)        QMessageBox::warning(this, tr("Set User"),tr("Username too long ! Please insert a new one. (MAX 64)"));
-        if((ui->lineEdit_login->text())==NULL)        QMessageBox::warning(this, tr("Set User"),tr("No Username add ! Please insert one."));
-
-        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
-        this->deleteLater();
-        pageuser->show();
+        if((ui->lineEdit_login->text())==NULL)        QMessageBox::warning(this, tr("Set User"),tr("No Username add ! Please insert one."));     
     }
+
+    MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
+    pageuser->show();
 
 }
 
@@ -160,6 +158,9 @@ void MainMenu::on_pushButton_delete_user_clicked()
         prepared_stmt_delete_user->setString(1,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
         prepared_stmt_delete_user->executeUpdate();
         delete prepared_stmt_delete_user;
+
+        QMessageBox::information(this, tr("Delete User"),tr("User deleted."));
+
     }
 
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
@@ -185,6 +186,8 @@ void MainMenu::on_pushButton_set_topic_clicked()
         prepared_stmt_set_topic->setString(2,TableSecondThumbnail[selected_row_topic][0]->text().toStdString());
         prepared_stmt_set_topic->executeUpdate();
         delete prepared_stmt_set_topic;
+
+        QMessageBox::information(this, tr("Set Topic"),tr("Topic modified."));
     }
 
     else{
@@ -217,6 +220,9 @@ void MainMenu::on_pushButton_delete_topic_clicked()
         prepared_stmt_delete_topic->setString(1,TableSecondThumbnail[selected_row_topic][0]->text().toStdString());
         prepared_stmt_delete_topic->executeUpdate();
         delete prepared_stmt_delete_topic;
+
+        QMessageBox::information(this, tr("Delete Topic"),tr("Topic deleted."));
+
     }
 
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
@@ -231,6 +237,9 @@ void MainMenu::on_pushButton_add_topic_clicked()
         prepared_stmt_add_topic->setString(1,ui->lineEdit_topic->text().toStdString());
         prepared_stmt_add_topic->executeUpdate();
         delete prepared_stmt_add_topic;
+
+        QMessageBox::information(this, tr("Add Topic"),tr("Topic added."));
+
     }
 
     else{

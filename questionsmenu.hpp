@@ -11,6 +11,7 @@
 #include <QDialog>
 #include <QLabel>
 #include <QMessageBox>
+#include <QDebug>
 
 using namespace std;
 using namespace sql;

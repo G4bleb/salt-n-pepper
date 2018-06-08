@@ -44,5 +44,6 @@ void MainWindow::on_pushButton_login_clicked()
 
 void MainWindow::on_pushButton_quit_clicked()
 {
+    QMessageBox::information(this, tr("Quit"),tr("Goodbye !"));
     QApplication::quit();
 }

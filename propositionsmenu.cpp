@@ -132,6 +132,9 @@ void PropositionsMenu::on_pushButton_delete_clicked()
         prepared_stmt_delete_proposition->setInt(3,id_topic_parent);
         prepared_stmt_delete_proposition->executeUpdate();
         delete prepared_stmt_delete_proposition;
+
+        QMessageBox::information(this, tr("Delete Proposition"),tr("Proposition deleted."));
+
     }
 
     PropositionsMenu* pageproposition=new PropositionsMenu(this->driver_third_window,this->con_third_window,this->id_topic_parent,this->num_question_parent,lastWindow);
@@ -171,6 +174,8 @@ void PropositionsMenu::on_pushButton_set_clicked()
             prepared_stmt_set_proposition->executeUpdate();
             delete prepared_stmt_set_proposition;
         }
+
+        QMessageBox::information(this, tr("Set Proposition"),tr("Question modified."));
     }
 
     else{
@@ -218,6 +223,7 @@ void PropositionsMenu::on_pushButton_add_clicked()
             prepared_stmt_add_proposition->executeUpdate();
             delete prepared_stmt_add_proposition;
         }
+        QMessageBox::information(this, tr("Add Proposition"),tr("Proposition added."));
     }
 
     else{

@@ -126,7 +126,7 @@ void QuestionsMenu::on_pushButton_set_clicked()
         prepared_stmt_set_question->setString(5,tableQuestion[selected_row][0]->text().toStdString());
         prepared_stmt_set_question->executeUpdate();
         delete prepared_stmt_set_question;
-
+        
         QMessageBox::information(this, tr("Set Question"),tr("Question modified."));
     }
 
@@ -152,7 +152,6 @@ void QuestionsMenu::on_pushButton_add_clicked()
                 (ui->lineEdit_answer1->text())!=NULL &&
                     ui->lineEdit_answer2->text().toStdString().size()<=40 &&
                         (ui->lineEdit_answer2->text())!=NULL){
-
         prepared_stmt_add_question=con_second_window->prepareStatement("INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES (?,?,?,?,?);");
         prepared_stmt_add_question->setInt(1,id_topic);
         prepared_stmt_add_question->setInt(2,num_question+1);
