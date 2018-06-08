@@ -25,11 +25,14 @@ p{
 }
 
 .badge{
-  background-color: #428bca;
   font-size: 1em;
   font-weight: lighter;
   padding: 0.5em;
   margin-top: 1em;
+}
+
+.title-badge{
+  background-color: #428bca;
 }
 
 .menu-div{

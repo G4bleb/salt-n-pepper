@@ -1,6 +1,7 @@
 <?php
+require_once 'class.php';
 require_once 'dbconnect.php';
-require_once 'game.php';
+require_once 'newgame.php';
 header('Content-Type: text/plain; charset=utf-8');
 header('Cache-control: no-store, no-cache, must-revalidate');
 header('Pragma: no-cache');
@@ -23,10 +24,15 @@ $request = explode('/', $request);
 $requestRessource = array_shift($request);
 $data = $requestType.':'.$requestRessource;
 
-// Check the id associated to the request.
+// Load the id(s) sent with the request.
 $id = array_shift($request);
+// error_log("ID : ".$id);
 if ($id == '')
 $id = NULL;
+$secondId = array_shift($request);
+// error_log("SECOND_ID : ".$secondId);
+if ($secondId == '')
+$secondId = NULL;
 
 if ($requestRessource === 'gamelist') {
   try{
@@ -40,7 +46,7 @@ if ($requestRessource === 'gamelist') {
   }
 }elseif ($requestRessource === 'loadGame') {
   if ($id == -1) {
-    $id = generateNewGame();
+    $id = generateNewGame($dbCnx);
   }
   try{
     $statement = $dbCnx->prepare('SELECT
@@ -56,16 +62,26 @@ if ($requestRessource === 'gamelist') {
       ');
       $statement->execute(array(':id_game'=>$id));
       $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-      var_dump_in_error_log($data);
+      // var_dump_in_error_log($data);
     }
     catch (PDOException $exception){
       error_log('Request error: '.$exception->getMessage());
       return false;
     }
+  }elseif ($requestRessource === 'loadQuestions' && isset($id)) {
+    // error_log("Going to load questions");
+    $currentGame = new Game;
+    $currentGame->setId($id);
+    $data = $currentGame->loadQuestions($dbCnx);
+    // var_dump_in_error_log($data);
+  }elseif ($requestRessource === 'loadPropositions' && isset($id) && isset($secondId)) {
+    // error_log("Going to load propositions");
+    $currentQuestion = new Question;
+    $currentQuestion->setId_topic($id);
+    $currentQuestion->setNum_question($secondId);
+    $data = $currentQuestion->loadPropositions($dbCnx);
   }
-
   // Send data to the client.
-
   header('HTTP/1.1 200 OK');
   echo json_encode($data);
   exit;
