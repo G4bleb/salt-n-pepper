@@ -32,5 +32,6 @@
 
   <?php require_once 'php/footer.php';?>
   <script src="../js/ajax.js"></script>
+  <script src="../js/default.js"></script>
   <script src="../js/mainmenu.js"></script>
   </html>

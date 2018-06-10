@@ -1,6 +1,7 @@
 <?php
 require_once 'class.php';
 require_once 'dbconnect.php';
+require_once 'sessionmanager.php';
 require_once 'newgame.php';
 header('Content-Type: text/plain; charset=utf-8');
 header('Cache-control: no-store, no-cache, must-revalidate');
@@ -80,6 +81,22 @@ if ($requestRessource === 'gamelist') {
     $currentQuestion->setId_topic($id);
     $currentQuestion->setNum_question($secondId);
     $data = $currentQuestion->loadPropositions($dbCnx);
+  }elseif ($requestRessource === 'addScore' && isset($id) && isset($_POST['score']) && isset($_SESSION['token'])){
+    try {
+      $statement = $dbCnx->prepare('SELECT id_user, best_score FROM user WHERE token=:token');
+      $statement->execute(array(':token'=>$_SESSION['token']));
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);;
+      var_dump_in_error_log($result);
+      $data = false;
+      if ($_POST['score']>$result[0]['best_score']) {
+        $statement = $dbCnx->prepare("UPDATE user SET best_score=:best_score, id_game=:id_game WHERE id_user=:id_user");
+        $statement->execute(array(':best_score'=>$_POST['score'], ':id_game'=>$id,':id_user'=>$result[0]['id_user']));
+        $data = true;
+      }
+    } catch (PDOException $exception){
+      error_log('Request error: '.$exception->getMessage());
+      return false;
+    }
   }
   // Send data to the client.
   header('HTTP/1.1 200 OK');

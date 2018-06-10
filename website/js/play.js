@@ -4,10 +4,12 @@ class Game{
     this.questions = questions;
     this.currentQuestionNb = 0;
     this.propositions = propositions;
-    // this.currentPropositionNb = 0;
     this.totalAnswers=0;
     this.correctAnswers=0;
     this.startTime=$.now();
+  }
+  calculateScore(){
+    return (this.correctAnswers/this.totalAnswers)*(1/($.now()-this.startTime))*100000000;
   }
 }
 
@@ -75,5 +77,27 @@ function checkAnswer(currentGame, numberAnswered, propositionIndex){
 }
 
 function endGame(currentGame){
-  alert(currentGame.correctAnswers+'/'+currentGame.totalAnswers+" Starting time :"+currentGame.startTime);
+  var delay = emptyMainDiv();
+  setTimeout(function(){
+    $('#main-div').hide();
+    $('#main-div').append('<ul id="score-features" class="list-inline"><ul>');
+    $('#score-features').append('<li class="list-inline-item"><h2><span id="mark" class="badge badge-warning"></span></h2></li>');
+    $('#score-features').append('<li class="list-inline-item"><h2><span id="time" class="badge badge-warning"></span></h2></li>');
+    $('#mark').html(currentGame.correctAnswers+"/"+currentGame.totalAnswers);
+    $('#time').html(Math.round(($.now()-currentGame.startTime)/1000)+" secondes");
+    score = Math.round(currentGame.calculateScore());
+    $('#main-div').append('<h2><span class="badge badge-warning">'+score+'</span></h2>');
+    // alert(currentGame.correctAnswers+'/'+currentGame.totalAnswers+" Starting time :"+currentGame.startTime);
+    ajaxRequest('POST', '../php/request.php/addScore/'+currentGame.id, checkHighscore, undefined, 'score=' + score);
+    $('#main-div').fadeIn(delay);
+  },delay);
+  // window.location.replace("results.php");
+}
+
+function checkHighscore(ajaxResponse){
+  console.log(ajaxResponse);
+  // Parse JSON response.
+  if (JSON.parse(ajaxResponse)) {
+    $('#main-div').append('<h1>Nouveau record !</h1>');
+  }
 }
