@@ -17,8 +17,9 @@ QuestionsMenu::QuestionsMenu(Driver * driver_first_window,Connection * con_first
     ui->pushButton_delete->setEnabled(false);
     ui->pushButton_set->setEnabled(false);
     ui->pushButton_look->setEnabled(false);
+    ui->pushButton_disable->setEnabled(false);
 
-    prepared_stmt_show_question=con_second_window->prepareStatement("SELECT num_question,answer1,answer2,main_question from question where id_topic=?");
+    prepared_stmt_show_question=con_second_window->prepareStatement("SELECT num_question,enabled,answer1,answer2,main_question from question where id_topic=? ORDER BY main_question");
     prepared_stmt_show_question->setInt(1,id_topic);
     res_show_question=prepared_stmt_show_question->executeQuery();
 
@@ -28,9 +29,14 @@ QuestionsMenu::QuestionsMenu(Driver * driver_first_window,Connection * con_first
     while(res_show_question->next()){
         QVector <QLabel*> vecteurLabel;
         vecteurLabel.append(new QLabel(res_show_question->getString(1).c_str()));
-        vecteurLabel.append(new QLabel(res_show_question->getString(2).c_str()));
+
+        status=res_show_question->getInt(2);
+        if(status==1) vecteurLabel.append(new QLabel("ENABLE"));
+        else vecteurLabel.append(new QLabel("DISABLE"));
+
         vecteurLabel.append(new QLabel(res_show_question->getString(3).c_str()));
         vecteurLabel.append(new QLabel(res_show_question->getString(4).c_str()));
+        vecteurLabel.append(new QLabel(res_show_question->getString(5).c_str()));
         tableQuestion.append(vecteurLabel);
         row_table++;
     }
@@ -53,6 +59,12 @@ QuestionsMenu::QuestionsMenu(Driver * driver_first_window,Connection * con_first
         num_question=res_get_num_question->getInt(1);
         cout << "Number Question :" << num_question<<endl;
     }
+
+    delete prepared_stmt_get_num_question;
+    delete prepared_stmt_show_question;
+
+    delete res_show_question;
+    delete res_get_num_question;
 }
 
 QuestionsMenu::~QuestionsMenu()
@@ -72,11 +84,12 @@ void QuestionsMenu::on_tableWidget_Question_cellClicked(int row, int column)
     ui->pushButton_delete->setEnabled(true);
     ui->pushButton_set->setEnabled(true);
     ui->pushButton_look->setEnabled(true);
+    ui->pushButton_disable->setEnabled(true);
 
     selected_row=row;
-    ui->lineEdit_question->setText(tableQuestion[row][3]->text());
-    ui->lineEdit_answer1->setText(tableQuestion[row][1]->text());
-    ui->lineEdit_answer2->setText(tableQuestion[row][2]->text());
+    ui->lineEdit_answer1->setText(tableQuestion[row][2]->text());
+    ui->lineEdit_answer2->setText(tableQuestion[row][3]->text());
+    ui->lineEdit_question->setText(tableQuestion[row][4]->text());
 }
 
 void QuestionsMenu::on_pushButton_delete_clicked()
@@ -100,9 +113,7 @@ void QuestionsMenu::on_pushButton_delete_clicked()
         prepared_stmt_delete_question->setInt(2,id_topic);
         prepared_stmt_delete_question->executeUpdate();
         delete prepared_stmt_delete_question;
-
         QMessageBox::information(this, tr("Delete Question"),tr("Question deleted."));
-
     }
 
     QuestionsMenu* pagequestion=new QuestionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,lastWindow);
@@ -146,12 +157,19 @@ void QuestionsMenu::on_pushButton_set_clicked()
 
 void QuestionsMenu::on_pushButton_add_clicked()
 {
+    int verification=0;
+
+    for(int i=0;i<row_table;i++){
+        if(tableQuestion[i][4]->text().toStdString()!=ui->lineEdit_question->text().toStdString()) verification++;
+    }
+
     if(ui->lineEdit_question->text().toStdString().size()<=100 &&
         (ui->lineEdit_question->text())!=NULL &&
             ui->lineEdit_answer1->text().toStdString().size()<=40 &&
                 (ui->lineEdit_answer1->text())!=NULL &&
                     ui->lineEdit_answer2->text().toStdString().size()<=40 &&
-                        (ui->lineEdit_answer2->text())!=NULL){
+                        (ui->lineEdit_answer2->text())!=NULL &&
+                            verification==row_table){
         prepared_stmt_add_question=con_second_window->prepareStatement("INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES (?,?,?,?,?);");
         prepared_stmt_add_question->setInt(1,id_topic);
         prepared_stmt_add_question->setInt(2,num_question+1);
@@ -171,6 +189,7 @@ void QuestionsMenu::on_pushButton_add_clicked()
         if((ui->lineEdit_answer1->text())==NULL)        QMessageBox::warning(this, tr("Add Question"),tr("No first answer add ! Please insert one."));
         if(ui->lineEdit_answer2->text().toStdString().size()>40)        QMessageBox::warning(this, tr("Add Question"),tr("Second answer too long ! Please insert a new one. (MAX 40)"));
         if((ui->lineEdit_answer2->text())==NULL)        QMessageBox::warning(this, tr("Add Question"),tr("No second answer add ! Please insert one."));
+        if(verification!=row_table)        QMessageBox::warning(this, tr("Add Question"),tr("This question already exist. Please insert a new one."));
     }
 
     QuestionsMenu* pagequestion=new QuestionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,lastWindow);
@@ -186,4 +205,23 @@ void QuestionsMenu::on_pushButton_look_clicked()
     this->hide();
     propositionsMenu = new PropositionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,this->question_selected,this);
     propositionsMenu->show();
+}
+
+void QuestionsMenu::on_pushButton_disable_clicked()
+{
+    if(tableQuestion[selected_row][1]->text().toStdString()=="ENABLE"){
+        prepared_stmt_status_question=con_second_window->prepareStatement("UPDATE question set enabled=0 where id_topic=? and num_question=? ");
+    }
+    else{
+        prepared_stmt_status_question=con_second_window->prepareStatement("UPDATE question set enabled=1 where id_topic=? and num_question=? ");
+    }
+
+    prepared_stmt_status_question->setInt(1,id_topic);
+    prepared_stmt_status_question->setString(2,tableQuestion[selected_row][0]->text().toStdString());
+    prepared_stmt_status_question->executeUpdate();
+    delete prepared_stmt_status_question;
+
+    QuestionsMenu* pagequestion=new QuestionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,lastWindow);
+    this->deleteLater();
+    pagequestion->show();
 }

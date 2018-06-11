@@ -4,12 +4,14 @@
 #include <cppconn/driver.h>
 #include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
+#include <cppconn/exception.h>
 
 #include <iostream>
 #include <QDialog>
 #include <QLabel>
 #include <QMessageBox>
 #include <QRadioButton>
+#include <QCheckBox>
 
 using namespace std;
 using namespace sql;
@@ -28,18 +30,14 @@ public:
 
 private slots:
     /*--------- other PROPOSITIONS ----------*/
-
+    void on_tableWidget_Proposition_cellClicked(int row, int column);
+    void on_pushButton_delete_clicked();
+    void on_pushButton_set_clicked();
+    void on_pushButton_add_clicked();
+    void on_pushButton_disable_clicked();
 
     /*--------- other method ----------*/
     void on_pushButton_return_clicked();
-
-    void on_tableWidget_Proposition_cellClicked(int row, int column);
-
-    void on_pushButton_delete_clicked();
-
-    void on_pushButton_set_clicked();
-
-    void on_pushButton_add_clicked();
 
 private:
     Ui::PropositionsMenu *ui;
@@ -59,6 +57,7 @@ private:
     PreparedStatement * prepared_stmt_delete_proposition;
     PreparedStatement * prepared_stmt_set_proposition;
     PreparedStatement * prepared_stmt_add_proposition;
+    PreparedStatement * prepared_stmt_status_proposition;
 
     /*--------- RESULTSET ----------*/
     ResultSet * res_show_proposition;
@@ -68,7 +67,8 @@ private:
 
     QVector <QVector <QLabel*> > tableProposition;
 
-    int id_topic_parent,num_question_parent,row_table,column_table,selected_row,answer,num_proposition;
+    int id_topic_parent,num_question_parent,row_table,column_table,selected_row,answer,num_proposition,status;
+
 };
 
 #endif // PROPOSITIONSMENU_HPP

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>625</width>
-    <height>438</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -49,6 +49,11 @@
      <column>
       <property name="text">
        <string>ID_Question</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>State</string>
       </property>
      </column>
      <column>
@@ -123,6 +128,13 @@
       <widget class="QPushButton" name="pushButton_delete">
        <property name="text">
         <string>Delete</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_disable">
+       <property name="text">
+        <string>Change Status</string>
        </property>
       </widget>
      </item>

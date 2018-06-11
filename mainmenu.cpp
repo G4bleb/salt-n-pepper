@@ -22,10 +22,10 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     ui->pushButton_look_topic->setEnabled(false);
 
     stmt_show_user=con_first_window->createStatement();
-    res_show_user=stmt_show_user->executeQuery("SELECT id_user,login,best_score FROM user");
+    res_show_user=stmt_show_user->executeQuery("SELECT id_user,login,best_score FROM user ORDER BY (best_score) DESC");
 
     stmt_show_topic=con_first_window->createStatement();
-    res_show_topic=stmt_show_topic->executeQuery("SELECT id_topic,topic_name FROM topic");
+    res_show_topic=stmt_show_topic->executeQuery("SELECT id_topic,topic_name FROM topic ORDER BY topic_name");
 
     row_table_user=0;
     column_table_user=ui->tableWidget_User->columnCount();
@@ -110,7 +110,6 @@ void MainMenu::on_pushButton_set_user_clicked()
             prepared_stmt_set_user->setString(2,ui->lineEdit_high_score->text().toStdString());
             prepared_stmt_set_user->setString(3,ui->lineEdit_pwd->text().toStdString());
             prepared_stmt_set_user->setString(4,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
-            prepared_stmt_set_user->executeUpdate();
         }
 
         else{
@@ -118,9 +117,9 @@ void MainMenu::on_pushButton_set_user_clicked()
             prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
             prepared_stmt_set_user->setString(2,ui->lineEdit_high_score->text().toStdString());
             prepared_stmt_set_user->setString(3,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
-            prepared_stmt_set_user->executeUpdate();
         }
 
+        prepared_stmt_set_user->executeUpdate();
         delete prepared_stmt_set_user;
 
         QMessageBox::information(this, tr("Set User"),tr("User modified."));
@@ -158,7 +157,6 @@ void MainMenu::on_pushButton_delete_user_clicked()
         prepared_stmt_delete_user->setString(1,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
         prepared_stmt_delete_user->executeUpdate();
         delete prepared_stmt_delete_user;
-
         QMessageBox::information(this, tr("Delete User"),tr("User deleted."));
 
     }
@@ -186,7 +184,6 @@ void MainMenu::on_pushButton_set_topic_clicked()
         prepared_stmt_set_topic->setString(2,TableSecondThumbnail[selected_row_topic][0]->text().toStdString());
         prepared_stmt_set_topic->executeUpdate();
         delete prepared_stmt_set_topic;
-
         QMessageBox::information(this, tr("Set Topic"),tr("Topic modified."));
     }
 
@@ -232,7 +229,15 @@ void MainMenu::on_pushButton_delete_topic_clicked()
 
 void MainMenu::on_pushButton_add_topic_clicked()
 {
-    if(ui->lineEdit_topic->text().toStdString().size()<=100 && (ui->lineEdit_topic->text())!=NULL){
+    int verification=0;
+
+    for(int i=0;i<row_table_topic;i++){
+        if(TableSecondThumbnail[i][1]->text().toStdString()!=ui->lineEdit_topic->text().toStdString()) verification++;
+    }
+
+    if(ui->lineEdit_topic->text().toStdString().size()<=100 &&
+            (ui->lineEdit_topic->text())!=NULL &&
+                verification==row_table_topic){
         prepared_stmt_add_topic=con_first_window->prepareStatement("INSERT INTO topic (id_topic,topic_name) values (NULL,?);");
         prepared_stmt_add_topic->setString(1,ui->lineEdit_topic->text().toStdString());
         prepared_stmt_add_topic->executeUpdate();
@@ -245,6 +250,7 @@ void MainMenu::on_pushButton_add_topic_clicked()
     else{
         if(ui->lineEdit_topic->text().toStdString().size()>100) QMessageBox::warning(this, tr("Add Topic"),tr("Topic is too long ! Insert a new one. ( MAX 100)"));
         if((ui->lineEdit_topic->text())==NULL) QMessageBox::warning(this, tr("Add Topic"),tr("No Topic add ! Please insert one."));
+        if(verification!=row_table_topic) QMessageBox::warning(this, tr("Add Topic"),tr("This topic already exist. Please insert a new one."));
     }
 
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
