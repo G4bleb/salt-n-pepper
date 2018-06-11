@@ -6,6 +6,7 @@
 #include <cppconn/driver.h>
 #include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
+#include <cppconn/exception.h>
 
 #include <iostream>
 #include <QDialog>
@@ -38,6 +39,8 @@ private slots:
     /*--------- other method ----------*/
     void on_pushButton_return_clicked();
 
+    void on_pushButton_disable_clicked();
+
 private:
     Ui::QuestionsMenu *ui;
     PropositionsMenu * propositionsMenu;
@@ -55,6 +58,7 @@ private:
     PreparedStatement * prepared_stmt_set_question;
     PreparedStatement * prepared_stmt_add_question;
     PreparedStatement * prepared_stmt_get_num_question;
+    PreparedStatement * prepared_stmt_status_question;
 
     /*--------- RESULTSET ----------*/
     ResultSet * res_show_question;
@@ -62,7 +66,7 @@ private:
 
     QVector < QVector <QLabel*> > tableQuestion;
 
-    int id_topic,row_table,column_table,selected_row,num_question,question_selected;
+    int id_topic,row_table,column_table,selected_row,num_question,question_selected,status;
 };
 
 #endif // QUESTIONSMENU_HPP

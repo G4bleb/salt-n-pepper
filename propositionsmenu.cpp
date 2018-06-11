@@ -15,11 +15,12 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
 
     ui->pushButton_delete->setEnabled(false);
     ui->pushButton_set->setEnabled(false);
+    ui->pushButton_disable->setEnabled(false);
 
     cout << "ID TOPIC :" << id_topic_parent << endl;
     cout << "NUM QUESTION :" << num_question_parent << endl;
 
-    prepared_stmt_show_proposition=con_third_window->prepareStatement("SELECT num_proposition,answer_nb,main_proposition from proposition where id_topic=? and num_question=?");
+    prepared_stmt_show_proposition=con_third_window->prepareStatement("SELECT num_proposition,answer_nb,enabled,main_proposition from proposition where id_topic=? and num_question=? ORDER BY main_proposition");
     prepared_stmt_show_proposition->setInt(1,id_topic_parent);
     prepared_stmt_show_proposition->setInt(2,num_question_parent);
     res_show_proposition=prepared_stmt_show_proposition->executeQuery();
@@ -30,6 +31,11 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
     while(res_show_proposition->next()){
         QVector <QLabel*> vecteurLabel;
         vecteurLabel.append(new QLabel(res_show_proposition->getString(1).c_str()));
+
+        status=res_show_proposition->getInt(3);
+        if(status) vecteurLabel.append(new QLabel("ENABLE"));
+        else vecteurLabel.append(new QLabel("DISABLE"));
+
         answer=res_show_proposition->getInt(2);
         vecteurLabel.append(new QLabel(res_show_proposition->getString(2).c_str()));
 
@@ -43,7 +49,6 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
                 vecteurLabel.append(new QLabel(res_get_answer1->getString(1).c_str()));
             }
         }
-
         if(answer==2){
             prepared_stmt_get_answer2=con_third_window->prepareStatement("SELECT question.answer2 from question,proposition where question.id_topic=? and question.num_question=? and proposition.answer_nb=? GROUP BY question.answer2");
             prepared_stmt_get_answer2->setInt(1,id_topic_parent);
@@ -54,10 +59,9 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
                 vecteurLabel.append(new QLabel(res_get_answer2->getString(1).c_str()));
             }
         }
-
         if(answer==3) vecteurLabel.append(new QLabel("Les deux"));
 
-        vecteurLabel.append(new QLabel(res_show_proposition->getString(3).c_str()));
+        vecteurLabel.append(new QLabel(res_show_proposition->getString(4).c_str()));
         tableProposition.append(vecteurLabel);
         row_table++;
     }
@@ -81,6 +85,15 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
         num_proposition=res_get_num_proposition->getInt(1);
         cout << "Number Question :" << num_proposition<<endl;
     }
+
+    delete prepared_stmt_add_proposition;
+    delete prepared_stmt_get_num_proposition;
+    delete prepared_stmt_get_answer1;
+    delete prepared_stmt_get_answer2;
+
+    delete res_get_answer1;
+    delete res_get_answer2;
+    delete res_get_num_proposition;
 }
 
 PropositionsMenu::~PropositionsMenu()
@@ -102,12 +115,13 @@ void PropositionsMenu::on_tableWidget_Proposition_cellClicked(int row, int colum
 
     ui->pushButton_delete->setEnabled(true);
     ui->pushButton_set->setEnabled(true);
+    ui->pushButton_disable->setEnabled(true);
 
-    ui->lineEdit_proposition->setText(tableProposition[row][3]->text());
+    ui->lineEdit_proposition->setText(tableProposition[row][4]->text());
 
-    if(tableProposition[selected_row][1]->text()=='1') ui->radioButton_first->setChecked(check);
-    if(tableProposition[selected_row][1]->text()=='2') ui->radioButton_second->setChecked(check);
-    if(tableProposition[selected_row][1]->text()=='3') ui->radioButton_third->setChecked(check);
+    if(tableProposition[selected_row][2]->text()=='1') ui->radioButton_first->setChecked(check);
+    if(tableProposition[selected_row][2]->text()=='2') ui->radioButton_second->setChecked(check);
+    if(tableProposition[selected_row][2]->text()=='3') ui->radioButton_third->setChecked(check);
 }
 
 void PropositionsMenu::on_pushButton_delete_clicked()
@@ -132,9 +146,7 @@ void PropositionsMenu::on_pushButton_delete_clicked()
         prepared_stmt_delete_proposition->setInt(3,id_topic_parent);
         prepared_stmt_delete_proposition->executeUpdate();
         delete prepared_stmt_delete_proposition;
-
         QMessageBox::information(this, tr("Delete Proposition"),tr("Proposition deleted."));
-
     }
 
     PropositionsMenu* pageproposition=new PropositionsMenu(this->driver_third_window,this->con_third_window,this->id_topic_parent,this->num_question_parent,lastWindow);
@@ -147,34 +159,22 @@ void PropositionsMenu::on_pushButton_set_clicked()
     if(ui->lineEdit_proposition->text().toStdString().size()<=100 && (ui->lineEdit_proposition->text())!=NULL){
         if(ui->radioButton_first->isChecked()){
             prepared_stmt_set_proposition=con_third_window->prepareStatement("UPDATE proposition set main_proposition=?, answer_nb=1 where id_topic=? and num_question=? and num_proposition=?;");
-            prepared_stmt_set_proposition->setString(1,ui->lineEdit_proposition->text().toStdString());
-            prepared_stmt_set_proposition->setInt(2,id_topic_parent);
-            prepared_stmt_set_proposition->setInt(3,num_question_parent);
-            prepared_stmt_set_proposition->setString(4,tableProposition[selected_row][0]->text().toStdString());
-            prepared_stmt_set_proposition->executeUpdate();
-            delete prepared_stmt_set_proposition;
         }
 
         if(ui->radioButton_second->isChecked()){
             prepared_stmt_set_proposition=con_third_window->prepareStatement("UPDATE proposition set main_proposition=?, answer_nb=2 where id_topic=? and num_question=? and num_proposition=?;");
-            prepared_stmt_set_proposition->setString(1,ui->lineEdit_proposition->text().toStdString());
-            prepared_stmt_set_proposition->setInt(2,id_topic_parent);
-            prepared_stmt_set_proposition->setInt(3,num_question_parent);
-            prepared_stmt_set_proposition->setString(4,tableProposition[selected_row][0]->text().toStdString());
-            prepared_stmt_set_proposition->executeUpdate();
-            delete prepared_stmt_set_proposition;
         }
 
         if(ui->radioButton_third->isChecked()){
             prepared_stmt_set_proposition=con_third_window->prepareStatement("UPDATE proposition set main_proposition=?, answer_nb=3 where id_topic=? and num_question=? and num_proposition=?;");
-            prepared_stmt_set_proposition->setString(1,ui->lineEdit_proposition->text().toStdString());
-            prepared_stmt_set_proposition->setInt(2,id_topic_parent);
-            prepared_stmt_set_proposition->setInt(3,num_question_parent);
-            prepared_stmt_set_proposition->setString(4,tableProposition[selected_row][0]->text().toStdString());
-            prepared_stmt_set_proposition->executeUpdate();
-            delete prepared_stmt_set_proposition;
         }
 
+        prepared_stmt_set_proposition->setString(1,ui->lineEdit_proposition->text().toStdString());
+        prepared_stmt_set_proposition->setInt(2,id_topic_parent);
+        prepared_stmt_set_proposition->setInt(3,num_question_parent);
+        prepared_stmt_set_proposition->setString(4,tableProposition[selected_row][0]->text().toStdString());
+        prepared_stmt_set_proposition->executeUpdate();
+        delete prepared_stmt_set_proposition;
         QMessageBox::information(this, tr("Set Proposition"),tr("Question modified."));
     }
 
@@ -193,37 +193,30 @@ void PropositionsMenu::on_pushButton_add_clicked()
     bool check=false;
     if(ui->radioButton_first->isChecked() || ui->radioButton_second->isChecked() || ui->radioButton_third->isChecked()) check=true;
 
-    if(ui->lineEdit_proposition->text().toStdString().size()<=100 && (ui->lineEdit_proposition->text())!=NULL && check==true){
+    if(ui->lineEdit_proposition->text().toStdString().size()<=100 &&
+            (ui->lineEdit_proposition->text())!=NULL &&
+                check==true){
+
         if(ui->radioButton_first->isChecked()){
             prepared_stmt_add_proposition=con_third_window->prepareStatement("INSERT INTO `proposition`(`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES (?,?,?,?,1) ");
-            prepared_stmt_add_proposition->setInt(1,id_topic_parent);
-            prepared_stmt_add_proposition->setInt(2,num_question_parent);
-            prepared_stmt_add_proposition->setInt(3,num_proposition+1);
-            prepared_stmt_add_proposition->setString(4,ui->lineEdit_proposition->text().toStdString());
-            prepared_stmt_add_proposition->executeUpdate();
-            delete prepared_stmt_add_proposition;
         }
 
         if(ui->radioButton_second->isChecked()){
             prepared_stmt_add_proposition=con_third_window->prepareStatement("INSERT INTO `proposition`(`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES (?,?,?,?,2) ");
-            prepared_stmt_add_proposition->setInt(1,id_topic_parent);
-            prepared_stmt_add_proposition->setInt(2,num_question_parent);
-            prepared_stmt_add_proposition->setInt(3,num_proposition+1);
-            prepared_stmt_add_proposition->setString(4,ui->lineEdit_proposition->text().toStdString());
-            prepared_stmt_add_proposition->executeUpdate();
-            delete prepared_stmt_add_proposition;
         }
 
         if(ui->radioButton_third->isChecked()){
             prepared_stmt_add_proposition=con_third_window->prepareStatement("INSERT INTO `proposition`(`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES (?,?,?,?,3) ");
-            prepared_stmt_add_proposition->setInt(1,id_topic_parent);
-            prepared_stmt_add_proposition->setInt(2,num_question_parent);
-            prepared_stmt_add_proposition->setInt(3,num_proposition+1);
-            prepared_stmt_add_proposition->setString(4,ui->lineEdit_proposition->text().toStdString());
-            prepared_stmt_add_proposition->executeUpdate();
-            delete prepared_stmt_add_proposition;
         }
+
+        prepared_stmt_add_proposition->setInt(1,id_topic_parent);
+        prepared_stmt_add_proposition->setInt(2,num_question_parent);
+        prepared_stmt_add_proposition->setInt(3,num_proposition+1);
+        prepared_stmt_add_proposition->setString(4,ui->lineEdit_proposition->text().toStdString());
+        prepared_stmt_add_proposition->executeUpdate();
+        delete prepared_stmt_add_proposition;
         QMessageBox::information(this, tr("Add Proposition"),tr("Proposition added."));
+
     }
 
     else{
@@ -232,6 +225,26 @@ void PropositionsMenu::on_pushButton_add_clicked()
         if(check==false)        QMessageBox::warning(this, tr("Add Proposition"),tr("No Button checked"));
     }
 
+    PropositionsMenu* pageproposition=new PropositionsMenu(this->driver_third_window,this->con_third_window,this->id_topic_parent,this->num_question_parent,lastWindow);
+    this->deleteLater();
+    pageproposition->show();
+}
+
+void PropositionsMenu::on_pushButton_disable_clicked()
+{
+    if(tableProposition[selected_row][1]->text().toStdString()=="ENABLE"){
+        prepared_stmt_status_proposition=con_third_window->prepareStatement("UPDATE proposition set enabled=0 where id_topic=? and num_question=? and num_proposition=? ");
+    }
+
+    else{
+        prepared_stmt_status_proposition=con_third_window->prepareStatement("UPDATE proposition set enabled=1 where id_topic=? and num_question=? and num_proposition=? ");
+    }
+
+    prepared_stmt_status_proposition->setInt(1,id_topic_parent);
+    prepared_stmt_status_proposition->setInt(2,num_question_parent);
+    prepared_stmt_status_proposition->setString(3,tableProposition[selected_row][0]->text().toStdString());
+    prepared_stmt_status_proposition->executeUpdate();
+    delete prepared_stmt_status_proposition;
     PropositionsMenu* pageproposition=new PropositionsMenu(this->driver_third_window,this->con_third_window,this->id_topic_parent,this->num_question_parent,lastWindow);
     this->deleteLater();
     pageproposition->show();

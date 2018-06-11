@@ -22,10 +22,10 @@ MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
     ui->pushButton_look_topic->setEnabled(false);
 
     stmt_show_user=con_first_window->createStatement();
-    res_show_user=stmt_show_user->executeQuery("SELECT id_user,login,best_score FROM user");
+    res_show_user=stmt_show_user->executeQuery("SELECT id_user,login,best_score FROM user ORDER BY (best_score) DESC");
 
     stmt_show_topic=con_first_window->createStatement();
-    res_show_topic=stmt_show_topic->executeQuery("SELECT id_topic,topic_name FROM topic");
+    res_show_topic=stmt_show_topic->executeQuery("SELECT id_topic,topic_name FROM topic ORDER BY topic_name");
 
     row_table_user=0;
     column_table_user=ui->tableWidget_User->columnCount();
