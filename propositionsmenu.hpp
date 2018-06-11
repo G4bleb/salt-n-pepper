@@ -68,6 +68,7 @@ private:
     QVector <QVector <QLabel*> > tableProposition;
 
     int id_topic_parent,num_question_parent,row_table,column_table,selected_row,answer,num_proposition,status;
+
 };
 
 #endif // PROPOSITIONSMENU_HPP
