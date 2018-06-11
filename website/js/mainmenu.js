@@ -1,5 +1,10 @@
 $(document).ready(function() {
-  $( "#generate-game" ).click(function() { //"Génerer une partie" has been clicked
+  var urlParams = new URLSearchParams(window.location.search);
+  var gameId = urlParams.get('gameId');
+  if (gameId != null) {
+    prepareToPlay(gameId);
+  }else{
+    $( "#generate-game" ).click(function() { //"Génerer une partie" has been clicked
     var animDuration = 500;
     var rightDivWidth = $('#list-games-div').css("width");
     //The button fades away
@@ -22,26 +27,27 @@ $(document).ready(function() {
 
   });
   $( "#list-games" ).click(function() { //"Rejoindre" has been clicked
-    var animDuration = 500;
-    var leftDivWidth = $('#generate-game-div').css("width");
+  var animDuration = 500;
+  var leftDivWidth = $('#generate-game-div').css("width");
 
-    $('#list-games').fadeOut(animDuration);
+  $('#list-games').fadeOut(animDuration);
 
-    $('#generate-game-div').animate({//The other div is going to shrink and fade away
-      'width' : "-="+leftDivWidth,
-      'opacity': '0'
-    }, animDuration, function(){
-      $(this).remove();//When it's fully shrinked and faded, remove it
-    });
-
-    $('#list-games-div').animate({//The div which is going to become the main one expands
-      'width' : "+="+leftDivWidth
-    }, animDuration, function() {
-      $(this).empty();
-      $(this).attr('id', "main-div");//Becomes the main div
-      ajaxRequest('GET', '../php/request.php/gamelist', loadGames);
-    });
+  $('#generate-game-div').animate({//The other div is going to shrink and fade away
+    'width' : "-="+leftDivWidth,
+    'opacity': '0'
+  }, animDuration, function(){
+    $(this).remove();//When it's fully shrinked and faded, remove it
   });
+
+  $('#list-games-div').animate({//The div which is going to become the main one expands
+    'width' : "+="+leftDivWidth
+  }, animDuration, function() {
+    $(this).empty();
+    $(this).attr('id', "main-div");//Becomes the main div
+    ajaxRequest('GET', '../php/request.php/gamelist', loadGames);
+  });
+});
+}
 });
 
 //------------------------------------------------------------------------------
@@ -70,7 +76,7 @@ function loadGames(ajaxResponse){
 // Sets up a game summary in the main div
 // \param id_game the id of the game being set up (if we're going to generate one, id_game = -1)
 function prepareToPlay(id_game = -1){
-  var delay = emptyMainDiv();
+  var delay = emptyMainDiv(150);
   console.log("Preparing to play game number "+id_game);
 
   setTimeout(function() {

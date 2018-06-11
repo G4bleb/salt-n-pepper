@@ -1,3 +1,19 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+/* div:after{
+    content:"";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 2px dotted #ff0000;
+    transform: translate(-50%);
+} */
+
 body{
   background-color: #e6e6e6;
   text-align: center;
@@ -5,6 +21,7 @@ body{
   /* margin:0;
   padding:0;
   height:100%; */
+  margin-bottom: 40px;
   z-index: -2;
 }
 
@@ -35,6 +52,11 @@ p{
   background-color: #428bca;
 }
 
+.alert{
+  width:50%;
+  margin:auto;
+}
+
 .menu-div{
   /* margin-left: 1.5em;
   margin-right: 1.5em; */
@@ -44,7 +66,7 @@ p{
   justify-content: center;
   background-color: white;
   border: 1px solid;
-  height: 35em;
+  min-height: 35em;
 }
 
 form{

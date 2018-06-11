@@ -43,7 +43,7 @@ class Game{
         `question` AS q,
         `game_question` AS g
         WHERE
-        g.`id_game` = :id_game AND g.`id_topic` = q.`id_topic` AND g.`num_question` = q.`num_question`'
+        q.`enabled` = 1 AND g.`id_game` = :id_game AND g.`id_topic` = q.`id_topic` AND g.`num_question` = q.`num_question`'
       );
       $statement->execute(array(':id_game'=>$this->id_game));
       $data = $statement->fetchAll(PDO::FETCH_ASSOC);//We're using FETCH_ASSOC and not FETCH_CLASS, 'Question' because we have to json_encode($data)
@@ -102,7 +102,7 @@ class Question{
         FROM
         `proposition`
         WHERE
-        `id_topic` = :id_topic AND `num_question` = :num_question'
+        `enabled` = 1 AND `id_topic` = :id_topic AND `num_question` = :num_question'
       );
       $statement->execute(array(':id_topic'=>$this->id_topic, ':num_question'=>$this->num_question));
       $data = $statement->fetchAll(PDO::FETCH_ASSOC);//We're using FETCH_ASSOC and not FETCH_CLASS, 'Proposition' because we have to json_encode($data)

@@ -12,7 +12,7 @@ function generateNewGame($db){
     return false;
   }
   try{
-    $statement = $db->query('SELECT `id_topic`,`num_question` FROM `question` ORDER BY RAND() LIMIT 3');
+    $statement = $db->query('SELECT `id_topic`,`num_question` FROM `question` WHERE `enabled` = 1 ORDER BY RAND() LIMIT 3');
     $questions = $statement->fetchAll(PDO::FETCH_ASSOC);
     foreach ($questions as $key => $question) {
       try {
