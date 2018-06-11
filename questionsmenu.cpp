@@ -113,9 +113,7 @@ void QuestionsMenu::on_pushButton_delete_clicked()
         prepared_stmt_delete_question->setInt(2,id_topic);
         prepared_stmt_delete_question->executeUpdate();
         delete prepared_stmt_delete_question;
-
         QMessageBox::information(this, tr("Delete Question"),tr("Question deleted."));
-
     }
 
     QuestionsMenu* pagequestion=new QuestionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,lastWindow);
@@ -159,12 +157,19 @@ void QuestionsMenu::on_pushButton_set_clicked()
 
 void QuestionsMenu::on_pushButton_add_clicked()
 {
+    int verification=0;
+
+    for(int i=0;i<row_table;i++){
+        if(tableQuestion[i][4]->text().toStdString()!=ui->lineEdit_question->text().toStdString()) verification++;
+    }
+
     if(ui->lineEdit_question->text().toStdString().size()<=100 &&
         (ui->lineEdit_question->text())!=NULL &&
             ui->lineEdit_answer1->text().toStdString().size()<=40 &&
                 (ui->lineEdit_answer1->text())!=NULL &&
                     ui->lineEdit_answer2->text().toStdString().size()<=40 &&
-                        (ui->lineEdit_answer2->text())!=NULL){
+                        (ui->lineEdit_answer2->text())!=NULL &&
+                            verification==row_table){
         prepared_stmt_add_question=con_second_window->prepareStatement("INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES (?,?,?,?,?);");
         prepared_stmt_add_question->setInt(1,id_topic);
         prepared_stmt_add_question->setInt(2,num_question+1);
@@ -184,6 +189,7 @@ void QuestionsMenu::on_pushButton_add_clicked()
         if((ui->lineEdit_answer1->text())==NULL)        QMessageBox::warning(this, tr("Add Question"),tr("No first answer add ! Please insert one."));
         if(ui->lineEdit_answer2->text().toStdString().size()>40)        QMessageBox::warning(this, tr("Add Question"),tr("Second answer too long ! Please insert a new one. (MAX 40)"));
         if((ui->lineEdit_answer2->text())==NULL)        QMessageBox::warning(this, tr("Add Question"),tr("No second answer add ! Please insert one."));
+        if(verification!=row_table)        QMessageBox::warning(this, tr("Add Question"),tr("This question already exist. Please insert a new one."));
     }
 
     QuestionsMenu* pagequestion=new QuestionsMenu(this->driver_second_window,this->con_second_window,this->id_topic,lastWindow);

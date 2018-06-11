@@ -20,7 +20,7 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
     cout << "ID TOPIC :" << id_topic_parent << endl;
     cout << "NUM QUESTION :" << num_question_parent << endl;
 
-    prepared_stmt_show_proposition=con_third_window->prepareStatement("SELECT num_proposition,answer_nb,enabled,main_proposition from proposition where id_topic=? and num_question=? ORDER BY main_proposition");
+    prepared_stmt_show_proposition=con_third_window->prepareStatement("SELECT num_proposition,enabled,answer_nb,main_proposition from proposition where id_topic=? and num_question=? ORDER BY main_proposition");
     prepared_stmt_show_proposition->setInt(1,id_topic_parent);
     prepared_stmt_show_proposition->setInt(2,num_question_parent);
     res_show_proposition=prepared_stmt_show_proposition->executeQuery();
@@ -32,12 +32,12 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
         QVector <QLabel*> vecteurLabel;
         vecteurLabel.append(new QLabel(res_show_proposition->getString(1).c_str()));
 
-        status=res_show_proposition->getInt(3);
+        status=res_show_proposition->getInt(2);
         if(status) vecteurLabel.append(new QLabel("ENABLE"));
         else vecteurLabel.append(new QLabel("DISABLE"));
 
-        answer=res_show_proposition->getInt(2);
-        vecteurLabel.append(new QLabel(res_show_proposition->getString(2).c_str()));
+        answer=res_show_proposition->getInt(3);
+        vecteurLabel.append(new QLabel(res_show_proposition->getString(3).c_str()));
 
         if(answer==1){
             prepared_stmt_get_answer1=con_third_window->prepareStatement("SELECT question.answer1 from question,proposition where question.id_topic=? and question.num_question=? and proposition.answer_nb=? GROUP BY question.answer1");
@@ -48,6 +48,8 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
             while(res_get_answer1->next()){
                 vecteurLabel.append(new QLabel(res_get_answer1->getString(1).c_str()));
             }
+            delete prepared_stmt_get_answer1;
+            delete res_get_answer1;
         }
         if(answer==2){
             prepared_stmt_get_answer2=con_third_window->prepareStatement("SELECT question.answer2 from question,proposition where question.id_topic=? and question.num_question=? and proposition.answer_nb=? GROUP BY question.answer2");
@@ -58,6 +60,8 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
             while(res_get_answer2->next()){
                 vecteurLabel.append(new QLabel(res_get_answer2->getString(1).c_str()));
             }
+            delete prepared_stmt_get_answer2;
+            delete res_get_answer2;
         }
         if(answer==3) vecteurLabel.append(new QLabel("Les deux"));
 
@@ -86,13 +90,10 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
         cout << "Number Question :" << num_proposition<<endl;
     }
 
-    delete prepared_stmt_add_proposition;
+    delete prepared_stmt_show_proposition;
     delete prepared_stmt_get_num_proposition;
-    delete prepared_stmt_get_answer1;
-    delete prepared_stmt_get_answer2;
 
-    delete res_get_answer1;
-    delete res_get_answer2;
+    delete res_show_proposition;
     delete res_get_num_proposition;
 }
 
@@ -191,11 +192,18 @@ void PropositionsMenu::on_pushButton_set_clicked()
 void PropositionsMenu::on_pushButton_add_clicked()
 {
     bool check=false;
+    int verification=0;
+
+    for(int i=0;i<row_table;i++){
+        if(tableProposition[i][4]->text().toStdString()!=ui->lineEdit_proposition->text().toStdString()) verification++;
+    }
+
     if(ui->radioButton_first->isChecked() || ui->radioButton_second->isChecked() || ui->radioButton_third->isChecked()) check=true;
 
     if(ui->lineEdit_proposition->text().toStdString().size()<=100 &&
             (ui->lineEdit_proposition->text())!=NULL &&
-                check==true){
+                check==true &&
+                    verification==row_table){
 
         if(ui->radioButton_first->isChecked()){
             prepared_stmt_add_proposition=con_third_window->prepareStatement("INSERT INTO `proposition`(`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES (?,?,?,?,1) ");
@@ -222,7 +230,8 @@ void PropositionsMenu::on_pushButton_add_clicked()
     else{
         if(ui->lineEdit_proposition->text().toStdString().size()>100)        QMessageBox::warning(this, tr("Add Proposition"),tr("Proposition too long ! Please insert a new one. (MAX 100)"));
         if((ui->lineEdit_proposition->text())==NULL)        QMessageBox::warning(this, tr("Add Proposition"),tr("No Proposition add ! Please insert one."));
-        if(check==false)        QMessageBox::warning(this, tr("Add Proposition"),tr("No Button checked"));
+        if(check==false)        QMessageBox::warning(this, tr("Add Proposition"),tr("No Button checked."));
+        if(verification!=row_table) QMessageBox::warning(this, tr("Add Proposition"),tr("This proposition already exist. Please insert a new one."));
     }
 
     PropositionsMenu* pageproposition=new PropositionsMenu(this->driver_third_window,this->con_third_window,this->id_topic_parent,this->num_question_parent,lastWindow);
