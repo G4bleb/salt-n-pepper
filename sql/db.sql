@@ -60,7 +60,8 @@ CREATE TABLE question(
         num_question  Int NOT NULL ,
         main_question Varchar (100) NOT NULL ,
         answer1       Varchar (40) NOT NULL ,
-        answer2       Varchar (40) NOT NULL
+        answer2       Varchar (40) NOT NULL,
+        enabled BOOLEAN NOT NULL DEFAULT TRUE
 	,CONSTRAINT question_PK PRIMARY KEY (id_topic,num_question)
 
 	,CONSTRAINT question_topic_FK FOREIGN KEY (id_topic) REFERENCES topic(id_topic) ON DELETE CASCADE
@@ -76,7 +77,8 @@ CREATE TABLE proposition(
         num_question     Int NOT NULL ,
         num_proposition  Int NOT NULL ,
         main_proposition Varchar (100) NOT NULL ,
-        answer_nb        TinyINT NOT NULL
+        answer_nb        TinyINT NOT NULL,
+        enabled BOOLEAN NOT NULL DEFAULT TRUE
 	,CONSTRAINT proposition_PK PRIMARY KEY (id_topic,num_question,num_proposition)
 
 	,CONSTRAINT proposition_question_FK FOREIGN KEY (id_topic,num_question) REFERENCES question(id_topic,num_question) ON DELETE CASCADE
