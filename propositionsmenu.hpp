@@ -1,42 +1,115 @@
 #ifndef PROPOSITIONSMENU_HPP
 #define PROPOSITIONSMENU_HPP
 
-#include <cppconn/driver.h>
-#include <cppconn/resultset.h>
-#include <cppconn/prepared_statement.h>
-#include <cppconn/exception.h>
+/**
+ * \file propositionsmenu.hpp
+ * \brief Affichage des propositions des questions
+ * \author Barraud Lorens
+ * \date 15 juin 2018
+ */
 
-#include <iostream>
-#include <QDialog>
-#include <QLabel>
-#include <QMessageBox>
-#include <QRadioButton>
-#include <QCheckBox>
-
-using namespace std;
-using namespace sql;
+#include "include.hpp"
 
 namespace Ui {
 class PropositionsMenu;
 }
+
+/*! \class PropositionsMenu
+   * \brief classe representant les propositions des questions
+   *
+   *  La classe permet l'administration des propositions
+   */
 
 class PropositionsMenu : public QDialog
 {
     Q_OBJECT
 
 public:
+
+    /*!
+         *  \brief Constructeur
+         *
+         *  Constructeur de la classe PropositionsMenu
+         *
+         *  \param driver_second_window:pointeur sur le driver de la bdd
+         *  \param con_second_window:connexion à la bdd
+         *  \param id_topic: prend l'id du theme de la question selectionnee
+         *  \param questions_selected: prend l'id de la question selectionnee
+         *  \param parent:pointeur qui pointe sur la fenetre precedente
+         */
+
     explicit PropositionsMenu(Driver* driver_second_window,Connection* con_second_window,int id_topic,int question_selected,QWidget *parent = 0);
+
+
+    /*!
+         *  \brief Destructeur
+         *
+         *  Destructeur de la classe PropositionsMenu
+         */
+
     ~PropositionsMenu();
 
 private slots:
-    /*--------- other PROPOSITIONS ----------*/
+    /*!
+       *  \brief rend une case cliquable
+       *
+       *  Methode qui permet de prendre les coordonnées
+       *  d'une case du tableau des thèmes
+       *
+       *  \param row: la ligne de la case
+       *  \param column: la colonne de la case
+       */
+
     void on_tableWidget_Proposition_cellClicked(int row, int column);
-    void on_pushButton_delete_clicked();
+
+    /*!
+       *  \brief Modification d'un utilisateur
+       *
+       *  Methode qui permet de modifier les donnees
+       *  d'un theme à la bdd
+       */
+
     void on_pushButton_set_clicked();
+
+    /*!
+       *  \brief Suppression d'un theme
+       *
+       *  Methode qui permet de supprimer un theme
+       *  de la bdd
+       *
+       */
+
+    void on_pushButton_delete_topic_clicked();
+
+    /*!
+       *  \brief Ajout d'un theme
+       *
+       *  Methode qui permet d'ajouter un utilisateur
+       * à la bdd
+       *
+       */
+
+    void on_pushButton_add_topic_clicked();
+
+    /*!
+       *  \brief Ouverture d'une nouvelle fenetre
+       *
+       *  Methode qui permet de voir les questions associe à
+       * un theme
+       *
+       */
+
+    void on_pushButton_delete_clicked();
     void on_pushButton_add_clicked();
     void on_pushButton_disable_clicked();
 
-    /*--------- other method ----------*/
+    /*!
+       *  \brief Fermeture de la fenetre
+       *
+       *  On revient sur la fenetre precedente
+       *
+       */
+
     void on_pushButton_return_clicked();
 
 private:

@@ -2,33 +2,33 @@
 /*----TOPIC POLITIQUE-----*/
 INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('1', 'Politique');
 
-insert into 'question'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '1', 'Il peut voler', '3');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '2', 'On peut le rouler', '3');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '3', 'A été ministre de la ville', '1');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '4', 'Ses ancêtres remontent à moins 500 avant J.C.', '2');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '5', 'Il y a beaucoup de contrefaçons', '2');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '6', 'Il s\'entretient de façon journalière avec un aspirateur', '2');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '7', 'Matricule 265-449G', '1');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '1', '8', 'A une époque, j\'ai vomi dessus', '2');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('1', '1', 'Bernard Tapie, un tapis ou les deux ?', 'Bernard Tapie', 'Un tapis');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '1', 'Il peut voler', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '2', 'On peut le rouler', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '3', 'A été ministre de la ville', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '4', 'Ses ancêtres remontent à moins 500 avant J.C.', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '5', 'Il y a beaucoup de contrefaçons', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '6', 'Il s\'entretient de façon journalière avec un aspirateur', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '7', 'Matricule 265-449G', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '8', 'A une époque, j\'ai vomi dessus', '2');
 
-insert into 'question'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', 'Sissi, Oui-Oui ou les deux ?', 'Sissi', 'Oui-Oui');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', '1', 'Impèratrice', '1');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', '2', 'Vit dans un monde merveilleux', '3');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', '3', 'A vraiment existé', '1');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', '4', 'Est marié(e)', '1');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', '5', 'Potiron', '2');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', '6', 'Romy Schneider', '1');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '2', '7', 'Vous fait perdre à ni oui ni non', '2');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('1', '2', 'Sissi, Oui-Oui ou les deux ?', 'Sissi', 'Oui-Oui');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '1', 'Impèratrice', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '2', 'Vit dans un monde merveilleux', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '3', 'A vraiment existé', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '4', 'Est marié(e)', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '5', 'Potiron', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '6', 'Romy Schneider', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '7', 'Vous fait perdre à ni oui ni non', '2');
 
-insert into 'question'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', 'Nicolas Sarkozy, un clou ou les deux ?', 'Nicolas Sarkozy', 'Un clou');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', '1', 'On peut taper dessus', '3');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', '2', 'Maire de Neuilly', '1');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', '3', 'Il a une tête plate', '2');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', '4', 'Il vaut mieux éviter de marcher dessus', '3');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', '5', 'Il a le bout pointu', '2');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', '6', 'Il en existe sans tête', '2');
-insert into 'proposition'('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('1', '3', '7', 'Il est très utile', '3');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('1', '3', 'Nicolas Sarkozy, un clou ou les deux ?', 'Nicolas Sarkozy', 'Un clou');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '3', '1', 'On peut taper dessus', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '3', '2', 'Maire de Neuilly', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '3', '3', 'Il a une tête plate', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '3', '4', 'Il vaut mieux éviter de marcher dessus', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '3', '5', 'Il a le bout pointu', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '3', '6', 'Il en existe sans tête', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '3', '7', 'Il est très utile', '3');
 
 /*----TOPIC SPORT-----*/
 
@@ -55,23 +55,45 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 
 INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('3', 'Musique');
 
-insert into question(id_topic, num_question, main_question, answer1, answer2) values('3', '1', 'Pavarotti, poulet rôti ou les deux ?', 'Pavarotti', 'Poulet rôti');
-insert into proposition('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('3', '1', '1', 'Poulet rôti', '2');
-insert into proposition('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('3', '1', '2', 'Il n\'y aucune raison de le ficeler', '1');
-insert into proposition('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('3', '1', '3', 'Fait ses tournées sur une broche', '2');
-insert into proposition('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('3', '1', '4', 'Il s\'exprime comme ça "ahhhhhhhhhhhh"', '1');
-insert into proposition('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('3', '1', '5', 'A des bonnes cuisses', '3');
-insert into proposition('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('3', '1', '6', 'Chargé de cholestérol', '3');
-insert into proposition('id_topic', 'num_question', 'main_question', 'answer1', 'answer2') values('3', '1', '7', 'Tu peux en avoir la moitié si tu veux', '2');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('3', '1', 'Pavarotti,poulet rôti ou les deux ?', 'Pavarotti', 'Poulet rôti');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3','1','1','Ne chante pas','2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '2', 'Il n\'y aucune raison de le ficeler', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '3', 'Fait ses tournées sur une broche', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '4', 'Il s\'exprime comme ça "ahhhhhhhhhhhh"', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '5', 'A des bonnes cuisses', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '6', 'Chargé de cholestérol', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '7', 'Tu peux en avoir la moitié si tu veux', '2');
 
 /*----TOPIC ISEN-----*/
 
 INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('4', 'ISEN');
 
-
 /*----USER-----*/
 
-insert into user(id_user, login, password) values('1', 'login', sha2('password', 256));
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (1,'login', sha2('password', 256), NULL, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alain', sha2('password', 256), 11850, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Pierre', sha2('password', 256),13912, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jean', sha2('password', 256), 12394, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jacques', sha2('password', 256), 10071, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Kevin', sha2('password', 256), 13675, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Durand', sha2('password', 256), 12317, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Bernard', sha2('password', 256), 11964, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Zachary', sha2('password', 256), 12864, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alex', sha2('password', 256), 11777, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Julien', sha2('password', 256), 12779, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Madeleine', sha2('password', 256), 12553, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Sandrine', sha2('password', 256), 14060, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Marguerite', sha2('password', 256), 14266, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Eliane', sha2('password', 256), 10326, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Mathilde', sha2('password', 256), 13917, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Manon', sha2('password', 256),12310, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Séverine', sha2('password', 256), 14991, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Céline', sha2('password', 256), 12232, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Véronique', sha2('password', 256), 13060, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Micheline', sha2('password', 256), 10773, NULL, NULL);
+
+
+/*INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (1, 'login', sha2('password', 256), NULL, NULL, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Alain', sha2('password', 256), '32', '1', NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Pierre', sha2('password', 256), '78', '1', NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Jean', sha2('password', 256), '25', '1', NULL);
@@ -93,3 +115,4 @@ INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `to
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Céline', sha2('password', 256), '72', '1', NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Véronique', sha2('password', 256), '12', '1', NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL, 'Micheline', sha2('password', 256), '3', '1', NULL);
+*/

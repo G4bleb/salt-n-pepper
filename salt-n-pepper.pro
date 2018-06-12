@@ -35,7 +35,9 @@ HEADERS += \
         mainwindow.hpp \
     mainmenu.hpp \
     questionsmenu.hpp \
-    propositionsmenu.hpp
+    propositionsmenu.hpp \
+    include.h \
+    include.hpp
 
 FORMS += \
         mainwindow.ui \

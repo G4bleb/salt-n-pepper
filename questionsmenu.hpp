@@ -1,21 +1,8 @@
 #ifndef QUESTIONSMENU_HPP
 #define QUESTIONSMENU_HPP
 
+#include "include.hpp"
 #include "propositionsmenu.hpp"
-
-#include <cppconn/driver.h>
-#include <cppconn/resultset.h>
-#include <cppconn/prepared_statement.h>
-#include <cppconn/exception.h>
-
-#include <iostream>
-#include <QDialog>
-#include <QLabel>
-#include <QMessageBox>
-#include <QDebug>
-
-using namespace std;
-using namespace sql;
 
 namespace Ui {
 class QuestionsMenu;
