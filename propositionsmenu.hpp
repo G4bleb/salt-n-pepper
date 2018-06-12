@@ -54,7 +54,7 @@ private slots:
        *  \brief rend une case cliquable
        *
        *  Methode qui permet de prendre les coordonnées
-       *  d'une case du tableau des thèmes
+       *  d'une case du tableau des propositions
        *
        *  \param row: la ligne de la case
        *  \param column: la colonne de la case
@@ -63,44 +63,38 @@ private slots:
     void on_tableWidget_Proposition_cellClicked(int row, int column);
 
     /*!
-       *  \brief Modification d'un utilisateur
+       *  \brief Modification d'une proposition
        *
        *  Methode qui permet de modifier les donnees
-       *  d'un theme à la bdd
+       *  d'une proposition d'une question
        */
 
     void on_pushButton_set_clicked();
 
     /*!
-       *  \brief Suppression d'un theme
+       *  \brief Suppression d'une proposition
        *
-       *  Methode qui permet de supprimer un theme
-       *  de la bdd
-       *
-       */
-
-    void on_pushButton_delete_topic_clicked();
-
-    /*!
-       *  \brief Ajout d'un theme
-       *
-       *  Methode qui permet d'ajouter un utilisateur
-       * à la bdd
-       *
-       */
-
-    void on_pushButton_add_topic_clicked();
-
-    /*!
-       *  \brief Ouverture d'une nouvelle fenetre
-       *
-       *  Methode qui permet de voir les questions associe à
-       * un theme
+       *  Methode qui permet de supprimer une proposition
+       *  d'une question
        *
        */
 
     void on_pushButton_delete_clicked();
+
+    /*!
+       *  \brief Ajout d'une proposition
+       *
+       *  Methode qui permet d'ajouter une proposition
+       *  à une question
+       *
+       */
+
     void on_pushButton_add_clicked();
+
+    /*!
+       *  \brief Change l'etat d'une proposition
+       */
+
     void on_pushButton_disable_clicked();
 
     /*!
