@@ -27,7 +27,7 @@ function checkSession($db){
 // Setups a user's session
 // \param db the PDO database
 // \param userId the user's id
-// \return true or false, whether the session is valid
+// \return true if the function succeeded, false if it failed
 function startSession($db, $userId){
   if ($userId) {
     $_SESSION['token']=base64_encode(openssl_random_pseudo_bytes(12));
@@ -42,8 +42,6 @@ function startSession($db, $userId){
 
 function closeSession(){
   error_log("closeSession");
-  // session_unset();
-  // session_destroy();
   $_SESSION = array();
 }
 

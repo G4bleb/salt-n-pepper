@@ -16,14 +16,5 @@ if (!$dbCnx){
   exit();
 }
 
-// $dbCnx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// $dbCnx->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-//
-// function var_dump_in_error_log( $object=null ){
-//   ob_start();
-//   var_dump($object);
-//   error_log(ob_get_clean());
-// }
-
 
 ?>

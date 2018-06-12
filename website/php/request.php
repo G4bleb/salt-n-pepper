@@ -105,7 +105,6 @@ if ($requestRessource === 'gameList') {
       $statement = $dbCnx->prepare('SELECT id_user, best_score FROM user WHERE token=:token');
       $statement->execute(array(':token'=>$_SESSION['token']));
       $result = $statement->fetchAll(PDO::FETCH_ASSOC);;
-      var_dump_in_error_log($result);
       $data = false;
       if ($_POST['score']>$result[0]['best_score']) {
         $statement = $dbCnx->prepare("UPDATE user SET best_score=:best_score, id_game=:id_game WHERE id_user=:id_user");
