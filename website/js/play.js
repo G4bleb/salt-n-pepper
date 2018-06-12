@@ -1,16 +1,17 @@
 class Game{
   constructor(id) {
-    this.id = id;
-    this.questions;
-    this.currentQuestionNb = 0;
-    this.propositions;
-    this.totalAnswers=0;
-    this.correctAnswers=0;
-    this.startTime=$.now();
-    this.setuped = false;
+    this.id = id;//Id of the game
+    this.questions;//array : questions of the game
+    this.currentQuestionNb = 0;//Current question that is being asked
+    this.propositions;//array : propositions of the current question
+    this.totalAnswers = 0;//Number of propositions answered since the game started
+    this.correctAnswers = 0;//Number of well-answered propositions since the game started
+    this.startTime = $.now();//Starting time of the game
+    this.setuped = false;//Tells if the game has been through its initial setup
   }
   calculateScore(){
     return this.correctAnswers/(this.totalAnswers*Math.sqrt(($.now()-this.startTime)/1000))*100000;
+    //Score equation is written in a readable format at img/scoreEq.png (playTime is in ms)
   }
 }
 
@@ -53,8 +54,9 @@ function loadPropositions(ajaxResponse, currentGame){
 // \param index the index of the question being set up
 function setupQuestion(currentGame, index){
   var delay = 100;
-  if (!currentGame.setuped) {
-    delay = 0;
+  if (!currentGame.setuped) {//If the game has not been setuped, which means that the divs are empty
+    delay = 0;//Fill them immediatly
+
   }
   ajaxRequest('GET', '../php/request.php/loadPropositions/'+currentGame.questions[index]['id_topic']+'/'+currentGame.questions[index]['num_question'], loadPropositions, currentGame);
   $('#question').fadeOut(delay, function(){
@@ -79,32 +81,34 @@ function setupQuestion(currentGame, index){
 // \param index the index of the proposition being set up
 function setupProposition(currentGame, index){
   var propositionDelay = 50;
-  if (!currentGame.setuped) {
-    propositionDelay = 0;
+  if (!currentGame.setuped) {//If the game has not been setuped, which means that the divs are empty
+    propositionDelay = 0;//Fill them immediatly
   }
   currentGame.totalAnswers++;
-  console.log("Total answers : "+currentGame.totalAnswers);
+
   $('#proposition').fadeOut(propositionDelay, function(){
     $(this).html(currentGame.propositions[index]['main_proposition']);
     $(this).fadeIn(propositionDelay);
     currentGame.setuped=true;
   });
+
   for (var i = 1; i <= 3; i++) {
     console.log('binding answer'+i);
-    $('#answer'+i).off('click').click(function(){
-      $(this).prop('disabled', true);
-      $(this).fadeOut(100, function(){
-        $(this).fadeIn(100, function(){
-          $(this).prop('disabled', false);
+    $('#answer'+i).off('click').click(function(){//When an answerbutton is clicked
+      $(this).prop('disabled', true);//It is turned off (prevents double-clicks)
+      $(this).fadeOut(100, function(){//It fades away
+        $(this).fadeIn(100, function(){//Then fades back
+          $(this).prop('disabled', false);//And turns back on
         });
       });
       checkAnswer(currentGame, $(this).attr('id').slice(-1), index);
-      if (index+1 < currentGame.propositions.length){
-        setupProposition(currentGame, index+1);
+          //Check the answer which corresponds to the last char of the button's id
+      if (index+1 < currentGame.propositions.length){//If the question has not been entirely completed
+        setupProposition(currentGame, index+1);//Setup the next proposition
       }else{
         currentGame.currentQuestionNb++;
-        if (currentGame.currentQuestionNb < currentGame.questions.length) {
-          setupQuestion(currentGame, currentGame.currentQuestionNb);
+        if (currentGame.currentQuestionNb < currentGame.questions.length) {//If the game has not been entirely completed
+          setupQuestion(currentGame, currentGame.currentQuestionNb);//Setup the next question
         }else{
           endGame(currentGame);
         }
@@ -141,12 +145,16 @@ function endGame(currentGame){
     $('#score-features').append('<li class="list-inline-item"><h2><span id="time" class="badge badge-warning"></span></h2></li>');
     $('#mark').html(currentGame.correctAnswers+"/"+currentGame.totalAnswers);
     $('#time').html((($.now()-currentGame.startTime)/1000).toFixed(2)+" secondes");
+
     var score = Math.round(currentGame.calculateScore());
     $('#main-div').append('<h2><span class="badge badge-warning">Score : '+score+'</span></h2>');
+
     ajaxRequest('POST', '../php/request.php/addScore/'+currentGame.id, checkHighscore, undefined, 'score=' + score);
+
     setTimeout(function() {
       $('#main-div').append('<h1><a href="mainmenu.php"><button id="back-to-mainmenu" class="bigbutton btn btn-primary">Menu principal</button></a></h1>');
     }, delay);
+
     $('#main-div').fadeIn(delay);
   },delay);
 }
