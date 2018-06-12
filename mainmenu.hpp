@@ -131,8 +131,6 @@ private slots:
 
     void on_pushButton_look_topic_clicked();
 
-    /*---------- other method ----------*/
-
     /*!
        *  \brief Fermeture de la fenetre
        *
@@ -143,6 +141,7 @@ private slots:
 
 private:
     Ui::MainMenu *ui;
+
     QuestionsMenu *questionsMenu;
     QWidget * menuConnexion;
 
