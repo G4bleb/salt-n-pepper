@@ -20,7 +20,7 @@ drop table if exists game;
 CREATE TABLE game(
         id_game Int  Auto_increment  NOT NULL
 	,CONSTRAINT game_PK PRIMARY KEY (id_game)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
 
 
 #------------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE user(
 	,CONSTRAINT user_PK PRIMARY KEY (id_user)
 
 	,CONSTRAINT user_game_FK FOREIGN KEY (id_game) REFERENCES game(id_game)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
 
 
 #------------------------------------------------------------
@@ -48,7 +48,7 @@ CREATE TABLE topic(
         id_topic   Int  Auto_increment  NOT NULL ,
         topic_name Varchar (100) NOT NULL
 	,CONSTRAINT topic_PK PRIMARY KEY (id_topic)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
 
 
 #------------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE question(
 	,CONSTRAINT question_PK PRIMARY KEY (id_topic,num_question)
 
 	,CONSTRAINT question_topic_FK FOREIGN KEY (id_topic) REFERENCES topic(id_topic) ON DELETE CASCADE
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
 
 
 #------------------------------------------------------------
@@ -82,7 +82,7 @@ CREATE TABLE proposition(
 	,CONSTRAINT proposition_PK PRIMARY KEY (id_topic,num_question,num_proposition)
 
 	,CONSTRAINT proposition_question_FK FOREIGN KEY (id_topic,num_question) REFERENCES question(id_topic,num_question) ON DELETE CASCADE
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;
 
 
 #------------------------------------------------------------
@@ -97,4 +97,4 @@ CREATE TABLE game_question(
 
 	,CONSTRAINT game_question_game_FK FOREIGN KEY (id_game) REFERENCES game(id_game) ON DELETE CASCADE
 	,CONSTRAINT game_question_question0_FK FOREIGN KEY (id_topic,num_question) REFERENCES question(id_topic,num_question) ON DELETE CASCADE
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARSET=utf8 COLLATE utf8_unicode_ci;

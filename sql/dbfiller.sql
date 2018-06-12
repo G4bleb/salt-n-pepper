@@ -79,12 +79,12 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 /*----USER-----*/
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (1,'login', sha2('password', 256), NULL, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alain', sha2('password', 256), 10002, 1, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Pierre', sha2('password', 256),12912, 1, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jean', sha2('password', 256), 12394, 1, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jacques', sha2('password', 256), 10071, 1, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Kevin', sha2('password', 256), 11675, 1, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Durand', sha2('password', 256), 12317, 1, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alain', sha2('password', 256), 10002, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Pierre', sha2('password', 256),12912, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jean', sha2('password', 256), 12394, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jacques', sha2('password', 256), 10071, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Kevin', sha2('password', 256), 11675, NULL, NULL);
+INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Durand', sha2('password', 256), 12317, NULL, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Bernard', sha2('password', 256), NULL, NULL, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Zachary', sha2('password', 256), NULL, NULL, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alex', sha2('password', 256), NULL, NULL, NULL);

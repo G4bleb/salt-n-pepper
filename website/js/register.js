@@ -1,4 +1,4 @@
-$("input[type=submit][name='register']").attr("disabled", "disabled");
+
 $('#password, #confirm_password').on('keyup', function () {
   if ($('#password').val() == $('#confirm_password').val()) {
     $('#confirmed').html('Mots de passe valides').css('color', 'green');

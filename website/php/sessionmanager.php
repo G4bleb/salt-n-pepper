@@ -40,11 +40,22 @@ function startSession($db, $userId){
   }
 }
 
+//------------------------------------------------------------------------------
+//--- closeSession -------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Closes a user's session (empties it)
 function closeSession(){
   error_log("closeSession");
   $_SESSION = array();
 }
-
+//------------------------------------------------------------------------------
+//--- checkLogin ---------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Checks a user's credentials to connect
+// \param db the PDO database
+// \param login the form-sent login
+// \param password the form-sent password
+// \return the user's id, or false is the function failed
 function checkLogin($db, $login, $password){
   try{
     error_log("checkingLogin : ".$login.", ".$password);
@@ -52,15 +63,14 @@ function checkLogin($db, $login, $password){
     if (!$statement->execute(array(':login'=>$login, ':password'=>$password))) {
       error_log("checkLogin FAILED");
     }
-    $result = $statement->fetch();
+    $result = $statement->fetchColumn();
   }
   catch (PDOException $exception){
     error_log('Request error: '.$exception->getMessage());
     return false;
   }
-  error_log("returning ".$result['id_user']);
+  error_log("returning ".$result);
   if (!$result) return false;
-  return $result['id_user'];
-
+  return $result;
 }
 ?>

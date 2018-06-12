@@ -1,9 +1,9 @@
 class Game{
-  constructor(id, questions, propositions) {
+  constructor(id) {
     this.id = id;
-    this.questions = questions;
+    this.questions;
     this.currentQuestionNb = 0;
-    this.propositions = propositions;
+    this.propositions;
     this.totalAnswers=0;
     this.correctAnswers=0;
     this.startTime=$.now();
@@ -17,29 +17,45 @@ class Game{
 $(document).ready(function() {
   var urlParams = new URLSearchParams(window.location.search);
   var gameId = urlParams.get('gameId');
-  var questions, propositions;
-  currentGame = new Game(gameId, questions, propositions);
+  currentGame = new Game(gameId);
   ajaxRequest('GET', '../php/request.php/loadQuestions/'+gameId, loadQuestions, currentGame);
 });
 
+//------------------------------------------------------------------------------
+//--- loadQuestions ------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Parses a game's questions requested by ajaxRequest, and setups it
+// \param ajaxResponse the data received via the Ajax request
+// \param currentGame the Game object of the game currently being played
 function loadQuestions(ajaxResponse, currentGame){
   // Parse JSON response.
   currentGame.questions = JSON.parse(ajaxResponse);
   setupQuestion(currentGame, 0);
 }
 
+//------------------------------------------------------------------------------
+//--- loadPropositions ---------------------------------------------------------
+//------------------------------------------------------------------------------
+// Parses a questions's propositions requested by ajaxRequest, and setups it
+// \param ajaxResponse the data received via the Ajax request
+// \param currentGame the Game object of the game currently being played
 function loadPropositions(ajaxResponse, currentGame){
   // Parse JSON response.
   currentGame.propositions = JSON.parse(ajaxResponse);
   setupProposition(currentGame, 0);
 }
 
+//------------------------------------------------------------------------------
+//--- setupQuestion ------------------------------------------------------------
+//------------------------------------------------------------------------------
+//  Setups a question designated by index from the current game
+// \param currentGame the Game object of the game currently being played
+// \param index the index of the question being set up
 function setupQuestion(currentGame, index){
   var delay = 100;
   if (!currentGame.setuped) {
     delay = 0;
   }
-  // console.log("QuestionIndex : "+index);
   ajaxRequest('GET', '../php/request.php/loadPropositions/'+currentGame.questions[index]['id_topic']+'/'+currentGame.questions[index]['num_question'], loadPropositions, currentGame);
   $('#question').fadeOut(delay, function(){
     $(this).html(currentGame.questions[index]['main_question']);
@@ -55,8 +71,13 @@ function setupQuestion(currentGame, index){
   });
 }
 
+//------------------------------------------------------------------------------
+//--- setupProposition ---------------------------------------------------------
+//------------------------------------------------------------------------------
+//  Setups a proposition designated by index from the current question
+// \param currentGame the Game object of the game currently being played
+// \param index the index of the proposition being set up
 function setupProposition(currentGame, index){
-  // console.log("PropositionIndex : "+index);
   var propositionDelay = 50;
   if (!currentGame.setuped) {
     propositionDelay = 0;
@@ -77,8 +98,7 @@ function setupProposition(currentGame, index){
           $(this).prop('disabled', false);
         });
       });
-      
-      checkAnswer(currentGame, $(this).attr('id').charAt($(this).attr('id').length - 1), index);
+      checkAnswer(currentGame, $(this).attr('id').slice(-1), index);
       if (index+1 < currentGame.propositions.length){
         setupProposition(currentGame, index+1);
       }else{
@@ -93,6 +113,13 @@ function setupProposition(currentGame, index){
   }
 }
 
+//------------------------------------------------------------------------------
+//--- checkAnswer --------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Verifies an answer given by a user
+// \param currentGame the Game object of the game currently being played
+// \param numberAnswered the number of the answer the user has just given
+// \propositionIndex the index of the proposition that has just been answered
 function checkAnswer(currentGame, numberAnswered, propositionIndex){
   console.log(currentGame.propositions[propositionIndex]['answer_nb']+" equal to "+numberAnswered);
   if (currentGame.propositions[propositionIndex]['answer_nb'] == numberAnswered) {
@@ -100,6 +127,11 @@ function checkAnswer(currentGame, numberAnswered, propositionIndex){
   }
 }
 
+//------------------------------------------------------------------------------
+//--- endGame ------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Ends the game and setups the results page
+// \param currentGame the Game object of the game currently being played
 function endGame(currentGame){
   var delay = emptyMainDiv(150);
   setTimeout(function(){
@@ -111,16 +143,18 @@ function endGame(currentGame){
     $('#time').html((($.now()-currentGame.startTime)/1000).toFixed(2)+" secondes");
     var score = Math.round(currentGame.calculateScore());
     $('#main-div').append('<h2><span class="badge badge-warning">Score : '+score+'</span></h2>');
-    // alert(currentGame.correctAnswers+'/'+currentGame.totalAnswers+" Starting time :"+currentGame.startTime);
     ajaxRequest('POST', '../php/request.php/addScore/'+currentGame.id, checkHighscore, undefined, 'score=' + score);
     setTimeout(function() {
       $('#main-div').append('<h1><a href="mainmenu.php"><button id="back-to-mainmenu" class="bigbutton btn btn-primary">Menu principal</button></a></h1>');
     }, delay);
     $('#main-div').fadeIn(delay);
   },delay);
-  // window.location.replace("results.php");
 }
-
+//------------------------------------------------------------------------------
+//--- endGame ------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Ends the game and setups the results page
+// \param currentGame the Game object of the game currently being played
 function checkHighscore(ajaxResponse){
   console.log(ajaxResponse);
   // Parse JSON response.

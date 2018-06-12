@@ -3,12 +3,12 @@
 //------------------------------------------------------------------------------
 //--- ajaxRequest --------------------------------------------------------------
 //------------------------------------------------------------------------------
-// Perform an Ajax request.
-// \param type The type of the request (GET, DELETE, POST, PUT).
-// \param request The request with the data.
-// \param callback The callback to call where the request is successful.
-// \param additionnalCallbackParameter the out variable (if needed).
-// \param data The data associated with the request.
+// Performs an Ajax request
+// \param type The type of the request (GET, DELETE, POST, PUT)
+// \param request The request with the data
+// \param callback The callback to call where the request is successful
+// \param additionnalCallbackParameter a second callback parameter (if needed)
+// \param data The data associated with the request
 function ajaxRequest(type, request, callback, additionnalCallbackParameter = undefined, data = null) {
   var xhr;
 
@@ -19,12 +19,6 @@ function ajaxRequest(type, request, callback, additionnalCallbackParameter = und
   }
   console.log('request : '+request)
   xhr.open(type, request, true);
-
-  // var token = Cookies.get('token');
-  // if (token !='undefined') {
-  //   console.log("Token dans Ajax.js : "+token);
-  //     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-  // }
 
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -55,8 +49,8 @@ function ajaxRequest(type, request, callback, additionnalCallbackParameter = und
 //------------------------------------------------------------------------------
 //--- httpErrors ---------------------------------------------------------------
 //------------------------------------------------------------------------------
-// Display a message corresponding to an Http error code.
-// \param errorNumber the error code.
+// Displays a message corresponding to an Http error code
+// \param errorNumber the error code
 function httpErrors(errorNumber) {
   var text = '<span class="glyphicon glyphicon-exclamation-sign"></span>';
   switch (errorNumber) {
