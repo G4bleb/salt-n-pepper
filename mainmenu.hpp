@@ -56,10 +56,9 @@ private slots:
        *  d'une case du tableau des utilisateurs
        *
        *  \param row: la ligne de la case
-       *  \param column: la colonne de la case
        */
 
-    void on_tableWidget_User_cellClicked(int row, int column);
+    void on_tableWidget_User_cellClicked(int row);
 
     /*!
        *  \brief Modification d'un utilisateur
@@ -87,10 +86,9 @@ private slots:
        *  d'une case du tableau des thèmes
        *
        *  \param row: la ligne de la case
-       *  \param column: la colonne de la case
        */
 
-    void on_tableWidget_Topic_cellClicked(int row, int column);
+    void on_tableWidget_Topic_cellClicked(int row);
 
     /*!
        *  \brief Modification d'un utilisateur
@@ -138,6 +136,8 @@ private slots:
        *
        */
     void on_pushButton_disconnect_clicked();
+
+    void on_tabWidget_tabBarClicked(int index);
 
 private:
     Ui::MainMenu *ui;

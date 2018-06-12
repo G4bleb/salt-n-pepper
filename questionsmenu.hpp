@@ -57,7 +57,7 @@ private slots:
        *  \param column: la colonne de la case
        */
 
-    void on_tableWidget_Question_cellClicked(int row, int column);
+    void on_tableWidget_Question_cellClicked(int row);
 
     /*!
        *  \brief Suppression d'une question

@@ -85,7 +85,7 @@ void MainMenu::on_pushButton_disconnect_clicked()
     this->deleteLater();
 }
 
-void MainMenu::on_tableWidget_User_cellClicked(int row, int column)
+void MainMenu::on_tableWidget_User_cellClicked(int row)
 {
     selected_row_user=row;
     ui->lineEdit_login->setText(TableFirstThumbnail[row][1]->text());
@@ -166,7 +166,7 @@ void MainMenu::on_pushButton_delete_user_clicked()
     pageuser->show();
 }
 
-void MainMenu::on_tableWidget_Topic_cellClicked(int row, int column)
+void MainMenu::on_tableWidget_Topic_cellClicked(int row)
 {
     selected_row_topic=row;
     ui->lineEdit_topic->setText(TableSecondThumbnail[row][1]->text());
@@ -265,4 +265,14 @@ void MainMenu::on_pushButton_look_topic_clicked()
     hide();
     questionsMenu = new QuestionsMenu(driver_first_window,con_first_window,selected_id_topic,this);
     questionsMenu->show();
+}
+
+void MainMenu::on_tabWidget_tabBarClicked(int index)
+{
+    if(!index){
+        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+        this->deleteLater();
+        pageuser->show();
+    }
+
 }
