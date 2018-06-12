@@ -13,7 +13,7 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '1', '8', 'A une époque, j\'ai vomi dessus', '2');
 
 INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('1', '2', 'Sissi, Oui-Oui ou les deux ?', 'Sissi', 'Oui-Oui');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '1', 'Impèratrice', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '1', 'Impératrice', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '2', 'Vit dans un monde merveilleux', '3');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '3', 'A vraiment existé', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '4', 'Est marié(e)', '1');
@@ -71,7 +71,6 @@ INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('4', 'ISEN');
 /*----USER-----*/
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (1,'login', sha2('password', 256), NULL, NULL, NULL);
-<<<<<<< HEAD
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alain', sha2('password', 256), 10002, 1, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Pierre', sha2('password', 256),12912, 1, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jean', sha2('password', 256), 12394, 1, NULL);
@@ -92,25 +91,3 @@ INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `to
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Céline', sha2('password', 256), NULL, NULL, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Véronique', sha2('password', 256), NULL, NULL, NULL);
 INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Micheline', sha2('password', 256), NULL, NULL, NULL);
-=======
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alain', sha2('password', 256), 11850, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Pierre', sha2('password', 256),13912, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jean', sha2('password', 256), 12394, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Jacques', sha2('password', 256), 10071, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Kevin', sha2('password', 256), 13675, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Durand', sha2('password', 256), 12317, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Bernard', sha2('password', 256), 11964, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Zachary', sha2('password', 256), 12864, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Alex', sha2('password', 256), 11777, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Julien', sha2('password', 256), 12779, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Madeleine', sha2('password', 256), 12553, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Sandrine', sha2('password', 256), 14060, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Marguerite', sha2('password', 256), 14266, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Eliane', sha2('password', 256), 10326, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Mathilde', sha2('password', 256), 13917, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Manon', sha2('password', 256),12310, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Séverine', sha2('password', 256), 14991, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Céline', sha2('password', 256), 12232, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Véronique', sha2('password', 256), 13060, NULL, NULL);
-INSERT INTO `user` (`id_user`, `login`, `password`, `best_score`, `id_game`, `token`) VALUES (NULL,'Micheline', sha2('password', 256), 10773, NULL, NULL);
->>>>>>> 11406c2d1b2ad6e0a268a1baa8bacc58c94341c3

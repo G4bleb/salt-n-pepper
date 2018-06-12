@@ -118,7 +118,6 @@ class Question{
       );
       $statement->execute(array(':id_topic'=>$this->id_topic, ':num_question'=>$this->num_question));
       $data = $statement->fetchAll(PDO::FETCH_ASSOC);//We're using FETCH_ASSOC and not FETCH_CLASS, 'Proposition' because we have to json_encode($data)
-      var_dump_in_error_log($data);
     }
     catch (PDOException $exception){
       error_log('Request error: '.$exception->getMessage());

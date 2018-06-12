@@ -2,14 +2,18 @@
 require_once 'dbconnect.php';
 session_start();
 
+//------------------------------------------------------------------------------
+//--- checkSession -------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Checks if the user's session is valid
+// \param db the PDO database
+// \return true or false, whether the session is valid
 function checkSession($db){
   error_log("Checking session");
-  // var_dump(debug_backtrace());
   if (!isset($_SESSION['token'])) return false;
   $statement = $db->prepare('SELECT * FROM user WHERE token=:token');
   $statement->execute(array(':token'=>$_SESSION['token']));
   $result = $statement->fetch();
-  // error_log($result['login']);
   if (!$result){
     closeSession();
     return false;
@@ -17,6 +21,13 @@ function checkSession($db){
   return true;
 }
 
+//------------------------------------------------------------------------------
+//--- startSession -------------------------------------------------------------
+//------------------------------------------------------------------------------
+// Setups a user's session
+// \param db the PDO database
+// \param userId the user's id
+// \return true or false, whether the session is valid
 function startSession($db, $userId){
   if ($userId) {
     $_SESSION['token']=base64_encode(openssl_random_pseudo_bytes(12));

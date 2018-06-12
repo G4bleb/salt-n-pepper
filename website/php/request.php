@@ -31,9 +31,9 @@ if ($secondId == '')
 $secondId = NULL;
 
 if ($requestRessource === 'gameList') {
-  //------------------------------------------------------------------------------
-  //--- request gamelist ---------------------------------------------------------
-  //------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  //--- request gamelist -------------------------------------------------------
+  //----------------------------------------------------------------------------
   // Sends an associative array of all games
   try{
     $statement = $dbCnx->query('SELECT * FROM game');
@@ -44,9 +44,9 @@ if ($requestRessource === 'gameList') {
     return false;
   }
 }elseif ($requestRessource === 'loadGame') {
-  //------------------------------------------------------------------------------
-  //--- request loadGame ---------------------------------------------------------
-  //------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  //--- request loadGame -------------------------------------------------------
+  //----------------------------------------------------------------------------
   // Sends an associative array of all the questions and the themes of a game
   // \param id the id of the game (-1 means that a new generated game is requested)
   if ($id == -1) {
@@ -72,9 +72,9 @@ if ($requestRessource === 'gameList') {
       return false;
     }
   }elseif ($requestRessource === 'loadQuestions' && isset($id)) {
-    //------------------------------------------------------------------------------
-    //--- request loadQuestions ----------------------------------------------------
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    //--- request loadQuestions ------------------------------------------------
+    //--------------------------------------------------------------------------
     // Sends an associative array of all the questions of a game
     // \param id the id of the game (-1 means that a new generated game is requested)
     $currentGame = new Game;
@@ -82,12 +82,25 @@ if ($requestRessource === 'gameList') {
     $data = $currentGame->loadQuestions($dbCnx);
 
   }elseif ($requestRessource === 'loadPropositions' && isset($id) && isset($secondId)) {
+    //--------------------------------------------------------------------------
+    //--- request loadPropositions ---------------------------------------------
+    //--------------------------------------------------------------------------
+    // Sends an associative array of all the propositions of a game
+    // \param id the id_topic of the question
+    // \param id the num_question of the questions
     $currentQuestion = new Question;
     $currentQuestion->setId_topic($id);
     $currentQuestion->setNum_question($secondId);
     $data = $currentQuestion->loadPropositions($dbCnx);
 
   }elseif ($requestRessource === 'addScore' && isset($id) && isset($_POST['score']) && isset($_SESSION['token'])){
+    //--------------------------------------------------------------------------
+    //--- request addScore -----------------------------------------------------
+    //--------------------------------------------------------------------------
+    // Adds the score just done by a user to a game, only if it is the new high score. If the score is added, sends 'true'. Else, sends false.
+    // \param id the id of the game
+    // \param $_POST['score'] the score just done
+    // \param $_SESSION['token'] the user's token (to identify him)
     try {
       $statement = $dbCnx->prepare('SELECT id_user, best_score FROM user WHERE token=:token');
       $statement->execute(array(':token'=>$_SESSION['token']));
