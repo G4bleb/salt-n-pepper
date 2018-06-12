@@ -60,7 +60,7 @@ private slots:
        *  \param column: la colonne de la case
        */
 
-    void on_tableWidget_Proposition_cellClicked(int row, int column);
+    void on_tableWidget_Proposition_cellClicked(int row);
 
     /*!
        *  \brief Modification d'une proposition

@@ -33,8 +33,8 @@ PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * co
         vecteurLabel.append(new QLabel(res_show_proposition->getString(1).c_str()));
 
         status=res_show_proposition->getInt(2);
-        if(status) vecteurLabel.append(new QLabel("ENABLE"));
-        else vecteurLabel.append(new QLabel("DISABLE"));
+        if(status) vecteurLabel.append(new QLabel("ENABLED"));
+        else vecteurLabel.append(new QLabel("DISABLED"));
 
         answer=res_show_proposition->getInt(3);
         vecteurLabel.append(new QLabel(res_show_proposition->getString(3).c_str()));
@@ -109,7 +109,7 @@ void PropositionsMenu::on_pushButton_return_clicked()
     this->deleteLater();
 }
 
-void PropositionsMenu::on_tableWidget_Proposition_cellClicked(int row, int column)
+void PropositionsMenu::on_tableWidget_Proposition_cellClicked(int row)
 {
     bool check=true;
     selected_row=row;
@@ -241,7 +241,7 @@ void PropositionsMenu::on_pushButton_add_clicked()
 
 void PropositionsMenu::on_pushButton_disable_clicked()
 {
-    if(tableProposition[selected_row][1]->text().toStdString()=="ENABLE"){
+    if(tableProposition[selected_row][1]->text().toStdString()=="ENABLED"){
         prepared_stmt_status_proposition=con_third_window->prepareStatement("UPDATE proposition set enabled=0 where id_topic=? and num_question=? and num_proposition=? ");
     }
 

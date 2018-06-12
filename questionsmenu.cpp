@@ -31,8 +31,8 @@ QuestionsMenu::QuestionsMenu(Driver * driver_first_window,Connection * con_first
         vecteurLabel.append(new QLabel(res_show_question->getString(1).c_str()));
 
         status=res_show_question->getInt(2);
-        if(status==1) vecteurLabel.append(new QLabel("ENABLE"));
-        else vecteurLabel.append(new QLabel("DISABLE"));
+        if(status==1) vecteurLabel.append(new QLabel("ENABLED"));
+        else vecteurLabel.append(new QLabel("DISABLED"));
 
         vecteurLabel.append(new QLabel(res_show_question->getString(3).c_str()));
         vecteurLabel.append(new QLabel(res_show_question->getString(4).c_str()));
@@ -79,7 +79,7 @@ void QuestionsMenu::on_pushButton_return_clicked()
     this->deleteLater();
 }
 
-void QuestionsMenu::on_tableWidget_Question_cellClicked(int row, int column)
+void QuestionsMenu::on_tableWidget_Question_cellClicked(int row)
 {
     ui->pushButton_delete->setEnabled(true);
     ui->pushButton_set->setEnabled(true);
@@ -209,7 +209,7 @@ void QuestionsMenu::on_pushButton_look_clicked()
 
 void QuestionsMenu::on_pushButton_disable_clicked()
 {
-    if(tableQuestion[selected_row][1]->text().toStdString()=="ENABLE"){
+    if(tableQuestion[selected_row][1]->text().toStdString()=="ENABLED"){
         prepared_stmt_status_question=con_second_window->prepareStatement("UPDATE question set enabled=0 where id_topic=? and num_question=? ");
     }
     else{
