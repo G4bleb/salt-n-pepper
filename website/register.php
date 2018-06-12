@@ -34,7 +34,7 @@
               <input id="confirm_password" type="password" class="form-control" placeholder="Confirm password"><br>
           </div>
           <span id='confirmed'></span><br>
-          <input class="btn btn-primary" type="submit" name="register" value="Créer un compte">
+          <input class="btn btn-primary" type="submit" name="register" value="Créer un compte" disabled="disabled">
       </form>
   </div>
 
