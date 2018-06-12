@@ -7,7 +7,7 @@
   <?php require_once 'php/header.php';?>
   <?php if ($sessionValid && isset($_GET['gameId'])): ?>
     <div id="main-div">
-      <h1 id="question">question</h1>
+      <h2><span id="question" class="badge title-badge badge-primary">Connexion</span></h2>
       <h2><span id="proposition" class="badge badge-warning"></span></h2>
       <ul class="list-inline">
         <li class="list-inline-item"><h2><button id="answer1" class="bigbutton btn btn-primary"></button></h2></li>

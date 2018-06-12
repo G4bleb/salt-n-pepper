@@ -20,7 +20,7 @@ function echoLeaderboard($db){
     <td>'.$value->getLogin().'</td>';
     if (NULL != $value->getBestScore()) {
       echo '<td>'.$value->getBestScore().' pts</td>
-      <td><a href="play.php?gameId='.$value->getBestGameId().'">Partie n°'.$value->getBestGameId().'</a></td>
+      <td><a href="mainmenu.php?gameId='.$value->getBestGameId().'">Partie n°'.$value->getBestGameId().'</a></td>
       </tr>';
     }
     else{
