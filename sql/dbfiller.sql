@@ -15,7 +15,7 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('1', '2', 'Sissi, Oui-Oui ou les deux ?', 'Sissi', 'Oui-Oui');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '1', 'Impératrice', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '2', 'Vit dans un monde merveilleux', '3');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '3', 'A vraiment existé', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '3', 'A vraiment existé(e)', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '4', 'Est marié(e)', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '5', 'Potiron', '2');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('1', '2', '6', 'Romy Schneider', '1');
