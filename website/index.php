@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Salt'n'Pepper - Palmarès</title>
-    <link href="../css/default.css" rel="stylesheet" type="text/css">
 
     <?php require_once 'php/header.php';?>
     <?php if ($sessionValid): ?>

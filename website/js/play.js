@@ -77,6 +77,7 @@ function setupProposition(currentGame, index){
           $(this).prop('disabled', false);
         });
       });
+      
       checkAnswer(currentGame, $(this).attr('id').charAt($(this).attr('id').length - 1), index);
       if (index+1 < currentGame.propositions.length){
         setupProposition(currentGame, index+1);

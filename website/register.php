@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Salt'n'Pepper - Inscription</title>
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
   <?php require_once 'php/header.php';?>
 
   <h2><span class="badge badge-primary">Inscription</span></h2>
@@ -51,5 +50,5 @@
   </form> -->
 
   <?php require_once 'php/footer.php';?>
-  <script src="../js/register.js"></script>
+  <script src="js/register.js"></script>
   </html>

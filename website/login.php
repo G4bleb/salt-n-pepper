@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Salt'n'Pepper - Connexion</title>
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
   <?php require_once 'php/header.php'; ?>
 
   <h2><span class="badge title-badge badge-primary">Connexion</span></h2>

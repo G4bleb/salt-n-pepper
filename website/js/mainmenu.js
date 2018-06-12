@@ -44,7 +44,7 @@ $(document).ready(function() {
   }, animDuration, function() {
     $(this).empty();
     $(this).attr('id', "main-div");//Becomes the main div
-    ajaxRequest('GET', '../php/request.php/gamelist', loadGames);
+    ajaxRequest('GET', '../php/request.php/gameList', loadGames);
   });
 });
 }

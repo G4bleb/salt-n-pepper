@@ -1,4 +1,5 @@
 <?php
+//request.php : file used for ajax requests
 require_once 'class.php';
 require_once 'dbconnect.php';
 require_once 'sessionmanager.php';
@@ -6,13 +7,8 @@ require_once 'newgame.php';
 header('Content-Type: text/plain; charset=utf-8');
 header('Cache-control: no-store, no-cache, must-revalidate');
 header('Pragma: no-cache');
-// Database connection.
-if (!$dbCnx){
-  header ('HTTP/1.1 503 Service Unavailable');
-  exit();
-}
 
-// Check the request.
+// Check the request
 $requestType = $_SERVER['REQUEST_METHOD'];
 
 if (isset($_SERVER['PATH_INFO'])) { //If there's something to extract from the path
@@ -27,25 +23,32 @@ $data = $requestType.':'.$requestRessource;
 
 // Load the id(s) sent with the request.
 $id = array_shift($request);
-// error_log("ID : ".$id);
 if ($id == '')
 $id = NULL;
+
 $secondId = array_shift($request);
-// error_log("SECOND_ID : ".$secondId);
 if ($secondId == '')
 $secondId = NULL;
 
-if ($requestRessource === 'gamelist') {
+if ($requestRessource === 'gameList') {
+  //------------------------------------------------------------------------------
+  //--- request gamelist ---------------------------------------------------------
+  //------------------------------------------------------------------------------
+  // Sends an associative array of all games
   try{
     $statement = $dbCnx->query('SELECT * FROM game');
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-    var_dump_in_error_log($data);
   }
   catch (PDOException $exception){
     error_log('Request error: '.$exception->getMessage());
     return false;
   }
 }elseif ($requestRessource === 'loadGame') {
+  //------------------------------------------------------------------------------
+  //--- request loadGame ---------------------------------------------------------
+  //------------------------------------------------------------------------------
+  // Sends an associative array of all the questions and the themes of a game
+  // \param id the id of the game (-1 means that a new generated game is requested)
   if ($id == -1) {
     $id = generateNewGame($dbCnx);
   }
@@ -63,24 +66,27 @@ if ($requestRessource === 'gamelist') {
       ');
       $statement->execute(array(':id_game'=>$id));
       $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-      // var_dump_in_error_log($data);
     }
     catch (PDOException $exception){
       error_log('Request error: '.$exception->getMessage());
       return false;
     }
   }elseif ($requestRessource === 'loadQuestions' && isset($id)) {
-    // error_log("Going to load questions");
+    //------------------------------------------------------------------------------
+    //--- request loadQuestions ----------------------------------------------------
+    //------------------------------------------------------------------------------
+    // Sends an associative array of all the questions of a game
+    // \param id the id of the game (-1 means that a new generated game is requested)
     $currentGame = new Game;
     $currentGame->setId($id);
     $data = $currentGame->loadQuestions($dbCnx);
-    // var_dump_in_error_log($data);
+
   }elseif ($requestRessource === 'loadPropositions' && isset($id) && isset($secondId)) {
-    // error_log("Going to load propositions");
     $currentQuestion = new Question;
     $currentQuestion->setId_topic($id);
     $currentQuestion->setNum_question($secondId);
     $data = $currentQuestion->loadPropositions($dbCnx);
+
   }elseif ($requestRessource === 'addScore' && isset($id) && isset($_POST['score']) && isset($_SESSION['token'])){
     try {
       $statement = $dbCnx->prepare('SELECT id_user, best_score FROM user WHERE token=:token');
@@ -98,7 +104,7 @@ if ($requestRessource === 'gamelist') {
       return false;
     }
   }
-  // Send data to the client.
+  // Send data to the client
   header('HTTP/1.1 200 OK');
   echo json_encode($data);
   exit;
