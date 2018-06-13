@@ -36,7 +36,6 @@ HEADERS += \
     mainmenu.hpp \
     questionsmenu.hpp \
     propositionsmenu.hpp \
-    include.h \
     include.hpp
 
 FORMS += \
