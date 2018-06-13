@@ -34,11 +34,12 @@ function loginExists($db, $login){
 // \param password the password to add
 // \return true or false depending on the success of the insertion
 function addUser($db, $login, $password){
-  $login = trim($login);
-  if (!loginExists($db, $login) && !empty($login) && ctype_alnum($login)) {
+  $login = trim($login);//We remove spaces that could have been mistakenly entered
+  if (!loginExists($db, $login) && !empty($login) && preg_match('/^[0-9A-Za-zÀ-ÖØ-öø-ÿ-]+$/', $login)) {
+      //The regular expression checks for letters, numbers, and most of the special European characters
     try{
       $statement = $db->prepare("INSERT INTO user (login, password) VALUES (:login, sha2(:password, 256))");
-      //Password is hashed by the database
+          //The password is hashed by the database
       if (!$statement->execute(array(':login'=>$login, ':password'=>$password))) {
         error_log("addUser FAILED");
         return false;

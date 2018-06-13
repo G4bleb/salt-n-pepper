@@ -26,8 +26,11 @@ function echoLeaderboard($db){
     <td>'.$value->getLogin().'</td>';
     if (NULL != $value->getBestScore()) {//If the user has a high score
       echo '<td>'.$value->getBestScore().' pts</td>
-      <td><a href="mainmenu.php?gameId='.$value->getBestGameId().'">Partie n°'.$value->getBestGameId().'</a>
-      </td></tr>';
+      <td>';
+      if (NULL != $value->getBestGameId()) {
+        echo '<a href="mainmenu.php?gameId='.$value->getBestGameId().'">Partie n°'.$value->getBestGameId().'</a>';
+      }
+      echo '</td></tr>';
       // Anyone can click on the game number to challenge the user
     }
     else{
