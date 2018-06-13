@@ -137,7 +137,7 @@ private slots:
        */
     void on_pushButton_disconnect_clicked();
 
-    void on_tabWidget_tabBarClicked(int index);
+    void on_pushButton_refresh_clicked();
 
 private:
     Ui::MainMenu *ui;

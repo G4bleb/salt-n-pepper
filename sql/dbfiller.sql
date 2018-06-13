@@ -64,14 +64,17 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '6', 'Chargé de cholestérol', '3');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '7', 'Tu peux en avoir la moitié si tu veux', '2');
 
-INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('3', '1', 'Pavarotti, poulet rôti ou les deux ?', 'Pavarotti', 'Poulet rôti');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '1', 'Ne chante pas','2');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '2', 'Il n\'y aucune raison de le ficeler', '1');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '3', 'Fait ses tournées sur une broche', '2');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '4', 'Il s\'exprime comme ça "ahhhhhhhhhhhh"', '1');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '5', 'A des bonnes cuisses', '3');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '6', 'Chargé de cholestérol', '3');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '7', 'Tu peux en avoir la moitié si tu veux', '2');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('3', '1', 'Un pet, la paix ou les deux ?', 'Un pet', 'La paix');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '1', 'Il faut se serrer la main avant','2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '2', 'Ca arrive souvent après une dégustation de poix chiches', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '3', 'On supporte mieux le sien que celui des autres', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '4', 'On peut regretter amèrement de l\'avoir fait', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '5', 'Ca peut soulager une nation entière', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '6', 'Gainsbourg en a fait un livre', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '6', 'Ca peut engendrer des conflits', '3');
+
+
+
 
 /*----TOPIC ISEN-----*/
 
