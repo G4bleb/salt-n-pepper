@@ -10,6 +10,7 @@ require_once 'dbconnect.php';
 // \param login the login to check
 // \return true or false
 function loginExists($db, $login){
+  $login = preg_replace("/[^a-zA-Z0-9]+/", "", $login);
   try{
     $statement = $db->prepare("SELECT id_user FROM user WHERE login=:login");
     if (!$statement->execute(array(':login'=>$login))) {
@@ -34,7 +35,8 @@ function loginExists($db, $login){
 // \param password the password to add
 // \return true or false depending on the success of the insertion
 function addUser($db, $login, $password){
-  $login = trim($login);
+  // $login = trim($login);
+  $login = preg_replace("/[^a-zA-Z0-9]+/", "", $login);
   if (!loginExists($db, $login) && !empty($login)) {
     try{
       $statement = $db->prepare("INSERT INTO user (login, password) VALUES (:login, sha2(:password, 256))");

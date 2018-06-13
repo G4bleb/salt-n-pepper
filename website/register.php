@@ -38,17 +38,6 @@
       </form>
   </div>
 
-  <!-- <form action="register.php" method="post">
-    <label for="username">Nom d'utilisateur</label>
-    <input type="text" name="username" value="" placeholder="Username"><br>
-    <label for="password">Mot de passe</label>
-    <input id="password" type="password" name="password" value="" placeholder="Password"><br>
-    <label for="confirm_password">Confirmer le mot de passe</label>
-    <input id="confirm_password" type="password" name="" value="" placeholder="Confirmer password"><br>
-    <span id='confirmed'></span><br>
-    <input class="btn btn-primary" type="submit" name="register" value="Créer un compte">
-  </form> -->
-
   <?php require_once 'php/footer.php';?>
   <script src="js/register.js"></script>
   </html>
