@@ -1,8 +1,8 @@
 <?php
 /* Connexion à la BDD */
 
-// $mysqlServerIp = "172.31.3.60";
-$mysqlServerIp = "127.0.0.1";
+$mysqlServerIp = "172.31.3.60";
+// $mysqlServerIp = "127.0.0.1"; //Debug : connexion à la bdd locale
 $mysqlServerPort = "3306";
 $mysqlDbName = "etd-cir2-prj-10";
 $mysqlDbCharset = "UTF8";

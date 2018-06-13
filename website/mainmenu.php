@@ -5,7 +5,7 @@
   <title>Salt'n'Pepper - Menu principal</title>
   <?php require_once 'php/header.php';?>
 
-  <h2><a href="mainmenu.php"><span class="badge title-badge badge-primary">Menu principal</span></a></h2>
+  <h2><a href="mainmenu.php" id="mainmenu-badge"><span class="badge title-badge badge-primary">Menu principal</span></a></h2>
   <?php
   if ($sessionValid){
     if (isset($_GET['gameId'])) {
