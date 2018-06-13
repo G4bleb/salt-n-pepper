@@ -267,12 +267,9 @@ void MainMenu::on_pushButton_look_topic_clicked()
     questionsMenu->show();
 }
 
-void MainMenu::on_tabWidget_tabBarClicked(int index)
+void MainMenu::on_pushButton_refresh_clicked()
 {
-    if(!index){
-        MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
-        this->deleteLater();
-        pageuser->show();
-    }
-
+    MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
+    this->deleteLater();
+    pageuser->show();
 }
