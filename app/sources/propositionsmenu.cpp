@@ -120,9 +120,9 @@ void PropositionsMenu::on_tableWidget_Proposition_cellClicked(int row)
 
     ui->lineEdit_proposition->setText(tableProposition[row][4]->text());
 
-    if(tableProposition[selected_row][2]->text()=='1') ui->radioButton_first->setChecked(check);
-    if(tableProposition[selected_row][2]->text()=='2') ui->radioButton_second->setChecked(check);
-    if(tableProposition[selected_row][2]->text()=='3') ui->radioButton_third->setChecked(check);
+    if(tableProposition[selected_row][2]->text()=="1") ui->radioButton_first->setChecked(check);
+    if(tableProposition[selected_row][2]->text()=="2") ui->radioButton_second->setChecked(check);
+    if(tableProposition[selected_row][2]->text()=="3") ui->radioButton_third->setChecked(check);
 }
 
 void PropositionsMenu::on_pushButton_delete_clicked()
