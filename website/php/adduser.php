@@ -35,7 +35,7 @@ function loginExists($db, $login){
 // \return true or false depending on the success of the insertion
 function addUser($db, $login, $password){
   $login = trim($login);
-  if (!loginExists($db, $login) && !empty($login)) {
+  if (!loginExists($db, $login) && !empty($login) && ctype_alnum($login)) {
     try{
       $statement = $db->prepare("INSERT INTO user (login, password) VALUES (:login, sha2(:password, 256))");
       //Password is hashed by the database
