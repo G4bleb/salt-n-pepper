@@ -73,9 +73,6 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '2', '6', 'Gainsbourg en a fait un livre', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '2', '7', 'Ca peut engendrer des conflits', '3');
 
-
-
-
 /*----TOPIC ISEN-----*/
 
 INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('4', 'ISEN');
