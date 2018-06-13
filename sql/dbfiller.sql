@@ -56,7 +56,16 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('3', 'Musique');
 
 INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('3', '1', 'Pavarotti, poulet rôti ou les deux ?', 'Pavarotti', 'Poulet rôti');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3','1','1','Ne chante pas','2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '1', 'Ne chante pas','2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '2', 'Il n\'y aucune raison de le ficeler', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '3', 'Fait ses tournées sur une broche', '2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '4', 'Il s\'exprime comme ça "ahhhhhhhhhhhh"', '1');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '5', 'A des bonnes cuisses', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '6', 'Chargé de cholestérol', '3');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '7', 'Tu peux en avoir la moitié si tu veux', '2');
+
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('3', '1', 'Pavarotti, poulet rôti ou les deux ?', 'Pavarotti', 'Poulet rôti');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '1', 'Ne chante pas','2');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '2', 'Il n\'y aucune raison de le ficeler', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '3', 'Fait ses tournées sur une broche', '2');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '4', 'Il s\'exprime comme ça "ahhhhhhhhhhhh"', '1');
@@ -69,7 +78,7 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 INSERT INTO `topic` (`id_topic`, `topic_name`) VALUES ('4', 'ISEN');
 
 INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('4', '1', 'CSI, CIR ou les deux ?', 'CSI', 'CIR');
-INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('4','1','1','A fait un bac STI2D','2');
+INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('4', '1', '1', 'A fait un bac STI2D','2');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('4', '1', '3', 'Ne sais pas coder', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('4', '1', '4', 'Paye cher l\'ISEN', '3');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('4', '1', '5', 'Paye plus cher l\'ISEN', '2');
