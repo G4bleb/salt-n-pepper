@@ -64,7 +64,7 @@ INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '6', 'Chargé de cholestérol', '3');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '1', '7', 'Tu peux en avoir la moitié si tu veux', '2');
 
-INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('3', '2', 'Pavarotti, poulet rôti ou les deux ?', 'Pavarotti', 'Poulet rôti');
+INSERT INTO `question` (`id_topic`, `num_question`, `main_question`, `answer1`, `answer2`) VALUES ('3', '2', 'Un pet, la paix ou les deux ?', 'Un pet', 'La paix');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '2', '1', 'Il faut se serrer la main avant','2');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '2', '2', 'Ca arrive souvent après une dégustation de poix chiches', '1');
 INSERT INTO `proposition` (`id_topic`, `num_question`, `num_proposition`, `main_proposition`, `answer_nb`) VALUES ('3', '2', '3', 'On supporte mieux le sien que celui des autres', '1');
