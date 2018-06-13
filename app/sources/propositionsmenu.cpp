@@ -1,4 +1,4 @@
-#include "propositionsmenu.hpp"
+#include "headers/propositionsmenu.hpp"
 #include "ui_propositionsmenu.h"
 
 PropositionsMenu::PropositionsMenu(Driver * driver_second_window,Connection * con_second_window,int id_topic,int question_selected,QWidget *parent) :

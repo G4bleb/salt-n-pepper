@@ -1,4 +1,4 @@
-#include "mainmenu.hpp"
+#include "headers/mainmenu.hpp"
 #include "ui_mainmenu.h"
 
 MainMenu::MainMenu(Driver *driver,Connection *con,QWidget *parent) :
@@ -128,7 +128,7 @@ void MainMenu::on_pushButton_set_user_clicked()
     else{
         if(high_score==false)        QMessageBox::warning(this, tr("Set User"),tr("High Score too high ! Please insert a new one."));
         if(ui->lineEdit_login->text().toStdString().size()>64)        QMessageBox::warning(this, tr("Set User"),tr("Username too long ! Please insert a new one. (MAX 64)"));
-        if((ui->lineEdit_login->text())==NULL)        QMessageBox::warning(this, tr("Set User"),tr("No Username add ! Please insert one."));     
+        if((ui->lineEdit_login->text())==NULL)        QMessageBox::warning(this, tr("Set User"),tr("No Username add ! Please insert one."));
     }
 
     MainMenu* pageuser=new MainMenu(this->driver_first_window,this->con_first_window,menuConnexion);
