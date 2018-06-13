@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../salt-n-pepper/app/resource/burger.png"));
+    this->setWindowIcon(QIcon(QCoreApplication::applicationDirPath()+"/../salt-n-pepper/app/resources/burger.png"));
 }
 
 MainWindow::~MainWindow()
