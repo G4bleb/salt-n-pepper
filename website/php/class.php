@@ -37,10 +37,10 @@ class Game{
   //------------------------------------------------------------------------------
   //--- loadQuestions ------------------------------------------------------------
   //------------------------------------------------------------------------------
-  // Member of class Game, loads the questions of the game from the database
-  // \param db the PDO database
-  // \return an associative array of the questions that belong to the game
-  // \return false if it failed
+  /// Member of class Game, loads the questions of the game from the database
+  /// \param $db the PDO database
+  /// \return an associative array of the questions that belong to the game
+  /// \return false if it failed
   public function loadQuestions($db){
     try{
       $statement = $db->prepare(
@@ -101,9 +101,9 @@ class Question{
   //------------------------------------------------------------------------------
   //--- loadPropositions ------------------------------------------------------------
   //------------------------------------------------------------------------------
-  // Member of class Question, loads the propositions of the questions from the database
-  // \param db the PDO database
-  // \return an associative array of the propositions that belong to the question, or false if the function failed
+  /// Member of class Question, loads the propositions of the questions from the database
+  /// \param $db the PDO database
+  /// \return an associative array of the propositions that belong to the question, or false if the function failed
   public function loadPropositions($db){
     try{
       $statement = $db->prepare(

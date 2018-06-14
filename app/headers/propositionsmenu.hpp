@@ -31,11 +31,11 @@ public:
          *
          *  Constructeur de la classe PropositionsMenu
          *
-         *  \param driver_second_window:pointeur sur le driver de la bdd
-         *  \param con_second_window:connexion à la bdd
-         *  \param id_topic: prend l'id du theme de la question selectionnee
-         *  \param questions_selected: prend l'id de la question selectionnee
-         *  \param parent:pointeur qui pointe sur la fenetre precedente
+         *  \param driver_second_window pointeur sur le driver de la bdd
+         *  \param con_second_window connexion à la bdd
+         *  \param id_topic prend l'id du theme de la question selectionnee
+         *  \param questions_selected prend l'id de la question selectionnee
+         *  \param parent pointeur qui pointe sur la fenetre precedente
          */
 
     explicit PropositionsMenu(Driver* driver_second_window,Connection* con_second_window,int id_topic,int question_selected,QWidget *parent = 0);
@@ -56,8 +56,8 @@ private slots:
        *  Methode qui permet de prendre les coordonnées
        *  d'une case du tableau des propositions
        *
-       *  \param row: la ligne de la case
-       *  \param column: la colonne de la case
+       *  \param row la ligne de la case
+       *  \param column la colonne de la case
        */
 
     void on_tableWidget_Proposition_cellClicked(int row);

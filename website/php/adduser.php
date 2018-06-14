@@ -5,10 +5,10 @@ require_once 'dbconnect.php';
 //------------------------------------------------------------------------------
 //--- loginExists --------------------------------------------------------------
 //------------------------------------------------------------------------------
-// Checks if the login given in parameter already exists (so there is no duplicate user)
-// \param db the PDO database
-// \param login the login to check
-// \return true or false
+/// Checks if the login given in parameter already exists (so there is no duplicate user)
+/// \param $db the PDO database
+/// \param $login the login to check
+/// \return true or false
 function loginExists($db, $login){
   try{
     $statement = $db->prepare("SELECT id_user FROM user WHERE login=:login");
@@ -28,11 +28,11 @@ function loginExists($db, $login){
 //------------------------------------------------------------------------------
 //--- addUser ------------------------------------------------------------------
 //------------------------------------------------------------------------------
-// Adds the given user to the database
-// \param db the PDO database
-// \param login the login to add
-// \param password the password to add
-// \return true or false depending on the success of the insertion
+/// Adds the given user to the database
+/// \param $db the PDO database
+/// \param $login the login to add
+/// \param $password the password to add
+/// \return true or false depending on the success of the insertion
 function addUser($db, $login, $password){
   $login = trim($login);//We remove spaces that could have been mistakenly entered
   if (!loginExists($db, $login) && !empty($login) && preg_match('/^[0-9A-Za-zÀ-ÖØ-öø-ÿ-]+$/', $login)) {

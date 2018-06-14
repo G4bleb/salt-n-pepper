@@ -8,10 +8,9 @@
   <h2><span class="badge badge-primary">Inscription</span></h2>
   <?php require_once 'php/sessionmanager.php'; require_once 'php/adduser.php';
   if ($sessionValid) header("Refresh:0; url=index.php");
-  if (isset($_POST['register'])) {
-    if (addUser($dbCnx, $_POST['username'], $_POST['password'])) {
-      error_log("addedUser : ".$_POST['username'].", ".$_POST['password']);
-      if (startSession($dbCnx, checkLogin($dbCnx, $_POST['username'], $_POST['password']))) {
+  if (isset($_POST['register'])) {//If the user just submitted the registration form
+    if (addUser($dbCnx, $_POST['username'], $_POST['password'])) {//Try to add him, and, if it succeded
+      if (startSession($dbCnx, checkLogin($dbCnx, $_POST['username'], $_POST['password']))) {//Start his session
         header("Refresh:0; url=index.php");
       }
     }else {

@@ -14,7 +14,6 @@
     if (!startSession($dbCnx, checkLogin($dbCnx, $_POST['username'], $_POST['password']))){
       echo '<div class="alert alert-danger">Erreur de connexion : vérifiez vos identifiants</div>';
     }else{
-      // error_log("SESSION STARTED");
       header("Refresh:0; url=index.php");
     }
   }
@@ -23,9 +22,9 @@
     header("Refresh:0; url=login.php");
   }
   ?>
-  <?php if (checkSession($dbCnx)): ?>
+  <?php if (checkSession($dbCnx)){?>
     <?php header("Refresh:0; url=index.php"); ?>
-  <?php else: ?>
+  <?php }else{ ?>
     <div class="row h-75 justify-content-center align-items-center">
       <form action="login.php" method="post">
         <div class="form-group">
@@ -39,6 +38,6 @@
         <input class="btn btn-primary" type="submit" value="Connexion" name="connect">
       </form>
     </div>
-  <?php endif; ?>
+  <?php } ?>
   <?php require_once "php/footer.php";?>
   </html>

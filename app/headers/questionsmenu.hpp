@@ -30,10 +30,10 @@ public:
          *
          *  Constructeur de la classe QuestionsMenu
          *
-         *  \param driver_forst_window:pointeur sur le driver de la bdd
-         *  \param con_first_window:connexion à la bdd
-         *  \param selected_id_topic: prend l'id du theme de la question selectionnee
-         *  \param parent:pointeur qui pointe sur la fenetre precedente
+         *  \param driver_forst_window pointeur sur le driver de la bdd
+         *  \param con_first_window connexion à la bdd
+         *  \param selected_id_topic prend l'id du theme de la question selectionnee
+         *  \param parent pointeur qui pointe sur la fenetre precedente
          */
     explicit QuestionsMenu(Driver * driver_first_window,Connection * con_first_window,int selected_id_topic,QWidget *parent = 0);
 

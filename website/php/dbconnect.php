@@ -1,14 +1,20 @@
 <?php
-/* Connexion à la BDD */
 
-// $mysqlServerIp = "172.31.3.60";
-$mysqlServerIp = "127.0.0.1";
+///Database constants.
+define('DB_USER', 'etd-cir2-prj-10');
+define('DB_PASSWORD', 'ewWK3oYg');
+define('DB_NAME', 'etd-cir2-prj-10');
+define('DB_SERVER', '127.0.0.1');
+
+/* Connect to the db */
+
+$mysqlServerIp = DB_SERVER;
 $mysqlServerPort = "3306";
-$mysqlDbName = "etd-cir2-prj-10";
+$mysqlDbName = DB_NAME;
 $mysqlDbCharset = "UTF8";
 $mysqlDsn = "mysql:host=".$mysqlServerIp.";port=".$mysqlServerPort.";dbname=".$mysqlDbName.";charset=".$mysqlDbCharset.";";
-$myUserDb = 'etd-cir2-prj-10';
-$myPwdDb = 'ewWK3oYg';
+$myUserDb = DB_USER;
+$myPwdDb = DB_PASSWORD;
 $dbCnx = new PDO($mysqlDsn, $myUserDb, $myPwdDb);
 
 if (!$dbCnx){

@@ -5,9 +5,9 @@ require_once 'dbconnect.php';
 //------------------------------------------------------------------------------
 //--- echoLeaderboard ----------------------------------------------------------
 //------------------------------------------------------------------------------
-// Loads and displays the leaderboard table
-// \param db the PDO database
-// \echo the leaderboard
+/// Loads and displays the leaderboard table
+/// \param $db the PDO database
+/// \return echoes the leaderboard
 function echoLeaderboard($db){
   try{
     $statement = $db->query('SELECT * FROM user ORDER BY best_score DESC');

@@ -4,7 +4,7 @@ $(document).ready(function() {
   if (gameId != null) {
     prepareToPlay(gameId);
   }else{
-    $( "#generate-game" ).click(function() { //"Génerer une partie" has been clicked
+    $("#generate-game").click(function() { //"Génerer une partie" has been clicked
     var animDuration = 500;
     var rightDivWidth = $('#list-games-div').css("width");
     //The button fades away

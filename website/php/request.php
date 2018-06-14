@@ -1,5 +1,5 @@
 <?php
-//request.php : file used for ajax requests
+///request.php : file used for ajax requests
 require_once 'class.php';
 require_once 'dbconnect.php';
 require_once 'sessionmanager.php';
@@ -8,20 +8,24 @@ header('Content-Type: text/plain; charset=utf-8');
 header('Cache-control: no-store, no-cache, must-revalidate');
 header('Pragma: no-cache');
 
-// Check the request
+/// Check the request
 $requestType = $_SERVER['REQUEST_METHOD'];
 
-if (isset($_SERVER['PATH_INFO'])) { //If there's something to extract from the path
+
+if (isset($_SERVER['PATH_INFO'])) {// If there's something to extract from the path
   $request = substr($_SERVER['PATH_INFO'], 1);
 }else{
   $request = '';
 }
 
+/// Cut the url into an array using the '/' as separators
 $request = explode('/', $request);
-$requestRessource = array_shift($request);
-$data = $requestType.':'.$requestRessource;
+/// The first value is the request resource
+$requestResource = array_shift($request);
+/// Default value of $data
+$data = $requestType.':'.$requestResource;
 
-// Load the id(s) sent with the request.
+/// Load the id(s) sent with the request.
 $id = array_shift($request);
 if ($id == '')
 $id = NULL;
@@ -30,11 +34,11 @@ $secondId = array_shift($request);
 if ($secondId == '')
 $secondId = NULL;
 
-if ($requestRessource === 'gameList') {
+if ($requestResource === 'gameList') {
   //----------------------------------------------------------------------------
   //--- request gamelist -------------------------------------------------------
   //----------------------------------------------------------------------------
-  // Sends an associative array of all games
+  /// Sends an associative array of all games
   try{
     $statement = $dbCnx->query('SELECT * FROM game');
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -43,12 +47,12 @@ if ($requestRessource === 'gameList') {
     error_log('Request error: '.$exception->getMessage());
     return false;
   }
-}elseif ($requestRessource === 'loadGame') {
+}elseif ($requestResource === 'loadGame') {
   //----------------------------------------------------------------------------
   //--- request loadGame -------------------------------------------------------
   //----------------------------------------------------------------------------
-  // Sends an associative array of all the questions and the themes of a game
-  // \param id the id of the game (-1 means that a new generated game is requested)
+  /// Sends an associative array of all the questions and the themes of a game
+  /// \param $id the id of the game (-1 means that a new generated game is requested)
   if ($id == -1) {
     $id = generateNewGame($dbCnx);
   }
@@ -71,36 +75,36 @@ if ($requestRessource === 'gameList') {
       error_log('Request error: '.$exception->getMessage());
       return false;
     }
-  }elseif ($requestRessource === 'loadQuestions' && isset($id)) {
+  }elseif ($requestResource === 'loadQuestions' && isset($id)) {
     //--------------------------------------------------------------------------
     //--- request loadQuestions ------------------------------------------------
     //--------------------------------------------------------------------------
-    // Sends an associative array of all the questions of a game
-    // \param id the id of the game (-1 means that a new generated game is requested)
+    /// Sends an associative array of all the questions of a game
+    /// \param $id the id of the game (-1 means that a new generated game is requested)
     $currentGame = new Game;
     $currentGame->setId($id);
     $data = $currentGame->loadQuestions($dbCnx);
 
-  }elseif ($requestRessource === 'loadPropositions' && isset($id) && isset($secondId)) {
+  }elseif ($requestResource === 'loadPropositions' && isset($id) && isset($secondId)) {
     //--------------------------------------------------------------------------
     //--- request loadPropositions ---------------------------------------------
     //--------------------------------------------------------------------------
-    // Sends an associative array of all the propositions of a game
-    // \param id the id_topic of the question
-    // \param id the num_question of the questions
+    /// Sends an associative array of all the propositions of a game
+    /// \param $id the id_topic of the question
+    /// \param $id the num_question of the questions
     $currentQuestion = new Question;
     $currentQuestion->setId_topic($id);
     $currentQuestion->setNum_question($secondId);
     $data = $currentQuestion->loadPropositions($dbCnx);
 
-  }elseif ($requestRessource === 'addScore' && isset($id) && isset($_POST['score']) && isset($_SESSION['token'])){
+  }elseif ($requestResource === 'addScore' && isset($id) && isset($_POST['score']) && isset($_SESSION['token'])){
     //--------------------------------------------------------------------------
     //--- request addScore -----------------------------------------------------
     //--------------------------------------------------------------------------
-    // Adds the score just done by a user to a game, only if it is the new high score. If the score is added, sends 'true'. Else, sends false.
-    // \param id the id of the game
-    // \param $_POST['score'] the score just done
-    // \param $_SESSION['token'] the user's token (to identify him)
+    /// Adds the score just done by a user to a game, only if it is the new high score. If the score is added, sends 'true'. Else, sends false.
+    /// \param $id the id of the game
+    /// \param $_POST['score'] the score just done
+    /// \param $_SESSION['token'] the user's token (to identify him)
     try {
       $statement = $dbCnx->prepare('SELECT id_user, best_score FROM user WHERE token=:token');
       $statement->execute(array(':token'=>$_SESSION['token']));
@@ -119,5 +123,5 @@ if ($requestRessource === 'gameList') {
   // Send data to the client
   header('HTTP/1.1 200 OK');
   echo json_encode($data);
-  exit;
+  exit();
   ?>

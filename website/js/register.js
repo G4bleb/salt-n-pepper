@@ -1,4 +1,4 @@
-
+//Code to prevent the user from submitting the form with incorrect passwords
 $('#password, #confirm_password').on('keyup', function () {
   if ($('#password').val() == $('#confirm_password').val()) {
     $('#confirmed').html('Mots de passe valides').css('color', 'green');
