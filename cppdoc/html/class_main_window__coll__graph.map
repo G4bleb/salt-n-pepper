@@ -1,2 +1,13 @@
 <map id="MainWindow" name="MainWindow">
+<area shape="rect" id="node3" href="$class_main_menu.html" title="classe representant le menu principal " alt="" coords="168,349,251,376"/>
+<area shape="rect" id="node7" href="$class_questions_menu.html" title="classe representant les propositions des questions " alt="" coords="115,260,229,287"/>
+<area shape="rect" id="node8" href="$class_propositions_menu.html" title="classe representant les propositions des questions " alt="" coords="109,171,235,197"/>
+<area shape="rect" id="node5" href="$class_ui_1_1_main_menu.html" title="Ui::MainMenu" alt="" coords="253,260,355,287"/>
+<area shape="rect" id="node6" href="$class_ui___main_menu.html" title="Ui_MainMenu" alt="" coords="418,171,521,197"/>
+<area shape="rect" id="node9" href="$class_ui_1_1_propositions_menu.html" title="Ui::PropositionsMenu" alt="" coords="99,81,245,108"/>
+<area shape="rect" id="node10" href="$class_ui___propositions_menu.html" title="Ui_PropositionsMenu" alt="" coords="99,5,245,32"/>
+<area shape="rect" id="node11" href="$class_ui_1_1_questions_menu.html" title="Ui::QuestionsMenu" alt="" coords="259,171,394,197"/>
+<area shape="rect" id="node12" href="$class_ui___questions_menu.html" title="Ui_QuestionsMenu" alt="" coords="269,81,403,108"/>
+<area shape="rect" id="node13" href="$class_ui_1_1_main_window.html" title="Ui::MainWindow" alt="" coords="345,349,463,376"/>
+<area shape="rect" id="node14" href="$class_ui___main_window.html" title="Ui_MainWindow" alt="" coords="380,260,497,287"/>
 </map>
