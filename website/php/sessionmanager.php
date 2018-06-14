@@ -1,13 +1,20 @@
 <?php
+/**
+* @file sessionmanager.php
+* @brief Defines session-managing functions
+* @author Gabriel Lebis
+* @date 2018-06-15
+*/
+
 require_once 'dbconnect.php';
 session_start();
 
-//------------------------------------------------------------------------------
-//--- checkSession -------------------------------------------------------------
-//------------------------------------------------------------------------------
-/// Checks $if the user's session is valid
-/// \param $db the PDO database
-/// \return true or false, whether the session is valid
+/**
+* Checks if the user's session is valid
+*
+* @param PDO $db the PDO database
+* @return bool true or false, whether the session is valid
+*/
 function checkSession($db){
   error_log("Checking session");
   if (!isset($_SESSION['token'])) return false;
@@ -21,13 +28,13 @@ function checkSession($db){
   return true;
 }
 
-//------------------------------------------------------------------------------
-//--- startSession -------------------------------------------------------------
-//------------------------------------------------------------------------------
-/// Setups a user's session
-/// \param $db the PDO database
-/// \param $userId the user's id
-/// \return true if the function succeeded, false if it failed
+/**
+* Setups a user's session
+*
+* @param PDO $db the PDO database
+* @param int $userId the user's id
+* @return bool true if the function succeeded, false if it failed
+*/
 function startSession($db, $userId){
   if ($userId) {
     $_SESSION['token']=base64_encode(openssl_random_pseudo_bytes(12));
@@ -40,22 +47,23 @@ function startSession($db, $userId){
   }
 }
 
-//------------------------------------------------------------------------------
-//--- closeSession -------------------------------------------------------------
-//------------------------------------------------------------------------------
-/// Closes a user's session (empties it)
+/**
+* Closes a user's session (empties it)
+*/
 function closeSession(){
   error_log("closeSession");
   $_SESSION = array();
 }
-//------------------------------------------------------------------------------
-//--- checkLogin ---------------------------------------------------------------
-//------------------------------------------------------------------------------
-/// Checks a user's credentials to connect
-/// \param $db the PDO database
-/// \param $login the form-sent login
-/// \param $password the form-sent password
-/// \return the user's id, or false is the function failed
+
+/**
+* Checks a user's credentials to connect
+*
+* @param PDO $db the PDO database
+* @param string $login the form-sent login
+* @param string $password the form-sent password
+* @return int the user's id
+* @return bool false if the function failed
+*/
 function checkLogin($db, $login, $password){
   try{
     error_log("checkingLogin : ".$login.", ".$password);

@@ -1,4 +1,11 @@
 <?php
+/**
+* @file class.php
+* @brief Defines the classes corresponding to the database tables
+* @author Gabriel Lebis
+* @date 2018-06-15
+*/
+
 /* CLASS User */
 
 class User{
@@ -28,19 +35,25 @@ class User{
 class Game{
   private $id_game;
 
+  /**
+  * id_game getter
+  */
   public function getId(){
     return $this->id_game;
   }
+
+  /**
+  * id_game setter
+  */
   public function setId($newId){
     $this->id_game = $newId;
   }
-  //------------------------------------------------------------------------------
-  //--- loadQuestions ------------------------------------------------------------
-  //------------------------------------------------------------------------------
-  /// Member of class Game, loads the questions of the game from the database
-  /// \param $db the PDO database
-  /// \return an associative array of the questions that belong to the game
-  /// \return false if it failed
+  /**
+  * Member of class Game, loads the questions of the game from the database
+  * @param PDO $db the PDO database
+  * @return array an associative array of the questions that belong to the game
+  * @return bool false if it failed
+  */
   public function loadQuestions($db){
     try{
       $statement = $db->prepare(
@@ -68,14 +81,17 @@ class Game{
 class Topic{
   private $id_topic;
   private $topic_name;
-
+  /**
+  * topic_name getter
+  */
   public function getTopic_name(){
     return $this->topic_name;
   }
 }
 
-/* CLASS Question */
-
+/**
+* main_question getter
+*/
 class Question{
   private $id_topic;
   private $num_question;
@@ -83,27 +99,45 @@ class Question{
   private $answer1;
   private $answer2;
 
+  /**
+  * main_question getter
+  */
   public function getMain_question(){
     return $this->main_question;
   }
+
+  /**
+  * answer1 getter
+  */
   public function getAnswer1(){
     return $this->answer1;
   }
+
+  /**
+  * answer2 getter
+  */
   public function getAnswer2(){
     return $this->answer2;
   }
+
+  /**
+  * id_topic setter
+  */
   public function setId_topic($newId_topic){
     $this->id_topic = $newId_topic;
   }
+
+  /**
+  * num_question setter
+  */
   public function setNum_question($newNum_question){
     $this->num_question = $newNum_question;
   }
-  //------------------------------------------------------------------------------
-  //--- loadPropositions ------------------------------------------------------------
-  //------------------------------------------------------------------------------
-  /// Member of class Question, loads the propositions of the questions from the database
-  /// \param $db the PDO database
-  /// \return an associative array of the propositions that belong to the question, or false if the function failed
+  /**
+  * Member of class Question, loads the propositions of the questions from the database
+  * @param PDO $db the PDO database
+  * @return array an associative array of the propositions that belong to the question, or false if the function failed
+  */
   public function loadPropositions($db){
     try{
       $statement = $db->prepare(
@@ -136,6 +170,9 @@ class Proposition{
   private $main_proposition;
   private $answer_nb;
 
+  /**
+  * main_proposition getter
+  */
   public function getMain_proposition(){
     return $this->main_proposition;
   }
