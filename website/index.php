@@ -5,9 +5,9 @@
     <title>Salt'n'Pepper - Palmarès</title>
 
     <?php require_once 'php/header.php';?>
-    <?php if ($sessionValid): ?>
+    <?php if ($sessionValid){ ?>
       <h1><a href="mainmenu.php"><button class="bigbutton btn btn-primary" >Jouer</button></a></h1>
-    <?php endif; ?>
+    <?php } ?>
     <table>
       <tr>
         <th>Rang</th>

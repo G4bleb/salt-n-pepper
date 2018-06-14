@@ -32,9 +32,9 @@ public:
          *
          *  Constructeur de la classe MainMenu
          *
-         *  \param driver:pointeur sur le driver de la bdd
-         *  \param con:connexion à la bdd
-         *  \param parent:pointeur qui pointe sur la fenetre precedente
+         *  \param driver pointeur sur le driver de la bdd
+         *  \param con connexion à la bdd
+         *  \param parent pointeur qui pointe sur la fenetre precedente
          */
 
     explicit MainMenu(Driver * driver,Connection * con, QWidget *parent = 0);
@@ -55,7 +55,7 @@ private slots:
        *  Methode qui permet de prendre les coordonnees
        *  d'une case du tableau des utilisateurs
        *
-       *  \param row: la ligne de la case
+       *  \param row la ligne de la case
        */
 
     void on_tableWidget_User_cellClicked(int row);
@@ -85,7 +85,7 @@ private slots:
        *  Methode qui permet de prendre les coordonnées
        *  d'une case du tableau des thèmes
        *
-       *  \param row: la ligne de la case
+       *  \param row la ligne de la case
        */
 
     void on_tableWidget_Topic_cellClicked(int row);

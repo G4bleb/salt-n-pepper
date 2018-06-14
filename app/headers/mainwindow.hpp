@@ -32,7 +32,7 @@ public:
          *
          *  Constructeur de la classe MainWindow
          *
-         *  \param parent:pointeur qui pointe sur la fenetre precedente
+         *  \param parent pointeur qui pointe sur la fenetre precedente
          */
 
     explicit MainWindow(QWidget *parent = 0);

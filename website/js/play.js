@@ -11,7 +11,7 @@ class Game{
   }
   calculateScore(){
     return this.correctAnswers/(this.totalAnswers*Math.sqrt(($.now()-this.startTime)/1000))*100000;
-    //Score equation is written in a readable format at img/scoreEq.png (playTime is in ms)
+    //Score equation is written in a readable format in scoreEq.png (playTime is in ms)
   }
 }
 

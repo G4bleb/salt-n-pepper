@@ -33,10 +33,8 @@
       <?php
     }
   }else {
-    // error_log("NoCheckSession");
     header("Refresh:0; url=login.php");
   }
-
   ?>
 
   <?php require_once 'php/footer.php';?>
