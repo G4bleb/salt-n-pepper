@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['questionsmenu',['QuestionsMenu',['../class_questions_menu.html#a5d2313174836b37444cc069ac8186fdd',1,'QuestionsMenu']]]
+  ['propositionsmenu',['PropositionsMenu',['../class_propositions_menu.html#a97a90e82c9f793dbb6007ec514fa9ba7',1,'PropositionsMenu']]]
 ];
