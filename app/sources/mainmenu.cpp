@@ -103,8 +103,12 @@ void MainMenu::on_pushButton_set_user_clicked()
 {
     bool high_score;
     ui->lineEdit_high_score->text().toInt(&high_score);
-    if(high_score && (ui->lineEdit_login->text())!=NULL && ui->lineEdit_login->text().toStdString().size()<=64 ){
-        if((ui->lineEdit_pwd->text())!=NULL){
+
+    if(ui->lineEdit_high_score->text()=="") high_score=false;
+    if(ui->lineEdit_high_score->text()!="") high_score=true;
+
+    if(high_score && (ui->lineEdit_login->text())!="" && ui->lineEdit_login->text().toStdString().size()<=64 ){
+        if(ui->lineEdit_pwd->text()!=""){
             prepared_stmt_set_user=con_first_window->prepareStatement("UPDATE user set login=?, best_score=?, password=sha2(?,256) where id_user=?;");
             prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
             prepared_stmt_set_user->setString(2,ui->lineEdit_high_score->text().toStdString());
@@ -117,6 +121,26 @@ void MainMenu::on_pushButton_set_user_clicked()
             prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
             prepared_stmt_set_user->setString(2,ui->lineEdit_high_score->text().toStdString());
             prepared_stmt_set_user->setString(3,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
+        }
+
+        prepared_stmt_set_user->executeUpdate();
+        delete prepared_stmt_set_user;
+
+        QMessageBox::information(this, tr("Set User"),tr("User modified."));
+    }
+
+    if(high_score==false && (ui->lineEdit_login->text())!="" && ui->lineEdit_login->text().toStdString().size()<=64 ){
+        if(ui->lineEdit_pwd->text()!=""){
+            prepared_stmt_set_user=con_first_window->prepareStatement("UPDATE user set login=?, best_score=NULL, password=sha2(?,256) where id_user=?;");
+            prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
+            prepared_stmt_set_user->setString(2,ui->lineEdit_pwd->text().toStdString());
+            prepared_stmt_set_user->setString(3,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
+        }
+
+        else{
+            prepared_stmt_set_user=con_first_window->prepareStatement("UPDATE user set login=?, best_score=NULL where id_user=?;");
+            prepared_stmt_set_user->setString(1,ui->lineEdit_login->text().toStdString());
+            prepared_stmt_set_user->setString(2,TableFirstThumbnail[selected_row_user][0]->text().toStdString());
         }
 
         prepared_stmt_set_user->executeUpdate();
