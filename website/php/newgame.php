@@ -1,12 +1,22 @@
 <?php
+/**
+* @file newgame.php
+* @brief Defines the game-addition function
+* @author Gabriel Lebis
+* @date 2018-06-15
+*/
 require_once 'dbconnect.php';
 
-//------------------------------------------------------------------------------
-//--- generateNewGame ----------------------------------------------------------
-//------------------------------------------------------------------------------
-/// Generates a new game from the database with 3 random questions
-/// \param $db the PDO database
-/// \return the id of the game just generated, or false if the function failed
+/**
+* Generates a new game from the database with 3 random questions
+*
+* First creates a random game, then picks 3 questions using ORDER BY RAND for randomness.
+* Then links the game and the questions.
+*
+* @param PDO $db the PDO database
+* @return int the id of the game just generated
+* @return bool false if the function failed
+*/
 function generateNewGame($db){
   $gameId = false;
   try{

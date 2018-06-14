@@ -1,13 +1,22 @@
 <?php
+/**
+* @file leaderboard.php
+* @brief Defines the leaderboard function
+* @author Gabriel Lebis
+* @date 2018-06-15
+*/
+
 require_once 'class.php';
 require_once 'dbconnect.php';
 
-//------------------------------------------------------------------------------
-//--- echoLeaderboard ----------------------------------------------------------
-//------------------------------------------------------------------------------
-/// Loads and displays the leaderboard table
-/// \param $db the PDO database
-/// \return echoes the leaderboard
+/**
+* Loads and displays the leaderboard table
+*
+* Purposefully displays blank cells for users that have no highscore
+*
+* @param PDO $db the PDO database
+* @return HTML echo of the leaderboard
+*/
 function echoLeaderboard($db){
   try{
     $statement = $db->query('SELECT * FROM user ORDER BY best_score DESC');
