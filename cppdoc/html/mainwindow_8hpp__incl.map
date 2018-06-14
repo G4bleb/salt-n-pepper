@@ -1,6 +1,6 @@
 <map id="app/headers/mainwindow.hpp" name="app/headers/mainwindow.hpp">
-<area shape="rect" id="node2" href="$include_8hpp.html" title="Contient toutes les bibliotheques et namespace. " alt="" coords="823,304,911,331"/>
-<area shape="rect" id="node14" href="$mainmenu_8hpp.html" title="Header du menu principal. " alt="" coords="829,80,935,107"/>
-<area shape="rect" id="node15" href="$questionsmenu_8hpp_source.html" title="questionsmenu.hpp" alt="" coords="880,155,1015,181"/>
-<area shape="rect" id="node16" href="$propositionsmenu_8hpp.html" title="Affichage des propositions des questions. " alt="" coords="930,229,1079,256"/>
+<area shape="rect" id="node2" href="$mainmenu_8hpp.html" title="Header du menu principal. " alt="" coords="814,80,921,107"/>
+<area shape="rect" id="node3" href="$questionsmenu_8hpp_source.html" title="questionsmenu.hpp" alt="" coords="800,155,935,181"/>
+<area shape="rect" id="node4" href="$propositionsmenu_8hpp.html" title="Affichage des propositions des questions. " alt="" coords="793,229,942,256"/>
+<area shape="rect" id="node5" href="$include_8hpp.html" title="Contient toutes les bibliotheques et namespace. " alt="" coords="823,304,911,331"/>
 </map>
