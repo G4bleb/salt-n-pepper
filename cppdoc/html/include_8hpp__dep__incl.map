@@ -1,0 +1,6 @@
+<map id="app/headers/include.hpp" name="app/headers/include.hpp">
+<area shape="rect" id="node2" href="$mainmenu_8hpp.html" title="Header du menu principal. " alt="" coords="74,229,257,256"/>
+<area shape="rect" id="node3" href="$mainwindow_8hpp.html" title="Header de la page de connexion. " alt="" coords="154,304,348,331"/>
+<area shape="rect" id="node4" href="$questionsmenu_8hpp_source.html" title="app/headers/questionsmenu.hpp" alt="" coords="60,155,271,181"/>
+<area shape="rect" id="node5" href="$propositionsmenu_8hpp.html" title="Affichage des propositions des questions. " alt="" coords="24,80,248,107"/>
+</map>

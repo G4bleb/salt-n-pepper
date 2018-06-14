@@ -8,7 +8,6 @@
  * \date 15 juin 2018
  */
 
-#include "include.hpp"
 #include "questionsmenu.hpp"
 
 namespace Ui {
