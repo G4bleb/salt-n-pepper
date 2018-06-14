@@ -1,3 +1,9 @@
+/**
+* @file mainmenu.js
+* @brief The main menu script (animates the menu divs, and requests game listing and creatoion)
+* @author Gabriel Lebis
+* @date 2018-06-15
+*/
 $(document).ready(function() {
   var urlParams = new URLSearchParams(window.location.search);
   var gameId = urlParams.get('gameId');
@@ -50,11 +56,10 @@ $(document).ready(function() {
 }
 });
 
-//------------------------------------------------------------------------------
-//--- loadGames -------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Load the games list.
-// \param ajaxResponse The data received via the Ajax request.
+/**
+* Load the games list.
+* @param ajaxResponse The data received via the Ajax request.
+*/
 function loadGames(ajaxResponse){
   // Parse JSON response.
   var data = JSON.parse(ajaxResponse);
@@ -70,11 +75,10 @@ function loadGames(ajaxResponse){
 
 }
 
-//------------------------------------------------------------------------------
-//--- prepareToPlay -------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Sets up a game summary in the main div
-// \param id_game the id of the game being set up (if we're going to generate one, id_game = -1)
+/**
+* Sets up a game summary in the main div
+* @param id_game the id of the game being set up (if we're going to generate one, id_game = -1)
+*/
 function prepareToPlay(id_game = -1){
   var delay = emptyMainDiv(150);
   console.log("Preparing to play game number "+id_game);

@@ -1,4 +1,9 @@
-//Code to prevent the user from submitting the form with incorrect passwords
+/**
+* @file register.js
+* @brief Code to prevent the user from submitting the form with incorrect passwords
+* @author Gabriel Lebis
+* @date 2018-06-15
+*/
 $('#password, #confirm_password').on('keyup', function () {
   if ($('#password').val() == $('#confirm_password').val()) {
     $('#confirmed').html('Mots de passe valides').css('color', 'green');

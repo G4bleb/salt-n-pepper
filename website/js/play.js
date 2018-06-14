@@ -1,3 +1,9 @@
+/**
+* @file play.js
+* @brief The main game script (Switches and sends ajax requests for the game contents)
+* @author Gabriel Lebis
+* @date 2018-06-15
+*/
 class Game{
   constructor(id) {
     this.id = id;//Id of the game
@@ -9,6 +15,10 @@ class Game{
     this.startTime = $.now();//Starting time of the game
     this.setuped = false;//Tells if the game has been through its initial setup
   }
+  /**
+  * Calculates the score made on a game
+  * @return the score (calculated from the playtime, and the ratio of correct over total answers)
+  */
   calculateScore(){
     return this.correctAnswers/(this.totalAnswers*Math.sqrt(($.now()-this.startTime)/1000))*100000;
     //Score equation is written in a readable format in scoreEq.png (playTime is in ms)
@@ -22,36 +32,33 @@ $(document).ready(function() {
   ajaxRequest('GET', '../php/request.php/loadQuestions/'+gameId, loadQuestions, currentGame);
 });
 
-//------------------------------------------------------------------------------
-//--- loadQuestions ------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Parses a game's questions requested by ajaxRequest, and setups it
-// \param ajaxResponse the data received via the Ajax request
-// \param currentGame the Game object of the game currently being played
+/**
+* Parses a game's questions requested by ajaxRequest, and setups it
+* @param ajaxResponse the data received via the Ajax request
+* @param currentGame the Game object of the game currently being played
+*/
 function loadQuestions(ajaxResponse, currentGame){
   // Parse JSON response.
   currentGame.questions = JSON.parse(ajaxResponse);
   setupQuestion(currentGame, 0);
 }
 
-//------------------------------------------------------------------------------
-//--- loadPropositions ---------------------------------------------------------
-//------------------------------------------------------------------------------
-// Parses a questions's propositions requested by ajaxRequest, and setups it
-// \param ajaxResponse the data received via the Ajax request
-// \param currentGame the Game object of the game currently being played
+/**
+* Parses a questions's propositions requested by ajaxRequest, and setups it
+* @param ajaxResponse the data received via the Ajax request
+* @param currentGame the Game object of the game currently being played
+*/
 function loadPropositions(ajaxResponse, currentGame){
   // Parse JSON response.
   currentGame.propositions = JSON.parse(ajaxResponse);
   setupProposition(currentGame, 0);
 }
 
-//------------------------------------------------------------------------------
-//--- setupQuestion ------------------------------------------------------------
-//------------------------------------------------------------------------------
-//  Setups a question designated by index from the current game
-// \param currentGame the Game object of the game currently being played
-// \param index the index of the question being set up
+/**
+*  Setups a question designated by index from the current game
+* @param currentGame the Game object of the game currently being played
+* @param index the index of the question being set up
+*/
 function setupQuestion(currentGame, index){
   var delay = 100;
   if (!currentGame.setuped) {//If the game has not been setuped, which means that the divs are empty
@@ -73,12 +80,11 @@ function setupQuestion(currentGame, index){
   });
 }
 
-//------------------------------------------------------------------------------
-//--- setupProposition ---------------------------------------------------------
-//------------------------------------------------------------------------------
-//  Setups a proposition designated by index from the current question
-// \param currentGame the Game object of the game currently being played
-// \param index the index of the proposition being set up
+/**
+*  Setups a proposition designated by index from the current question
+* @param currentGame the Game object of the game currently being played
+* @param index the index of the proposition being set up
+*/
 function setupProposition(currentGame, index){
   var propositionDelay = 50;
   if (!currentGame.setuped) {//If the game has not been setuped, which means that the divs are empty
@@ -117,13 +123,12 @@ function setupProposition(currentGame, index){
   }
 }
 
-//------------------------------------------------------------------------------
-//--- checkAnswer --------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Verifies an answer given by a user
-// \param currentGame the Game object of the game currently being played
-// \param numberAnswered the number of the answer the user has just given
-// \propositionIndex the index of the proposition that has just been answered
+/**
+* Verifies an answer given by a user
+* @param currentGame the Game object of the game currently being played
+* @param numberAnswered the number of the answer the user has just given
+* @param propositionIndex the index of the proposition that has just been answered
+*/
 function checkAnswer(currentGame, numberAnswered, propositionIndex){
   console.log(currentGame.propositions[propositionIndex]['answer_nb']+" equal to "+numberAnswered);
   if (currentGame.propositions[propositionIndex]['answer_nb'] == numberAnswered) {
@@ -131,11 +136,10 @@ function checkAnswer(currentGame, numberAnswered, propositionIndex){
   }
 }
 
-//------------------------------------------------------------------------------
-//--- endGame ------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Ends the game and setups the results page
-// \param currentGame the Game object of the game currently being played
+/**
+* Ends the game and setups the results page
+* @param currentGame the Game object of the game currently being played
+*/
 function endGame(currentGame){
   var delay = emptyMainDiv(150);
   setTimeout(function(){
@@ -158,11 +162,11 @@ function endGame(currentGame){
     $('#main-div').fadeIn(delay);
   },delay);
 }
-//------------------------------------------------------------------------------
-//--- endGame ------------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Ends the game and setups the results page
-// \param currentGame the Game object of the game currently being played
+
+/**
+* Ends the game and setups the results page
+* @param currentGame the Game object of the game currently being played
+*/
 function checkHighscore(ajaxResponse){
   console.log(ajaxResponse);
   // Parse JSON response.

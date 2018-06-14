@@ -1,14 +1,18 @@
 'use strict';
-
-//------------------------------------------------------------------------------
-//--- ajaxRequest --------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Performs an Ajax request
-// \param type The type of the request (GET, DELETE, POST, PUT)
-// \param request The request with the data
-// \param callback The callback to call where the request is successful
-// \param additionnalCallbackParameter a second callback parameter (if needed)
-// \param data The data associated with the request
+/**
+* @file ajax.js
+* @brief A file for ajaxRequest functions, and error handling
+* @author Thibaut Napoléon, Gabriel Lebis
+* @date 2018-06-15
+*/
+/**
+* Performs an Ajax request
+* @param type The type of the request (GET, DELETE, POST, PUT)
+* @param request The request with the data
+* @param callback The callback to call where the request is successful
+* @param additionnalCallbackParameter a second callback parameter (if needed)
+* @param data The data associated with the request
+*/
 function ajaxRequest(type, request, callback, additionnalCallbackParameter = undefined, data = null) {
   var xhr;
 
@@ -46,11 +50,10 @@ function ajaxRequest(type, request, callback, additionnalCallbackParameter = und
   xhr.send(data);
 }
 
-//------------------------------------------------------------------------------
-//--- httpErrors ---------------------------------------------------------------
-//------------------------------------------------------------------------------
-// Displays a message corresponding to an Http error code
-// \param errorNumber the error code
+/**
+* Displays a message corresponding to an Http error code
+* @param errorNumber the error code
+*/
 function httpErrors(errorNumber) {
   var text = '<span class="glyphicon glyphicon-exclamation-sign"></span>';
   switch (errorNumber) {
