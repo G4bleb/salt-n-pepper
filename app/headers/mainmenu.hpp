@@ -137,6 +137,13 @@ private slots:
        */
     void on_pushButton_disconnect_clicked();
 
+    /*!
+       *  \brief Rafraichir
+       *
+       *  On relance la fenetre pour faire afficher les nouvelles entrees
+       *
+       */
+
     void on_pushButton_refresh_clicked();
 
 private:
@@ -163,13 +170,12 @@ private:
     PreparedStatement * prepared_stmt_set_topic;
     PreparedStatement * prepared_stmt_add_topic;
 
-    /*--------- RESULTEST ----------*/
+    /*--------- RESULTSET ----------*/
     ResultSet * res_show_user;
     ResultSet * res_show_topic;
 
     QVector <QVector <QLabel*> > TableFirstThumbnail;
     QVector <QVector <QLabel*> > TableSecondThumbnail;
-
 
     int row_table_user,column_table_user,row_table_topic,column_table_topic,selected_row_user,selected_row_topic,selected_id_topic;
 };
