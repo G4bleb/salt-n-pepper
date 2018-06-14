@@ -1,4 +1,3 @@
-
 # Salt'n'Pepper
 ## Logiciels prérequis :
 ### Partie Web
@@ -9,19 +8,14 @@
  - Qt (version supérieure ou égale à 5.7.1)
  - librairie mysqlccpconnector
 ## Instructions de mise en place web
-1. Créer dans la base de données un utilisateur nommé `etd-cir2-prj-10` dont le mot de passe est `ewWK3oYg`
-   1. Créer avec lui une base de données nommée `etd-cir2-prj-10`, sur laquelle il possède les droits
-   2. Importer `salt-n-pepper/sql/db.sql` dans MySQL
-   3. Importer `salt-n-pepper/sql/dbfiller.sql` dans MySQL
-       1. Le site se connecte par défaut à la base de donnée de l'hôte local. Si la base de donnée n'est pas sur le même serveur que le serveur web, changer dans `salt-n-pepper/website/php/dbconnect.php` la ligne 14, en remplaçant `127.0.0.1` par l'adresse IP de votre base.
-       2. Vous pouvez aussi modifier dans ce fichier de la ligne 10 à la ligne 15, les autres paramètres de connexion à la base de données
-       
- 2. Copier le répertoire `salt-n-pepper/website` dans les fichiers du serveur web : il s'y trouvera le site web (par défaut `/var/www`)
- 3. Copier `salt-n-pepper/salt-n-pepper.conf` vers `/etc/apache2/sites-available`
-    1. Activer cette configuration : `# a2ensite salt-n-pepper.conf`
-    2. Désactiver la configuration par défaut : `# a2dissite 000-default.conf`
-    3. Recharger apache2 : `# /etc/init.d/apache2 reload`
- 5. Aller sur l'adresse du serveur dans un navigateur web.
+1. Modifier dans le fichier `salt-n-pepper/website/php/dbconnect.php` les lignes 10 à 15 pour paramétrer l'accès du site à votre base de données :
+    - Nom de la base
+    - Nom de l'utilisateur
+    - Mot de passe de l'utilisateur
+    - Adresse de la base
+ 2. Importer `salt-n-pepper/sql/db.sql` dans votre base
+ 3. Importer `salt-n-pepper/sql/dbfiller.sql` dans base
+ 4. Copier le répertoire `salt-n-pepper/website` dans les fichiers du serveur web : il s'y trouvera le site web (par défaut `/var/www`)
 
 ## Instructions de compilation C++
  1. Naviguer vers `salt-n-pepper/app`

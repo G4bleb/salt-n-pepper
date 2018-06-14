@@ -1,11 +1,26 @@
 var searchData=
 [
+  ['_24answer1',['$answer1',['../class_question.html#ab1b70ddc601afc59a51c171f4cd69f7b',1,'Question']]],
+  ['_24answer2',['$answer2',['../class_question.html#a686805156f530744b03f71c3002b13ab',1,'Question']]],
+  ['_24answer_5fnb',['$answer_nb',['../class_proposition.html#ad876d5e817772de2809ba49a79a8978f',1,'Proposition']]],
+  ['_24best_5fscore',['$best_score',['../class_user.html#a652ad6a1006441c53a19975a5e4962ad',1,'User']]],
   ['_24data',['$data',['../request_8php.html#a6efc15b5a2314dd4b5aaa556a375c6d6',1,'request.php']]],
   ['_24dbcnx',['$dbCnx',['../dbconnect_8php.html#a320e6256f44f91bbc01bc0c6f01b4a84',1,'dbconnect.php']]],
   ['_24id',['$id',['../request_8php.html#ae97941710d863131c700f069b109991e',1,'request.php']]],
+  ['_24id_5fgame',['$id_game',['../class_user.html#a6c5c32102d9779b4e39b1bc9059a64e7',1,'User\$id_game()'],['../class_game.html#a6c5c32102d9779b4e39b1bc9059a64e7',1,'Game\$id_game()']]],
+  ['_24id_5ftopic',['$id_topic',['../class_topic.html#a86cc5db13213ef3491017c43de01c4b0',1,'Topic\$id_topic()'],['../class_question.html#a86cc5db13213ef3491017c43de01c4b0',1,'Question\$id_topic()'],['../class_proposition.html#a86cc5db13213ef3491017c43de01c4b0',1,'Proposition\$id_topic()']]],
+  ['_24id_5fuser',['$id_user',['../class_user.html#a076f4e9335db95bc9db9c2695d128809',1,'User']]],
+  ['_24login',['$login',['../class_user.html#afc31993e855f9631572adfedcfe6f34b',1,'User']]],
+  ['_24main_5fproposition',['$main_proposition',['../class_proposition.html#ac86b21c5602cacd3a7007e4533a57a50',1,'Proposition']]],
+  ['_24main_5fquestion',['$main_question',['../class_question.html#a0450c3d299b2a4ecda602fa54f1b57a1',1,'Question']]],
   ['_24mysqldsn',['$mysqlDsn',['../dbconnect_8php.html#ab4bf481b0d7f96387152a43cea0cb95d',1,'dbconnect.php']]],
+  ['_24num_5fproposition',['$num_proposition',['../class_proposition.html#ae6274f0d8cae9e36c3bc38017203b0d2',1,'Proposition']]],
+  ['_24num_5fquestion',['$num_question',['../class_question.html#a9f21417044f26dc9a2f51a54f8acc66a',1,'Question\$num_question()'],['../class_proposition.html#a9f21417044f26dc9a2f51a54f8acc66a',1,'Proposition\$num_question()']]],
+  ['_24password',['$password',['../class_user.html#a607686ef9f99ea7c42f4f3dd3dbb2b0d',1,'User']]],
   ['_24request',['$request',['../request_8php.html#abb35c8495a232b510389fa6d7b15d38a',1,'request.php']]],
   ['_24requestresource',['$requestResource',['../request_8php.html#a194971e03a1bf99f0b942aa754f3fc36',1,'request.php']]],
   ['_24requesttype',['$requestType',['../request_8php.html#ae747fb5c18839f9255aa7ae1112c2916',1,'request.php']]],
-  ['_24secondid',['$secondId',['../request_8php.html#a7245055d1e7e9d844bb936e03cf9c2b9',1,'request.php']]]
+  ['_24secondid',['$secondId',['../request_8php.html#a7245055d1e7e9d844bb936e03cf9c2b9',1,'request.php']]],
+  ['_24token',['$token',['../class_user.html#a00ae4fcafb1145f5e968bdf920f83e2e',1,'User']]],
+  ['_24topic_5fname',['$topic_name',['../class_topic.html#a22ecdae7433bfaedd58fe23d5b750568',1,'Topic']]]
 ];
