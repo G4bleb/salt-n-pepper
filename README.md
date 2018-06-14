@@ -8,10 +8,10 @@
  - Qt (version supérieure ou égale à 5.7.1)
  - librairie mysqlccpconnector
 ## Instructions de mise en place web
-1. Modifier dans le fichier `salt-n-pepper/website/php/dbconnect.php` les lignes 10 à 15 pour paramétrer l'accès du site à votre base de données :
+1. Modifier dans le fichier `salt-n-pepper/website/php/dbconnect.php` les lignes 10 à 13 pour paramétrer l'accès du site à votre base de données :
+    - Nom de l'utilisateur de la base
+    - Mot de passe de l'utilisateur de la base
     - Nom de la base
-    - Nom de l'utilisateur
-    - Mot de passe de l'utilisateur
     - Adresse de la base
  2. Importer `salt-n-pepper/sql/db.sql` dans votre base
  3. Importer `salt-n-pepper/sql/dbfiller.sql` dans base

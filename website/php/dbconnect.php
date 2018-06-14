@@ -10,8 +10,8 @@
 define('DB_USER', 'etd-cir2-prj-10');
 define('DB_PASSWORD', 'ewWK3oYg');
 define('DB_NAME', 'etd-cir2-prj-10');
-define('DB_CHARSET', 'UTF8');
 define('DB_SERVER', '127.0.0.1');
+define('DB_CHARSET', 'UTF8');
 define('DB_PORT', '3306');
 /* Connect to the db */
 
